@@ -1,14 +1,12 @@
-# AFOne — Clinical Atrial Fibrillation Monitor
+# AFOne
 
 ## What This Is
 
-AFOne is a native iPhone application (with watchOS companion) that transforms heart rate data and rhythm history recorded by Apple Watch into clinically actionable information for monitoring paroxysmal atrial fibrillation (PAF). It interprets Apple HealthKit data beyond what Apple's Health app offers — calculating AF burden, ventricular response stratification, circadian patterns, symptom-rhythm correlation, and generating structured physician reports.
-
-**Target users:** Patients with diagnosed paroxysmal atrial fibrillation who regularly wear an Apple Watch and need objective monitoring to share with their cardiologists.
+AFOne is an iOS application that helps patients with **paroxysmal atrial fibrillation (PAF)** understand and monitor their heart rhythm using data collected by Apple Watch and stored in Apple Health. The application transforms raw physiological measurements into **clear clinical insights** that help patients understand their condition and communicate effectively with their cardiologist. The product focuses on **interpretation and understanding**, not raw data collection. AFOne is **not a medical device** and does not diagnose or treat disease.
 
 ## Core Value
 
-Transform raw Apple Watch heart rate and rhythm data into clinical metrics that enable patients to understand their AF burden, correlate symptoms with actual cardiac rhythm, assess medication effectiveness, and provide precise quantitative data to their cardiologist — the difference between knowing AF episodes occurred and understanding the clinical significance.
+Transform Apple Watch heart rhythm data into clear, clinically meaningful insights that help PAF patients understand their condition, recognize patterns, and communicate effectively with their cardiologist.
 
 ## Requirements
 
@@ -18,57 +16,53 @@ Transform raw Apple Watch heart rate and rhythm data into clinical metrics that 
 
 ### Active
 
-- [ ] iOS 26+ / watchOS 26+ native app with SwiftUI
-- [ ] HealthKit integration (read-only) for HR, rhythm, ECG, HRV, SpO2, sleep, activity, medications
-- [ ] AF Burden calculation (24h, 7d, 30d, 90d) with clinical threshold visualization
-- [ ] Continuous rhythm map (hour-by-hour 24h reconstruction, calendar 30/90d)
-- [ ] Stratified ventricular response by context (nocturnal, light activity, exertion)
-- [ ] Quick symptom logging with timestamp and Watch trigger
-- [ ] HealthKit medication reading with user classification by function
-- [ ] Emergency PDF report (1-page, readable in 30 seconds)
-- [ ] Episode detection notifications with configurable thresholds
-- [ ] On-device AI features (episode onset detection, symptom classification, risk prediction)
-- [ ] Cardiologist consultation report (multi-page PDF with trends, correlations, narrative)
+- [ ] Dashboard with current rhythm context, recent AF activity, key summary metrics, quick actions
+- [ ] Rhythm monitoring overview showing recent AF frequency and trends
+- [ ] AF burden calculation across multiple time windows (daily, weekly, monthly)
+- [ ] Rhythm timeline visualization showing normal/AF/unknown periods
+- [ ] Episode history with timestamps, duration, heart rate behavior
+- [ ] Heart rate behavior analysis during AF episodes
+- [ ] Symptom logging with timestamp association
+- [ ] Symptom-rhythm correlation analysis
+- [ ] Medication awareness from health records
+- [ ] Lifestyle trigger tracking and pattern identification
+- [ ] Long-term trends visualization
+- [ ] Clinical reports for cardiologist sharing
+- [ ] Emergency information quick access
+- [ ] Notifications for AF episodes and significant changes
 
 ### Out of Scope
 
-- [Any form of diagnosis] — Not a certified medical device, informational only
-- [Real-time remote monitoring by third parties] — All processing local, no backend
-- [Direct emergency calling with hardcoded numbers] — Uses iOS native emergency routing only
-- [Federated learning / model improvement from user data] — Future consideration only
+- Medical diagnosis — AFOne is informational only, not a medical device
+- Treatment recommendations or medication guidance
+- Cloud infrastructure or backend services
+- Real-time cardiac monitoring or emergency detection
+- Writing data back to Apple Health (except user-entered notes)
+- Android or other non-iOS platforms
 
 ## Context
 
-**Technical Environment:**
-- iOS 26+ / watchOS 26+ native with SwiftUI
-- Apple Watch Series 4+ (ECG from S4)
-- HealthKit for all data sources (read-only except symptom records)
-- Core Data / SwiftData for local persistence
-- PDFKit for report generation
-- Core ML for on-device AI features
-- All data remains on-device — no external servers
-
-**Regulatory Context:**
-- Not a certified medical device (no CE marking, no FDA clearance)
-- Reports are physician communication tools, not clinical diagnoses
-- Required disclaimers in onboarding and all reports
+- **Platform**: iOS (modern devices), Apple Watch as primary data source
+- **Data Source**: Apple Health records containing heart rhythm data from Apple Watch
+- **Offline-first**: Core capabilities work without network connectivity
+- **Privacy-first**: All health data remains on-device under user control
 
 ## Constraints
 
-- **[Platform]**: iOS 26+, watchOS 26+, Apple Watch S4+ — Apple ecosystem only
-- **[Privacy]**: All health data local-only, no external transmission — GDPR special category data handled on-device
-- **[AI]**: All ML models on-device, Neural Engine where available, no cloud inference
-- **[Regulatory]**: Must include medical disclaimers — not a diagnostic device
+- **Platform**: iOS only — modern iOS devices with Apple Watch integration
+- **Data Dependency**: Relies on Apple Watch rhythm detection and Apple Health storage
+- **Regulatory**: Not a medical device — clear disclaimer required throughout
+- **Privacy**: Health data must remain on-device; no automatic sharing
+- **Offline**: Core features must work without network connectivity
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| iOS-only (no Android) | HealthKit is Apple ecosystem | — Pending |
-| All processing on-device | Privacy, GDPR, no backend costs | — Pending |
-| SwiftUI + Charts | Native, iOS 16+ Charts covers requirements | — Pending |
-| Phase 1 = MVP with real clinical value | PRD specifies clear MVP scope | — Pending |
-| AI features progressive/hidden on incompatible hardware | No degraded experience, only absence of extras | — Pending |
+| iOS-only | Apple Watch ecosystem integration required | — Pending |
+| Offline-first core | Reliable access to health data, privacy by design | — Pending |
+| No backend | Reduces complexity, ensures data privacy | — Pending |
+| Not a medical device | Regulatory clearance would delay launch; informational focus | — Pending |
 
 ---
-*Last updated: 2026-03-09 after initialization from PRD*
+*Last updated: 2026-03-10 after initialization*
