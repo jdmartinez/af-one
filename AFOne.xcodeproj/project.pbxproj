@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01DE3D47DBEA900284FC528A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E50BC486643ED2B0CDC04 /* DashboardView.swift */; };
+		3CB4408329091630A31B7C67 /* AFOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707F5949DEBBF56DA968E332 /* AFOneApp.swift */; };
+		4221AFC5369C49307A0D30CA /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62755871BCD58AC3A841A86 /* MoreView.swift */; };
+		5248781853ED15B7FDF70404 /* EpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF391E1534AC018CE4C92554 /* EpisodeListView.swift */; };
+		551FDF6746CB11560FFE68F9 /* HeartRateReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB54C6636737D7793F121BDE /* HeartRateReading.swift */; };
+		55930977A761A617721A059E /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */; };
+		60598A27840F66424E8B29BA /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CEBD4B555C773B19C0D4AA /* TimelineView.swift */; };
+		7E1ED1E5DE4F1A03F0AA9F91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB592BAB55C123627822B20 /* ContentView.swift */; };
+		88D1E403326887A7C24798A5 /* RhythmEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DE80436C920EEE5D60EF3E /* RhythmEpisode.swift */; };
+		A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F0EC693B8E734A6322A15 /* EmergencyView.swift */; };
+		D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */; };
+		DF3E601061D6FF8E4677CEC8 /* AFBurden.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C65B5EE473D9B5807E9950 /* AFBurden.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		225E50BC486643ED2B0CDC04 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		3BB592BAB55C123627822B20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		707F5949DEBBF56DA968E332 /* AFOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFOneApp.swift; sourceTree = "<group>"; };
+		777F0EC693B8E734A6322A15 /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
+		9BC3AA3D87EFEEEC25332D6A /* AFOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AFOne.entitlements; sourceTree = "<group>"; };
+		A4CEBD4B555C773B19C0D4AA /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		BB54C6636737D7793F121BDE /* HeartRateReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateReading.swift; sourceTree = "<group>"; };
+		CF391E1534AC018CE4C92554 /* EpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
+		D5C65B5EE473D9B5807E9950 /* AFBurden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFBurden.swift; sourceTree = "<group>"; };
+		DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
+		E0DE80436C920EEE5D60EF3E /* RhythmEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmEpisode.swift; sourceTree = "<group>"; };
+		E62755871BCD58AC3A841A86 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3229D643744975A87556E2B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				021DDDCAAA10EA285BB263CA /* AFOne.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33125DF8A0F64921C0D707C4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				990E8EE1C54BAFFF76B3EE03 /* HealthKit */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3DA29019634D5294E5DA48BB /* AFOne */ = {
+			isa = PBXGroup;
+			children = (
+				9BC3AA3D87EFEEEC25332D6A /* AFOne.entitlements */,
+				F7E7FD2E00BF3DD12D357B26 /* App */,
+				33125DF8A0F64921C0D707C4 /* Core */,
+				F1F904CEB807D729695BDCE1 /* Features */,
+				E21C3E1172F6FFE02FB961E2 /* Models */,
+				F31C890E34E7151EEA8E7955 /* Shared */,
+			);
+			path = AFOne;
+			sourceTree = "<group>";
+		};
+		4DAF4B4484CE248CEC7B5967 = {
+			isa = PBXGroup;
+			children = (
+				3DA29019634D5294E5DA48BB /* AFOne */,
+				3229D643744975A87556E2B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96A61560BB6F9D8910318B95 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				777F0EC693B8E734A6322A15 /* EmergencyView.swift */,
+				E62755871BCD58AC3A841A86 /* MoreView.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		990E8EE1C54BAFFF76B3EE03 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		9C06ADB0A994387AE7BC8C18 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				A4CEBD4B555C773B19C0D4AA /* TimelineView.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		A47579A99CFFD22E4E18F057 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				225E50BC486643ED2B0CDC04 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		E21C3E1172F6FFE02FB961E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D5C65B5EE473D9B5807E9950 /* AFBurden.swift */,
+				BB54C6636737D7793F121BDE /* HeartRateReading.swift */,
+				E0DE80436C920EEE5D60EF3E /* RhythmEpisode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EB044497103D89D739AE207A /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				CF391E1534AC018CE4C92554 /* EpisodeListView.swift */,
+			);
+			path = Episodes;
+			sourceTree = "<group>";
+		};
+		F1F904CEB807D729695BDCE1 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A47579A99CFFD22E4E18F057 /* Dashboard */,
+				EB044497103D89D739AE207A /* Episodes */,
+				96A61560BB6F9D8910318B95 /* More */,
+				9C06ADB0A994387AE7BC8C18 /* Timeline */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F31C890E34E7151EEA8E7955 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FFAA4D619D9A6055327FC90C /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F7E7FD2E00BF3DD12D357B26 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				707F5949DEBBF56DA968E332 /* AFOneApp.swift */,
+				3BB592BAB55C123627822B20 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FFAA4D619D9A6055327FC90C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94A7B6785E0B102F906E737A /* AFOne */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14FB4EDCF2D9940E0D4EE791 /* Build configuration list for PBXNativeTarget "AFOne" */;
+			buildPhases = (
+				B9C8A81FA40D142CC3F1D5F5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AFOne;
+			packageProductDependencies = (
+			);
+			productName = AFOne;
+			productReference = 021DDDCAAA10EA285BB263CA /* AFOne.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6957C1E711FDBEC59BC0F074 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					94A7B6785E0B102F906E737A = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E0FD55EF884E0F14F6368DA7 /* Build configuration list for PBXProject "AFOne" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 4DAF4B4484CE248CEC7B5967;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3229D643744975A87556E2B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94A7B6785E0B102F906E737A /* AFOne */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9C8A81FA40D142CC3F1D5F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF3E601061D6FF8E4677CEC8 /* AFBurden.swift in Sources */,
+				3CB4408329091630A31B7C67 /* AFOneApp.swift in Sources */,
+				7E1ED1E5DE4F1A03F0AA9F91 /* ContentView.swift in Sources */,
+				01DE3D47DBEA900284FC528A /* DashboardView.swift in Sources */,
+				D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */,
+				A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */,
+				5248781853ED15B7FDF70404 /* EpisodeListView.swift in Sources */,
+				55930977A761A617721A059E /* HealthKitService.swift in Sources */,
+				551FDF6746CB11560FFE68F9 /* HeartRateReading.swift in Sources */,
+				4221AFC5369C49307A0D30CA /* MoreView.swift in Sources */,
+				88D1E403326887A7C24798A5 /* RhythmEpisode.swift in Sources */,
+				60598A27840F66424E8B29BA /* TimelineView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		312BC7B9DEDB5C3F0D105760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		4A65546D4AB42E5C9AC6BE7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AFOne/AFOne.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "AFOne needs access to your health data to display heart rhythm information.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "AFOne needs access to update your health data.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afone.AFOne;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		59CE1F67F9E50A12E9536AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AFOne/AFOne.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "AFOne needs access to your health data to display heart rhythm information.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "AFOne needs access to update your health data.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afone.AFOne;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C82244BF720BFF9E89FEA741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14FB4EDCF2D9940E0D4EE791 /* Build configuration list for PBXNativeTarget "AFOne" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A65546D4AB42E5C9AC6BE7F /* Debug */,
+				59CE1F67F9E50A12E9536AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E0FD55EF884E0F14F6368DA7 /* Build configuration list for PBXProject "AFOne" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				312BC7B9DEDB5C3F0D105760 /* Debug */,
+				C82244BF720BFF9E89FEA741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6957C1E711FDBEC59BC0F074 /* Project object */;
+}
