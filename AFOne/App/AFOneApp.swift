@@ -10,5 +10,6 @@ struct AFOneApp: App {
             ContentView()
                 .environment(healthKitService)
         }
+        .modelContainer(for: [SymptomLog.self, TriggerLog.self])
     }
 }
