@@ -12,7 +12,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Foundation & Core Display** - HealthKit integration, dashboard, episode timeline, AF burden visualization
+- [x] **Phase 1: Foundation & Core Display** - HealthKit integration, dashboard, episode timeline, AF burden visualization
 - [ ] **Phase 2: User Input & Analysis** - Symptom logging, medication awareness, trigger tracking, correlation analysis, multi-window burden
 - [ ] **Phase 3: Advanced Features** - Long-term trends, clinical reports, emergency info, comprehensive notifications
 
@@ -40,7 +40,14 @@
 9. All health data remains on-device; user controls any sharing explicitly
 10. Core features work without network connectivity
 
-**Plans:** TBD
+**Plans:** 6 plans
+
+- [ ] 01-01-PLAN.md — Foundation: HealthKitService, Models, App Entry, Disclaimer
+- [ ] 01-02-PLAN.md — Authorization + Emergency View
+- [ ] 01-03-PLAN.md — Dashboard + Overview
+- [ ] 01-04-PLAN.md — Timeline + AF Burden
+- [ ] 01-05-PLAN.md — Episodes List + Detail
+- [ ] 01-06-PLAN.md — Notifications
 
 ---
 
@@ -110,7 +117,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Core Display | 0/1 | Not started | - |
+| 1. Foundation & Core Display | 6/6 | Planned | - |
 | 2. User Input & Analysis | 0/1 | Not started | - |
 | 3. Advanced Features | 0/1 | Not started | - |
 
