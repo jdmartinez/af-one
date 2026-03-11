@@ -4,19 +4,19 @@
 
 **Core Value:** Transform Apple Watch heart rhythm data into clear, clinically meaningful insights that help PAF patients understand their condition, recognize patterns, and communicate effectively with their cardiologist.
 
-**Current Focus:** Phase 1 - Foundation & Core Display
+**Current Focus:** Phase 2 - User Input & Analysis
 
 ---
 
 ## Current Position
 
-**Phase:** 1 - Foundation & Core Display
+**Phase:** 2 - User Input & Analysis
 
-**Plan:** 01-03 to 01-06 in progress
+**Plan:** 02-01 complete (SwiftData Models)
 
-**Status:** Wave 3 complete
+**Status:** 1/5 plans complete
 
-**Progress:** [======----] 100% (6/6 plans)
+**Progress:** [==--------] 20% (1/5 plans)
 
 ---
 
@@ -41,6 +41,7 @@
 | Offline-first core | Reliable access to health data, privacy by design | Pending |
 | No backend | Reduces complexity, ensures data privacy | Pending |
 | Not a medical device | Regulatory clearance would delay launch; informational focus | Pending |
+| SwiftData @Model | Apple's recommended persistence for iOS 17+ | Complete |
 
 ### Research Findings
 
@@ -49,6 +50,8 @@
 - MVVM + Clean Architecture for testability
 - Background sync unreliable - foreground refresh on launch
 - Clear disclaimers required throughout
+- 6 predefined symptom types (palpitations, anxiety, dizziness, fatigue, shortness of breath, chest discomfort)
+- 6 predefined trigger types (alcohol, caffeine, stress, poor sleep, heavy meals, intense exercise)
 
 ### Dependencies
 
@@ -68,8 +71,9 @@ None identified yet.
 
 - **Started:** 2026-03-10
 - **Roadmap:** Created with 3 phases
-- **Phase 1:** Planned (6 plans created)
-- **Next Action:** Execute Phase 1 (`/gsd-execute-phase 1`)
+- **Phase 1:** Complete (6/6 plans)
+- **Phase 2:** In progress (1/5 plans complete)
+- **Next Action:** Execute Plan 02-02 (`/gsd-execute-phase 2`)
 
 ### History
 
@@ -78,6 +82,7 @@ None identified yet.
 - 2026-03-11: Plan 01-01 complete (foundation, HealthKitService, TabView, disclaimer)
 - 2026-03-11: Plan 01-02 complete (authorization flow, emergency view)
 - 2026-03-11: Plans 01-03 to 01-06 complete (Dashboard, Timeline, Episodes, Notifications)
+- 2026-03-11: Plan 02-01 complete (SwiftData models for symptom/trigger logging)
 
 ---
 

@@ -32,9 +32,9 @@
 
 ### Symptom Tracking
 
-- [ ] **SYM-01**: User can quickly log symptoms when feeling unusual (palpitations, anxiety, dizziness, fatigue, shortness of breath, chest discomfort)
-- [ ] **SYM-02**: Each symptom record is associated with timestamp
-- [ ] **SYM-03**: User can view symptom history
+- [x] **SYM-01**: User can quickly log symptoms when feeling unusual (palpitations, anxiety, dizziness, fatigue, shortness of breath, chest discomfort)
+- [x] **SYM-02**: Each symptom record is associated with timestamp
+- [x] **SYM-03**: User can view symptom history
 - [ ] **CORR-01**: System analyzes historical data to show symptom-rhythm correlation
 - [ ] **CORR-02**: User can see which symptoms coincide with AF
 - [ ] **CORR-03**: User can see symptoms occurring without arrhythmia
@@ -43,8 +43,8 @@
 
 - [ ] **MED-01**: User can view medications recorded in Apple Health records
 - [ ] **MED-02**: User can see relationship between medication timing and rhythm activity
-- [ ] **TRIG-01**: User can log lifestyle factors that might precede episodes (alcohol, caffeine, stress, poor sleep, heavy meals, intense exercise)
-- [ ] **TRIG-02**: System accumulates trigger data to help identify personal patterns
+- [x] **TRIG-01**: User can log lifestyle factors that might precede episodes (alcohol, caffeine, stress, poor sleep, heavy meals, intense exercise)
+- [x] **TRIG-02**: System accumulates trigger data to help identify personal patterns
 
 ### Trends & Reports
 
@@ -107,49 +107,49 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DASH-01 | Phase 1 | Pending |
-| DASH-02 | Phase 1 | Pending |
-| DASH-03 | Phase 1 | Pending |
-| DASH-04 | Phase 1 | Pending |
-| OVER-01 | Phase 1 | Pending |
-| OVER-02 | Phase 1 | Pending |
-| BURN-01 | Phase 1 | Pending |
-| BURN-02 | Phase 2 | Pending |
-| TIME-01 | Phase 1 | Pending |
-| TIME-02 | Phase 2 | Pending |
-| EPIS-01 | Phase 1 | Pending |
-| EPIS-02 | Phase 1 | Pending |
-| EPIS-03 | Phase 1 | Pending |
-| HR-01 | Phase 2 | Pending |
-| HR-02 | Phase 2 | Pending |
-| HR-03 | Phase 2 | Pending |
-| SYM-01 | Phase 2 | Pending |
-| SYM-02 | Phase 2 | Pending |
-| SYM-03 | Phase 2 | Pending |
-| CORR-01 | Phase 2 | Pending |
-| CORR-02 | Phase 2 | Pending |
-| CORR-03 | Phase 2 | Pending |
-| MED-01 | Phase 2 | Pending |
-| MED-02 | Phase 2 | Pending |
-| TRIG-01 | Phase 2 | Pending |
-| TRIG-02 | Phase 3 | Pending |
-| TRND-01 | Phase 3 | Pending |
-| TRND-02 | Phase 3 | Pending |
-| TRND-03 | Phase 3 | Pending |
-| REPT-01 | Phase 3 | Pending |
-| REPT-02 | Phase 3 | Pending |
-| REPT-03 | Phase 3 | Pending |
-| REPT-04 | Phase 3 | Pending |
-| EMER-01 | Phase 1 | Pending |
-| EMER-02 | Phase 1 | Pending |
-| NOTIF-01 | Phase 1 | Pending |
-| NOTIF-02 | Phase 2 | Pending |
-| NOTIF-03 | Phase 2 | Pending |
-| FOUN-01 | Phase 1 | Pending |
-| FOUN-02 | Phase 1 | Pending |
-| FOUN-03 | Phase 1 | Pending |
-| FOUN-04 | Phase 1 | Pending |
-| FOUN-05 | Phase 1 | Pending |
+| DASH-01 | Phase 1: Foundation & Core Display | Pending |
+| DASH-02 | Phase 1: Foundation & Core Display | Pending |
+| DASH-03 | Phase 1: Foundation & Core Display | Pending |
+| DASH-04 | Phase 1: Foundation & Core Display | Pending |
+| OVER-01 | Phase 1: Foundation & Core Display | Pending |
+| OVER-02 | Phase 1: Foundation & Core Display | Pending |
+| BURN-01 | Phase 1: Foundation & Core Display | Pending |
+| BURN-02 | Phase 2: User Input & Analysis | Pending |
+| TIME-01 | Phase 1: Foundation & Core Display | Pending |
+| TIME-02 | Phase 2: User Input & Analysis | Pending |
+| EPIS-01 | Phase 1: Foundation & Core Display | Pending |
+| EPIS-02 | Phase 1: Foundation & Core Display | Pending |
+| EPIS-03 | Phase 1: Foundation & Core Display | Pending |
+| HR-01 | Phase 2: User Input & Analysis | Pending |
+| HR-02 | Phase 2: User Input & Analysis | Pending |
+| HR-03 | Phase 2: User Input & Analysis | Pending |
+| SYM-01 | Phase 2: User Input & Analysis | Complete |
+| SYM-02 | Phase 2: User Input & Analysis | Complete |
+| SYM-03 | Phase 2: User Input & Analysis | Complete |
+| CORR-01 | Phase 2: User Input & Analysis | Pending |
+| CORR-02 | Phase 2: User Input & Analysis | Pending |
+| CORR-03 | Phase 2: User Input & Analysis | Pending |
+| MED-01 | Phase 2: User Input & Analysis | Pending |
+| MED-02 | Phase 2: User Input & Analysis | Pending |
+| TRIG-01 | Phase 2: User Input & Analysis | Complete |
+| TRIG-02 | Phase 2: User Input & Analysis | Complete |
+| TRND-01 | Phase 3: Advanced Features | Pending |
+| TRND-02 | Phase 3: Advanced Features | Pending |
+| TRND-03 | Phase 3: Advanced Features | Pending |
+| REPT-01 | Phase 3: Advanced Features | Pending |
+| REPT-02 | Phase 3: Advanced Features | Pending |
+| REPT-03 | Phase 3: Advanced Features | Pending |
+| REPT-04 | Phase 3: Advanced Features | Pending |
+| EMER-01 | Phase 1: Foundation & Core Display | Pending |
+| EMER-02 | Phase 1: Foundation & Core Display | Pending |
+| NOTIF-01 | Phase 1: Foundation & Core Display | Pending |
+| NOTIF-02 | Phase 2: User Input & Analysis | Pending |
+| NOTIF-03 | Phase 2: User Input & Analysis | Pending |
+| FOUN-01 | Phase 1: Foundation & Core Display | Pending |
+| FOUN-02 | Phase 1: Foundation & Core Display | Pending |
+| FOUN-03 | Phase 1: Foundation & Core Display | Pending |
+| FOUN-04 | Phase 1: Foundation & Core Display | Pending |
+| FOUN-05 | Phase 1: Foundation & Core Display | Pending |
 
 **Coverage:**
 - v1 requirements: 43 total
