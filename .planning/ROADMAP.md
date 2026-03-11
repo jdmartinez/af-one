@@ -44,10 +44,10 @@
 
 - [x] 01-01-PLAN.md — Foundation: HealthKitService, Models, App Entry, Disclaimer
 - [x] 01-02-PLAN.md — Authorization + Emergency View
-- [ ] 01-03-PLAN.md — Dashboard + Overview
-- [ ] 01-04-PLAN.md — Timeline + AF Burden
-- [ ] 01-05-PLAN.md — Episodes List + Detail
-- [ ] 01-06-PLAN.md — Notifications
+- [x] 01-03-PLAN.md — Dashboard + Overview
+- [x] 01-04-PLAN.md — Timeline + AF Burden
+- [x] 01-05-PLAN.md — Episodes List + Detail
+- [x] 01-06-PLAN.md — Notifications
 
 ---
 
@@ -117,7 +117,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Core Display | 2/6 | In Progress | 2026-03-11 |
+| 1. Foundation & Core Display | 6/6 | Complete | 2026-03-11 |
 | 2. User Input & Analysis | 0/1 | Not started | - |
 | 3. Advanced Features | 0/1 | Not started | - |
 
