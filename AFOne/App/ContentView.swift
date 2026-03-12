@@ -29,11 +29,17 @@ struct ContentView: View {
                 }
                 .tag(3)
 
+            AnalysisView()
+                .tabItem {
+                    Label("Analysis", systemImage: "chart.bar.fill")
+                }
+                .tag(4)
+
             MoreView()
                 .tabItem {
                     Label("More", systemImage: "ellipsis.circle")
                 }
-                .tag(4)
+                .tag(5)
         }
         .tabViewStyle(.page)
     }
