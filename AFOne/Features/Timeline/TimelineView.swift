@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import Charts
 
 @MainActor
@@ -62,6 +63,19 @@ final class TimelineViewModel {
 
 struct TimelineView: View {
     @State private var viewModel = TimelineViewModel()
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \SymptomLog.timestamp, order: .reverse) private var symptoms: [SymptomLog]
+    @Query(sort: \TriggerLog.timestamp, order: .reverse) private var triggers: [TriggerLog]
+    
+    private var recentSymptoms: [SymptomLog] {
+        let weekAgo = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        return symptoms.filter { $0.timestamp >= weekAgo }
+    }
+    
+    private var recentTriggers: [TriggerLog] {
+        let weekAgo = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        return triggers.filter { $0.timestamp >= weekAgo }
+    }
 
     var body: some View {
         NavigationStack {
@@ -116,17 +130,19 @@ struct TimelineView: View {
                 Text(selectedDay.date.formatted(date: .complete, time: .omitted))
                     .font(.headline)
                     .padding(.horizontal)
+                
+                Chart {
+                    ForEach(viewModel.hourlyData) { hour in
+                        BarMark(
+                            x: .value("Hour", hour.hour),
+                            y: .value("Rhythm", rhythmValue(hour.rhythm))
+                        )
+                        .foregroundStyle(rhythmColor(hour.rhythm))
+                        .cornerRadius(2)
+                    }
+                }
+                .frame(height: 100)
             }
-
-            Chart(viewModel.hourlyData) { hour in
-                BarMark(
-                    x: .value("Hour", hour.hour),
-                    y: .value("Rhythm", rhythmValue(hour.rhythm))
-                )
-                .foregroundStyle(rhythmColor(hour.rhythm))
-                .cornerRadius(2)
-            }
-            .frame(height: 100)
         }
         .padding(.top)
     }
@@ -136,6 +152,11 @@ struct TimelineView: View {
             LegendItem(color: .green, label: "Normal")
             LegendItem(color: .red, label: "AF")
             LegendItem(color: .gray, label: "Unknown")
+            if !recentSymptoms.isEmpty {
+                Divider()
+                    .frame(height: 12)
+                LegendItem(color: .red, label: "Symptom")
+            }
         }
     }
 
