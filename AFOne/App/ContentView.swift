@@ -23,11 +23,17 @@ struct ContentView: View {
                 }
                 .tag(2)
 
+            MedicationsView()
+                .tabItem {
+                    Label("Medications", systemImage: "pills")
+                }
+                .tag(3)
+
             MoreView()
                 .tabItem {
                     Label("More", systemImage: "ellipsis.circle")
                 }
-                .tag(3)
+                .tag(4)
         }
         .tabViewStyle(.page)
     }
