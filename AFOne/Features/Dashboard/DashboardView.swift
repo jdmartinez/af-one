@@ -14,6 +14,8 @@ struct DashboardView: View {
 
                         metricsSection
 
+                        burdenSection
+
                         if !viewModel.recentEpisodes.isEmpty {
                             recentEpisodesSection
                         }
@@ -60,6 +62,7 @@ struct DashboardView: View {
         }
         .task {
             await viewModel.loadData()
+            await viewModel.loadBurden()
         }
     }
 
@@ -139,6 +142,57 @@ struct DashboardView: View {
                 )
             }
         }
+    }
+
+    private var burdenSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text("AF Burden")
+                    .font(.headline)
+                
+                Spacer()
+                
+                Picker("Period", selection: $viewModel.selectedPeriod) {
+                    ForEach(TimePeriod.allCases) { period in
+                        Text(period.rawValue).tag(period)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .frame(width: 200)
+                .onChange(of: viewModel.selectedPeriod) { _, _ in
+                    Task {
+                        await viewModel.loadBurden()
+                    }
+                }
+            }
+            
+            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                Text(String(format: "%.1f", viewModel.currentBurden))
+                    .font(.system(size: 36, weight: .bold))
+                    .foregroundStyle(Color.accentColor)
+                Text("%")
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                
+                Spacer()
+                
+                HStack(spacing: 4) {
+                    Image(systemName: viewModel.burdenTrendIcon)
+                    Text(viewModel.burdenTrend.description)
+                }
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+            }
+            
+            if !viewModel.burdenData.isEmpty {
+                BurdenChartView(data: viewModel.burdenData, period: viewModel.selectedPeriod)
+                    .frame(height: 150)
+            }
+        }
+        .padding()
+        .background(Color(.systemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .shadow(radius: 2)
     }
 
     private var burdenColor: Color {

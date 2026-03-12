@@ -11,6 +11,33 @@ final class DashboardViewModel {
     var isLoading = false
     var lastUpdated: Date = Date()
     var trend: TrendDirection = .stable
+    
+    // Multi-window burden
+    var selectedPeriod: TimePeriod = .week
+    var burdenData: [BurdenDataPoint] = []
+    var currentBurden: Double = 0
+    var previousBurden: Double = 0
+    var burdenTrend: BurdenTrend = .stable
+    
+    var burdenTrendIcon: String {
+        switch burdenTrend {
+        case .increasing: return "arrow.up"
+        case .decreasing: return "arrow.down"
+        case .stable: return "arrow.right"
+        }
+    }
+    
+    enum BurdenTrend {
+        case increasing, decreasing, stable
+        
+        var description: String {
+            switch self {
+            case .increasing: return "Increasing"
+            case .decreasing: return "Decreasing"
+            case .stable: return "Stable"
+            }
+        }
+    }
 
     enum TrendDirection: String {
         case improving = "Improving"
@@ -74,6 +101,34 @@ final class DashboardViewModel {
             trend = .worsening
         } else {
             trend = .stable
+        }
+    }
+    
+    func loadBurden() async {
+        do {
+            currentBurden = try await AFBurdenCalculator.shared.calculateBurden(for: selectedPeriod)
+            
+            let previousPeriod: TimePeriod
+            switch selectedPeriod {
+            case .day: previousPeriod = .day
+            case .week: previousPeriod = .week
+            case .month: previousPeriod = .month
+            }
+            
+            previousBurden = try await AFBurdenCalculator.shared.calculateBurden(for: previousPeriod)
+            
+            let change = currentBurden - previousBurden
+            if change > 5 {
+                burdenTrend = .increasing
+            } else if change < -5 {
+                burdenTrend = .decreasing
+            } else {
+                burdenTrend = .stable
+            }
+            
+            burdenData = try await AFBurdenCalculator.shared.getChartData(for: selectedPeriod)
+        } catch {
+            print("Failed to load burden: \(error)")
         }
     }
 }
