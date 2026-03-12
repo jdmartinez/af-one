@@ -3,20 +3,41 @@ import Charts
 
 struct DashboardView: View {
     @State private var viewModel = DashboardViewModel()
+    @State private var showLogSheet = false
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    statusCard
+            ZStack {
+                ScrollView {
+                    VStack(spacing: 20) {
+                        statusCard
 
-                    metricsSection
+                        metricsSection
 
-                    if !viewModel.recentEpisodes.isEmpty {
-                        recentEpisodesSection
+                        if !viewModel.recentEpisodes.isEmpty {
+                            recentEpisodesSection
+                        }
+                    }
+                    .padding()
+                }
+            
+            VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: { showLogSheet = true }) {
+                            Image(systemName: "plus")
+                                .font(.title2.weight(.semibold))
+                                .foregroundStyle(.white)
+                                .frame(width: 56, height: 56)
+                                .background(Color.accentColor)
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.2), radius: 4, y: 2)
+                        }
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 20)
                     }
                 }
-                .padding()
             }
             .navigationTitle("Dashboard")
             .toolbar {
@@ -33,6 +54,9 @@ struct DashboardView: View {
                 }
             }
             .refreshable(action: refresh)
+            .sheet(isPresented: $showLogSheet) {
+                LogView()
+            }
         }
         .task {
             await viewModel.loadData()
