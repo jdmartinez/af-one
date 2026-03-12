@@ -12,11 +12,11 @@
 
 **Phase:** 2 - User Input & Analysis
 
-**Plan:** 02-02 complete (Symptom/Trigger Logging UI)
+**Plan:** 02-03 complete (Multi-Window AF Burden Analysis)
 
-**Status:** 2/5 plans complete
+**Status:** 3/5 plans complete
 
-**Progress:** [====------] 40% (2/5 plans)
+**Progress:** [======----] 60% (3/5 plans)
 
 ---
 
@@ -42,6 +42,7 @@
 | No backend | Reduces complexity, ensures data privacy | Pending |
 | Not a medical device | Regulatory clearance would delay launch; informational focus | Pending |
 | SwiftData @Model | Apple's recommended persistence for iOS 17+ | Complete |
+| BarMark for day, LineMark for week/month | Optimal visualization for each time granularity | Complete |
 
 ### Research Findings
 
@@ -72,8 +73,8 @@ None identified yet.
 - **Started:** 2026-03-10
 - **Roadmap:** Created with 3 phases
 - **Phase 1:** Complete (6/6 plans)
-- **Phase 2:** In progress (2/5 plans complete)
-- **Next Action:** Execute Plan 02-03 (Multi-Window Burden Analysis)
+- **Phase 2:** In progress (3/5 plans complete)
+- **Next Action:** Execute Plan 02-04 (Symptom-Burden Correlation)
 
 ### History
 
@@ -84,6 +85,7 @@ None identified yet.
 - 2026-03-11: Plans 01-03 to 01-06 complete (Dashboard, Timeline, Episodes, Notifications)
 - 2026-03-11: Plan 02-01 complete (SwiftData models for symptom/trigger logging)
 - 2026-03-12: Plan 02-02 complete (Symptom/Trigger Logging UI with FAB and bottom sheet)
+- 2026-03-12: Plan 02-03 complete (Multi-Window AF Burden Analysis with segmented picker and charts)
 
 ---
 
