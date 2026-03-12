@@ -12,11 +12,11 @@
 
 **Phase:** 2 - User Input & Analysis
 
-**Plan:** 02-03 complete (Multi-Window AF Burden Analysis)
+**Plan:** 02-04 complete (Symptom-Burden Correlation Analysis)
 
-**Status:** 3/5 plans complete
+**Status:** 4/5 plans complete
 
-**Progress:** [======----] 60% (3/5 plans)
+**Progress:** [========--] 80% (4/5 plans)
 
 ---
 
@@ -73,8 +73,8 @@ None identified yet.
 - **Started:** 2026-03-10
 - **Roadmap:** Created with 3 phases
 - **Phase 1:** Complete (6/6 plans)
-- **Phase 2:** In progress (3/5 plans complete)
-- **Next Action:** Execute Plan 02-04 (Symptom-Burden Correlation)
+- **Phase 2:** In progress (4/5 plans complete)
+- **Next Action:** Execute Plan 02-05 (Export & Share)
 
 ### History
 
@@ -86,6 +86,7 @@ None identified yet.
 - 2026-03-11: Plan 02-01 complete (SwiftData models for symptom/trigger logging)
 - 2026-03-12: Plan 02-02 complete (Symptom/Trigger Logging UI with FAB and bottom sheet)
 - 2026-03-12: Plan 02-03 complete (Multi-Window AF Burden Analysis with segmented picker and charts)
+- 2026-03-12: Plan 02-04 complete (Symptom-AF correlation analysis with tabbed Analysis view)
 
 ---
 
