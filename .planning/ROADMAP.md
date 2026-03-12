@@ -13,7 +13,7 @@
 ## Phases
 
 - [x] **Phase 1: Foundation & Core Display** - HealthKit integration, dashboard, episode timeline, AF burden visualization
-- [ ] **Phase 2: User Input & Analysis** - Symptom logging, medication awareness, trigger tracking, correlation analysis, multi-window burden
+- [x] **Phase 2: User Input & Analysis** - Symptom logging, medication awareness, trigger tracking, correlation analysis, multi-window burden
 - [ ] **Phase 3: Advanced Features** - Long-term trends, clinical reports, emergency info, comprehensive notifications
 
 ---
@@ -82,7 +82,7 @@
 - [x] 02-02-PLAN.md — Symptom/Trigger Logging UI (FAB, Bottom Sheet)
 - [x] 02-03-PLAN.md — Multi-Window Burden Analysis (Day/Week/Month)
 - [x] 02-04-PLAN.md — Correlation Analysis (Symptom-AF correlation, HR)
-- [ ] 02-05-PLAN.md — Medications + Enhanced Notifications
+- [x] 02-05-PLAN.md — Medications + Enhanced Notifications
 
 ---
 
@@ -124,7 +124,7 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Core Display | 6/6 | Complete | 2026-03-11 |
-| 2. User Input & Analysis | 4/5 | In progress | 2026-03-12 |
+| 2. User Input & Analysis | 5/5 | Complete | 2026-03-12 |
 | 3. Advanced Features | 0/1 | Not started | - |
 
 ---
