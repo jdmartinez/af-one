@@ -76,13 +76,14 @@
 14. User receives notification for episodes lasting unusually long
 15. User receives notification for significant increases in AF burden
 
-**Plans:** 5 plans
+**Plans:** 6 plans
 
 - [x] 02-01-PLAN.md — SwiftData Models (SymptomLog, TriggerLog)
 - [x] 02-02-PLAN.md — Symptom/Trigger Logging UI (FAB, Bottom Sheet)
 - [x] 02-03-PLAN.md — Multi-Window Burden Analysis (Day/Week/Month)
 - [x] 02-04-PLAN.md — Correlation Analysis (Symptom-AF correlation, HR)
 - [x] 02-05-PLAN.md — Medications + Enhanced Notifications
+- [x] 02-06-PLAN.md — Gap Closure (Analysis nav, Medications API, Timeline data)
 
 ---
 
