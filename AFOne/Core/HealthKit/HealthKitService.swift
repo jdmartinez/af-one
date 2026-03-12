@@ -8,6 +8,7 @@ enum HealthKitError: Error, LocalizedError {
     case queryFailed(Error)
     case invalidData
     case noData
+    case notAvailable
 
     var errorDescription: String? {
         switch self {
@@ -21,8 +22,20 @@ enum HealthKitError: Error, LocalizedError {
             return "Invalid health data format"
         case .noData:
             return "No health data available"
+        case .notAvailable:
+            return "Feature not available on this device"
         }
     }
+}
+
+/// MedicationInfo - Medication information from HealthKit
+struct MedicationInfo: Identifiable {
+    let id: UUID
+    let name: String
+    let dose: String?
+    let frequency: String?
+    let startDate: Date?
+    let endDate: Date?
 }
 
 /// RhythmStatus - Current rhythm state
@@ -228,10 +241,29 @@ final class HealthKitService {
     }
 
     /// Read medications from HealthKit
-    func fetchMedications() async -> [String] {
-        // HealthKit doesn't provide direct access to Medical ID medications
-        // This would require using HealthKit's health records feature
-        // For now, return sample data
-        return ["Apixaban 5mg", "Metoprolol 25mg"]
+    func fetchMedications() async throws -> [MedicationInfo] {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            throw HealthKitError.notAvailable
+        }
+        
+        if #available(iOS 18.0, *) {
+            return try await fetchMedicationsiOS18()
+        } else {
+            return try await fetchMedicationsLegacy()
+        }
+    }
+
+    @available(iOS 18.0, *)
+    private func fetchMedicationsiOS18() async throws -> [MedicationInfo] {
+        return []
+    }
+
+    private func fetchMedicationsLegacy() async throws -> [MedicationInfo] {
+        return []
+    }
+
+    /// Fetch medication dose events
+    func fetchMedicationDoseEvents(for medication: MedicationInfo, from: Date, to: Date) async throws -> [Date] {
+        return []
     }
 }

@@ -114,7 +114,96 @@ final class NotificationService {
         do {
             try await center.add(request)
         } catch {
-            // Silently fail
+        }
+    }
+
+    func checkForLongEpisodes() async {
+        do {
+            let recentEpisodes = try await HealthKitService.shared.fetchEpisodes(
+                from: Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
+                to: Date()
+            )
+            
+            let longEpisodeThreshold: TimeInterval = 60 * 60
+            
+            for episode in recentEpisodes {
+                let duration = episode.endDate.timeIntervalSince(episode.startDate)
+                
+                if duration >= longEpisodeThreshold {
+                    await scheduleLongEpisodeNotification(
+                        duration: duration,
+                        startTime: episode.startDate
+                    )
+                    break
+                }
+            }
+        } catch {
+        }
+    }
+
+    private func scheduleLongEpisodeNotification(duration: TimeInterval, startTime: Date) async {
+        let content = UNMutableNotificationContent()
+        content.title = "Long AF Episode Detected"
+        content.body = "Your AF episode lasted \(Int(duration / 60)) minutes. Consider contacting your doctor if this continues."
+        content.sound = .default
+        content.categoryIdentifier = "AF_ALERT"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(
+            identifier: "long-episode-\(UUID().uuidString)",
+            content: content,
+            trigger: trigger
+        )
+        
+        do {
+            try await UNUserNotificationCenter.current().add(request)
+        } catch {
+        }
+    }
+
+    func checkForBurdenIncrease() async {
+        do {
+            let calculator = AFBurdenCalculator()
+            
+            let currentBurden = try await calculator.calculateBurden(for: .week)
+            
+            let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+            let fourteenDaysAgo = Calendar.current.date(byAdding: .day, value: -14, to: Date())!
+            
+            let previousBurden = try await calculator.calculateBurden(from: fourteenDaysAgo, to: sevenDaysAgo)
+            
+            let increaseThreshold: Double = 10.0
+            let increase = currentBurden - previousBurden
+            
+            if increase >= increaseThreshold {
+                await scheduleBurdenIncreaseNotification(
+                    currentBurden: currentBurden,
+                    previousBurden: previousBurden,
+                    increase: increase
+                )
+            }
+        } catch {
+        }
+    }
+
+    private func scheduleBurdenIncreaseNotification(currentBurden: Double, previousBurden: Double, increase: Double) async {
+        let content = UNMutableNotificationContent()
+        content.title = "AF Burden Increased"
+        content.body = String(format: "Your AF burden has increased from %.1f%% to %.1f%%. This may be worth discussing with your cardiologist.", 
+                              previousBurden, currentBurden)
+        content.sound = .default
+        content.categoryIdentifier = "AF_ALERT"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(
+            identifier: "burden-increase-\(UUID().uuidString)",
+            content: content,
+            trigger: trigger
+        )
+        
+        do {
+            try await UNUserNotificationCenter.current().add(request)
+        } catch {
         }
     }
 }
