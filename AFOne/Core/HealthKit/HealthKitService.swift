@@ -255,7 +255,24 @@ final class HealthKitService {
 
     @available(iOS 18.0, *)
     private func fetchMedicationsiOS18() async throws -> [MedicationInfo] {
-        return []
+        let queryDescriptor = HKUserAnnotatedMedicationQueryDescriptor()
+        
+        do {
+            let medications = try await queryDescriptor.result(for: healthStore)
+            
+            return medications.map { medication in
+                MedicationInfo(
+                    id: UUID(),
+                    name: medication.nickname ?? "Medication",
+                    dose: nil,
+                    frequency: medication.hasSchedule ? "As scheduled" : nil,
+                    startDate: nil,
+                    endDate: nil
+                )
+            }
+        } catch {
+            throw HealthKitError.queryFailed(error)
+        }
     }
 
     private func fetchMedicationsLegacy() async throws -> [MedicationInfo] {

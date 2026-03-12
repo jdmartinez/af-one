@@ -40,12 +40,40 @@ final class TimelineViewModel {
 
         let calendar = Calendar.current
         let dayCount = selectedPeriod == .week ? 7 : 30
+        let startDate = calendar.date(byAdding: .day, value: -dayCount, to: Date())!
 
-        days = (0..<dayCount).reversed().map { daysAgo in
-            let date = calendar.date(byAdding: .day, value: -daysAgo, to: Date())!
-            let hasData = daysAgo <= 7
-            let rhythm: RhythmState = hasData ? (Bool.random() ? .normal : .af) : .unknown
-            return DayData(date: date, dominantRhythm: rhythm, hasData: hasData)
+        do {
+            let burdens = try await HealthKitService.shared.fetchAfBurden(from: startDate, to: Date())
+            let episodes = try await HealthKitService.shared.fetchEpisodes(from: startDate, to: Date())
+            
+            days = (0..<dayCount).reversed().map { daysAgo in
+                let date = calendar.date(byAdding: .day, value: -daysAgo, to: Date())!
+                let dayStart = calendar.startOfDay(for: date)
+                let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart)!
+                
+                let dayBurden = burdens.first { $0.date >= dayStart && $0.date < dayEnd }
+                let dayEpisodes = episodes.filter { $0.startDate >= dayStart && $0.startDate < dayEnd }
+                
+                let hasData = dayBurden != nil || !dayEpisodes.isEmpty
+                let rhythm: RhythmState
+                
+                if let burden = dayBurden, burden.percentage > 0 {
+                    rhythm = .af
+                } else if !dayEpisodes.isEmpty {
+                    rhythm = .af
+                } else if hasData {
+                    rhythm = .normal
+                } else {
+                    rhythm = .unknown
+                }
+                
+                return DayData(date: date, dominantRhythm: rhythm, hasData: hasData)
+            }
+        } catch {
+            days = (0..<dayCount).reversed().map { daysAgo in
+                let date = calendar.date(byAdding: .day, value: -daysAgo, to: Date())!
+                return DayData(date: date, dominantRhythm: .unknown, hasData: false)
+            }
         }
 
         isLoading = false
@@ -53,10 +81,42 @@ final class TimelineViewModel {
 
     func selectDay(_ day: DayData) {
         selectedDay = day
-
-        hourlyData = (0..<24).map { hour in
-            let rhythm: RhythmState = [.normal, .af, .unknown].randomElement()!
-            return HourlyRhythm(hour: hour, rhythm: rhythm)
+        
+        let calendar = Calendar.current
+        let dayStart = calendar.startOfDay(for: day.date)
+        let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart)!
+        
+        Task {
+            do {
+                let episodes = try await HealthKitService.shared.fetchEpisodes(from: dayStart, to: dayEnd)
+                let heartRates = try await HealthKitService.shared.fetchHeartRateSamples(from: dayStart, to: dayEnd)
+                
+                await MainActor.run {
+                    if episodes.isEmpty && heartRates.isEmpty {
+                        hourlyData = (0..<24).map { hour in
+                            HourlyRhythm(hour: hour, rhythm: .unknown)
+                        }
+                    } else {
+                        hourlyData = (0..<24).map { hour in
+                            let hourStart = calendar.date(byAdding: .hour, value: hour, to: dayStart)!
+                            let hourEnd = calendar.date(byAdding: .hour, value: hour + 1, to: dayStart)!
+                            
+                            let hourEpisodes = episodes.filter { ep in
+                                ep.startDate >= hourStart && ep.startDate < hourEnd
+                            }
+                            
+                            let rhythm: RhythmState = hourEpisodes.isEmpty ? .normal : .af
+                            return HourlyRhythm(hour: hour, rhythm: rhythm)
+                        }
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    hourlyData = (0..<24).map { hour in
+                        HourlyRhythm(hour: hour, rhythm: .unknown)
+                    }
+                }
+            }
         }
     }
 }
