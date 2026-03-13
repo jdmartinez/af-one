@@ -92,7 +92,7 @@ final class TimelineViewModel {
                 let heartRates = try await HealthKitService.shared.fetchHeartRateSamples(from: dayStart, to: dayEnd)
                 
                 await MainActor.run {
-                    if episodes.isEmpty && heartRates.isEmpty {
+                    if !day.hasData || (episodes.isEmpty && heartRates.isEmpty) {
                         hourlyData = (0..<24).map { hour in
                             HourlyRhythm(hour: hour, rhythm: .unknown)
                         }
@@ -142,7 +142,7 @@ struct TimelineView: View {
             VStack(spacing: 0) {
                 if viewModel.isLoading {
                     loadingView
-                } else if viewModel.days.isEmpty {
+                } else if viewModel.days.allSatisfy({ !$0.hasData }) {
                     emptyStateView
                 } else {
                     timelineContent
@@ -200,6 +200,11 @@ struct TimelineView: View {
             }
             .pickerStyle(.segmented)
             .padding()
+            .onChange(of: viewModel.selectedPeriod) { _, _ in
+                Task {
+                    await viewModel.loadData()
+                }
+            }
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
