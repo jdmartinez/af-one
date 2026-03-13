@@ -35,11 +35,17 @@ struct ContentView: View {
                 }
                 .tag(4)
 
+            TrendsView()
+                .tabItem {
+                    Label("Trends", systemImage: "chart.line.uptrend.xyaxis")
+                }
+                .tag(5)
+
             MoreView()
                 .tabItem {
                     Label("More", systemImage: "ellipsis.circle")
                 }
-                .tag(5)
+                .tag(6)
         }
         .tabViewStyle(.page)
     }
