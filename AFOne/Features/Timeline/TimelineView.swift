@@ -140,37 +140,13 @@ struct TimelineView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                Picker("Period", selection: $viewModel.selectedPeriod) {
-                    ForEach(TimelineViewModel.TimePeriod.allCases, id: \.self) { period in
-                        Text(period.rawValue).tag(period)
-                    }
+                if viewModel.isLoading {
+                    loadingView
+                } else if viewModel.days.isEmpty {
+                    emptyStateView
+                } else {
+                    timelineContent
                 }
-                .pickerStyle(.segmented)
-                .padding()
-
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(viewModel.days) { day in
-                            DayBlockView(
-                                day: day,
-                                isSelected: viewModel.selectedDay?.id == day.id
-                            )
-                            .onTapGesture {
-                                viewModel.selectDay(day)
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-
-                if viewModel.selectedDay != nil {
-                    Divider()
-                        .padding(.top)
-
-                    hourlyBreakdownView
-                }
-
-                Spacer()
             }
             .navigationTitle("Timeline")
             .toolbar {
@@ -181,6 +157,73 @@ struct TimelineView: View {
         }
         .task {
             await viewModel.loadData()
+        }
+    }
+    
+    private var loadingView: some View {
+        VStack(spacing: 16) {
+            ProgressView()
+                .scaleEffect(1.5)
+            Text("Loading timeline...")
+                .font(.headline)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.top, 100)
+    }
+    
+    private var emptyStateView: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "calendar.badge.exclamationmark")
+                .font(.system(size: 60))
+                .foregroundStyle(.secondary)
+            
+            Text("No Rhythm Data Available")
+                .font(.headline)
+            
+            Text("Keep your Apple Watch on to monitor your heart rhythm over time.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 40)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.top, 100)
+    }
+    
+    private var timelineContent: some View {
+        VStack(spacing: 0) {
+            Picker("Period", selection: $viewModel.selectedPeriod) {
+                ForEach(TimelineViewModel.TimePeriod.allCases, id: \.self) { period in
+                    Text(period.rawValue).tag(period)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding()
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(viewModel.days) { day in
+                        DayBlockView(
+                            day: day,
+                            isSelected: viewModel.selectedDay?.id == day.id
+                        )
+                        .onTapGesture {
+                            viewModel.selectDay(day)
+                        }
+                    }
+                }
+                .padding(.horizontal)
+            }
+
+            if viewModel.selectedDay != nil {
+                Divider()
+                    .padding(.top)
+
+                hourlyBreakdownView
+            }
+
+            Spacer()
         }
     }
 
