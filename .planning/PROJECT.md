@@ -8,28 +8,38 @@ AFOne is an iOS application that helps patients with **paroxysmal atrial fibrill
 
 Transform Apple Watch heart rhythm data into clear, clinically meaningful insights that help PAF patients understand their condition, recognize patterns, and communicate effectively with their cardiologist.
 
+## Current State
+
+**Shipped:** v0.1 Alpha (2026-03-13)
+- 4 phases, 20 plans, 73 files, +7,780 LOC Swift
+- Core display, user input, analysis, and UI enhancements complete
+- See .planning/milestones/v0.1-ROADMAP.md for details
+
 ## Requirements
 
-### Validated
+### Validated (v0.1 Alpha)
 
-(None yet — ship to validate)
+- ✓ Dashboard with current rhythm context and summary metrics
+- ✓ Rhythm monitoring overview with AF frequency
+- ✓ AF burden calculation (basic)
+- ✓ Timeline visualization (normal/AF/unknown periods)
+- ✓ Episode history with timestamps, duration
+- ✓ Heart rate behavior during episodes
+- ✓ Symptom logging with timestamps
+- ✓ Lifestyle trigger tracking
+- ✓ Emergency information quick access
+- ✓ HealthKit integration
+- ✓ Notifications for AF episodes
 
-### Active
+### Active (v1.0 MVP)
 
-- [ ] Dashboard with current rhythm context, recent AF activity, key summary metrics, quick actions
-- [ ] Rhythm monitoring overview showing recent AF frequency and trends
-- [ ] AF burden calculation across multiple time windows (daily, weekly, monthly)
-- [ ] Rhythm timeline visualization showing normal/AF/unknown periods
-- [ ] Episode history with timestamps, duration, heart rate behavior
-- [ ] Heart rate behavior analysis during AF episodes
-- [ ] Symptom logging with timestamp association
+- [ ] Multi-window AF burden analysis (daily, weekly, monthly)
+- [ ] Advanced timeline pattern detection (nocturnal, clusters)
 - [ ] Symptom-rhythm correlation analysis
 - [ ] Medication awareness from health records
-- [ ] Lifestyle trigger tracking and pattern identification
-- [ ] Long-term trends visualization
-- [ ] Clinical reports for cardiologist sharing
-- [ ] Emergency information quick access
-- [ ] Notifications for AF episodes and significant changes
+- [ ] Long-term trends (6-month, 1-year views)
+- [ ] Clinical report generation for cardiologist
+- [ ] Enhanced notifications (long episodes, burden changes)
 
 ### Out of Scope
 
@@ -37,7 +47,7 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 - Treatment recommendations or medication guidance
 - Cloud infrastructure or backend services
 - Real-time cardiac monitoring or emergency detection
-- Writing data back to Apple Health (except user-entered notes)
+- Writing data back to Apple Health
 - Android or other non-iOS platforms
 
 ## Context
@@ -47,22 +57,17 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 - **Offline-first**: Core capabilities work without network connectivity
 - **Privacy-first**: All health data remains on-device under user control
 
-## Constraints
-
-- **Platform**: iOS only — modern iOS devices with Apple Watch integration
-- **Data Dependency**: Relies on Apple Watch rhythm detection and Apple Health storage
-- **Regulatory**: Not a medical device — clear disclaimer required throughout
-- **Privacy**: Health data must remain on-device; no automatic sharing
-- **Offline**: Core features must work without network connectivity
-
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| iOS-only | Apple Watch ecosystem integration required | — Pending |
-| Offline-first core | Reliable access to health data, privacy by design | — Pending |
-| No backend | Reduces complexity, ensures data privacy | — Pending |
-| Not a medical device | Regulatory clearance would delay launch; informational focus | — Pending |
+| iOS-only | Apple Watch ecosystem integration required | ✓ Validated |
+| Offline-first core | Reliable access to health data, privacy by design | ✓ Validated |
+| No backend | Reduces complexity, ensures data privacy | ✓ Validated |
+| Not a medical device | Regulatory clearance would delay launch | ✓ Validated |
+| SwiftData @Model | Apple's recommended persistence for iOS 17+ | ✓ Validated |
+| BarMark for day, LineMark for week/month | Optimal visualization for each time granularity | ✓ Validated |
 
 ---
-*Last updated: 2026-03-10 after initialization*
+
+*Last updated: 2026-03-13 after v0.1 Alpha milestone*
