@@ -84,6 +84,7 @@ None identified yet.
 |---|------|-------|------|
 | 1 | 2026-03-13 | Make UI compatible with iOS dark and light theme | ui |
 | 2 | 2026-03-13 | Redesign dashboard cards with Health app-like UI | ui |
+| 3 | 2026-03-13 | Localize the app based in iOS language | ui |
 
 ---
 
