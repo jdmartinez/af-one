@@ -104,11 +104,12 @@
 6. Report includes episode history and trends
 7. Report includes symptom relationships and medication context
 
-**Plans:** 3 plans
+**Plans:** 4 plans
 
 - [x] 03-01-PLAN.md — TimePeriod extension + TrendAnalyzer
 - [x] 03-02-PLAN.md — TrendsView UI with 6M/1Y charts
 - [x] 03-03-PLAN.md — Clinical Report generation and sharing
+- [x] 03-04-PLAN.md — Gap Closure: Add ReportView navigation to MoreView
 
 ---
 
@@ -130,7 +131,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation & Core Display | 6/6 | Complete | 2026-03-11 |
 | 2. User Input & Analysis | 6/6 | Complete | 2026-03-13 |
-| 3. Advanced Features | 3/3 | Complete | 2026-03-13 |
+| 3. Advanced Features | 4/4 | Complete | 2026-03-13 |
 
 ---
 
