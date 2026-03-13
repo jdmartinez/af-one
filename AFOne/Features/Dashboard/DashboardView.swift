@@ -7,38 +7,13 @@ struct DashboardView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                ScrollView {
-                    VStack(spacing: 20) {
-                        statusCard
-
-                        metricsSection
-
-                        burdenSection
-
-                        if !viewModel.recentEpisodes.isEmpty {
-                            recentEpisodesSection
-                        }
-                    }
-                    .padding()
-                }
-            
-            VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: { showLogSheet = true }) {
-                            Image(systemName: "plus")
-                                .font(.title2.weight(.semibold))
-                                .foregroundStyle(.white)
-                                .frame(width: 56, height: 56)
-                                .background(Color.accentColor)
-                                .clipShape(Circle())
-                                .shadow(color: .black.opacity(0.2), radius: 4, y: 2)
-                        }
-                        .padding(.trailing, 20)
-                        .padding(.bottom, 20)
-                    }
+            Group {
+                if viewModel.isLoading {
+                    loadingView
+                } else if viewModel.dataEmpty {
+                    emptyStateView
+                } else {
+                    dashboardContent
                 }
             }
             .navigationTitle("Dashboard")
@@ -63,6 +38,72 @@ struct DashboardView: View {
         .task {
             await viewModel.loadData()
             await viewModel.loadBurden()
+        }
+    }
+    
+    private var loadingView: some View {
+        VStack(spacing: 16) {
+            ProgressView()
+                .scaleEffect(1.5)
+            Text("Loading dashboard...")
+                .font(.headline)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private var emptyStateView: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "heart.text.square")
+                .font(.system(size: 60))
+                .foregroundStyle(.secondary)
+            
+            Text("No Heart Data Yet")
+                .font(.headline)
+            
+            Text("Keep your Apple Watch on to monitor your heart rhythm.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 40)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private var dashboardContent: some View {
+        ZStack {
+            ScrollView {
+                VStack(spacing: 20) {
+                    statusCard
+                    
+                    metricsSection
+                    
+                    burdenSection
+                    
+                    if !viewModel.recentEpisodes.isEmpty {
+                        recentEpisodesSection
+                    }
+                }
+                .padding()
+            }
+        
+            VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: { showLogSheet = true }) {
+                            Image(systemName: "plus")
+                                .font(.title2.weight(.semibold))
+                                .foregroundStyle(.white)
+                                .frame(width: 56, height: 56)
+                                .background(Color.accentColor)
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.2), radius: 4, y: 2)
+                        }
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 20)
+                    }
+                }
         }
     }
 
@@ -94,9 +135,9 @@ struct DashboardView: View {
                 .foregroundStyle(.tertiary)
         }
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color.cardBackground)
         .cornerRadius(12)
-        .shadow(radius: 2)
+        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
     }
 
     private var statusIcon: String {
@@ -116,31 +157,40 @@ struct DashboardView: View {
     }
 
     private var metricsSection: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
-                MetricCardView(
-                    title: "AF Burden",
-                    value: String(format: "%.1f%%", viewModel.afBurden),
-                    icon: "waveform.path.ecg",
-                    color: burdenColor
-                )
-
-                MetricCardView(
-                    title: "Episodes",
-                    value: "\(viewModel.episodeCount)",
-                    subtitle: "Last 7 days",
-                    icon: "heart.circle",
-                    color: .red
-                )
-
-                MetricCardView(
-                    title: "Avg HR",
-                    value: "\(viewModel.averageHR)",
-                    subtitle: "bpm",
-                    icon: "heart",
-                    color: .blue
-                )
-            }
+        LazyVGrid(columns: [
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ], spacing: 12) {
+            MetricCardView(
+                title: "AF Burden",
+                value: String(format: "%.1f%%", viewModel.afBurden),
+                icon: "waveform.path.ecg",
+                color: burdenColor
+            )
+            
+            MetricCardView(
+                title: "Episodes",
+                value: "\(viewModel.episodeCount)",
+                subtitle: "Last 7 days",
+                icon: "heart.circle",
+                color: .red
+            )
+            
+            MetricCardView(
+                title: "Avg HR",
+                value: "\(viewModel.averageHR)",
+                subtitle: "bpm",
+                icon: "heart",
+                color: .blue
+            )
+            
+            MetricCardView(
+                title: "Status",
+                value: viewModel.currentStatus.rawValue,
+                subtitle: viewModel.trend.rawValue,
+                icon: viewModel.statusIcon,
+                color: statusColor
+            )
         }
     }
 
@@ -190,9 +240,9 @@ struct DashboardView: View {
             }
         }
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color.cardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 12))
-        .shadow(radius: 2)
+        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
     }
 
     private var burdenColor: Color {
@@ -219,9 +269,9 @@ struct DashboardView: View {
             }
         }
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color.cardBackground)
         .cornerRadius(12)
-        .shadow(radius: 2)
+        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
     }
 
     private func refresh() {
@@ -261,10 +311,10 @@ struct MetricCardView: View {
             }
         }
         .padding()
-        .frame(width: 120)
-        .background(Color(.systemBackground))
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.cardBackground)
         .cornerRadius(12)
-        .shadow(radius: 2)
+        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
     }
 }
 
