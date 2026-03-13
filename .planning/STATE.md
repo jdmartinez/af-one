@@ -83,6 +83,7 @@ None identified yet.
 | # | Date | Title | Area |
 |---|------|-------|------|
 | 1 | 2026-03-13 | Make UI compatible with iOS dark and light theme | ui |
+| 2 | 2026-03-13 | Redesign dashboard cards with Health app-like UI | ui |
 
 ---
 
