@@ -15,7 +15,7 @@
 - [x] **Phase 1: Foundation & Core Display** - HealthKit integration, dashboard, episode timeline, AF burden visualization
 - [x] **Phase 2: User Input & Analysis** - Symptom logging, medication awareness, trigger tracking, correlation analysis, multi-window burden
 - [x] **Phase 3: Advanced Features** - Long-term trends, clinical reports, emergency info, comprehensive notifications
-- [ ] **Phase 4: UI Enhancements** - Theme support, dashboard redesign, empty states
+- [x] **Phase 4: UI Enhancements** - Theme support, dashboard redesign, empty states (completed 2026-03-13)
 
 ---
 
@@ -130,7 +130,7 @@
 5. Dashboard shows helpful empty state when no data available
 6. Timeline shows empty state when no rhythm data available
 
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 
 - [ ] 04-01-PLAN.md — Theme.swift + DashboardViewModel dataEmpty
 - [ ] 04-02-PLAN.md — Dashboard grid layout + empty/loading states
@@ -145,15 +145,7 @@
 | 1 - Foundation & Core Display | FOUN-01 through FOUN-05, DASH-01 through DASH-04, OVER-01, OVER-02, BURN-01, TIME-01, EPIS-01 through EPIS-03, EMER-01, EMER-02, NOTIF-01 | 19 |
 | 2 - User Input & Analysis | BURN-02, TIME-02, HR-01 through HR-03, SYM-01 through SYM-03, CORR-01 through CORR-03, MED-01, MED-02, TRIG-01, TRIG-02, NOTIF-02, NOTIF-03 | 17 |
 | 3 - Advanced Features | TRND-01 through TRND-03, REPT-01 through REPT-04 | 7 |
-| 4 - UI Enhancements | Technical debt (pending todos) | N/A |
-
-**Total:** 43/43 requirements mapped ✓
-
----
-
-## Progress
-
-| Phase | Plans Complete | Status | Completed |
+| 4 - UI Enhancements | Technical debt (pending todos) | Complete    | 2026-03-13 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Core Display | 6/6 | Complete | 2026-03-11 |
 | 2. User Input & Analysis | 6/6 | Complete | 2026-03-13 |

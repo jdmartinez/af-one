@@ -7,25 +7,25 @@
 
 ### Dashboard & Overview
 
-- [ ] **DASH-01**: User sees current rhythm context immediately on app launch
-- [ ] **DASH-02**: User sees recent AF activity summary (episodes in last 7 days)
-- [ ] **DASH-03**: User sees key summary metrics (current AF burden, episode count)
-- [ ] **DASH-04**: User has quick access to important actions from dashboard
-- [ ] **OVER-01**: User can view rhythm monitoring overview showing recent AF frequency
-- [ ] **OVER-02**: User can understand whether situation is improving or worsening
+- [x] **DASH-01**: User sees current rhythm context immediately on app launch
+- [x] **DASH-02**: User sees recent AF activity summary (episodes in last 7 days)
+- [x] **DASH-03**: User sees key summary metrics (current AF burden, episode count)
+- [x] **DASH-04**: User has quick access to important actions from dashboard
+- [x] **OVER-01**: User can view rhythm monitoring overview showing recent AF frequency
+- [x] **OVER-02**: User can understand whether situation is improving or worsening
 
 ### AF Burden & Timeline
 
-- [ ] **BURN-01**: User can view AF burden as percentage of monitored time
+- [x] **BURN-01**: User can view AF burden as percentage of monitored time
 - [ ] **BURN-02**: User can view AF burden across multiple time windows (daily, weekly, monthly)
-- [ ] **TIME-01**: User can visualize rhythm status across time (normal/AF/unknown)
+- [x] **TIME-01**: User can visualize rhythm status across time (normal/AF/unknown)
 - [ ] **TIME-02**: Timeline reveals patterns (nocturnal episodes, clusters, activity-related)
 
 ### Episodes & Heart Rate
 
-- [ ] **EPIS-01**: User can view history of all detected AF episodes
-- [ ] **EPIS-02**: Each episode shows timestamp and duration
-- [ ] **EPIS-03**: Each episode shows heart rate behavior during the episode
+- [x] **EPIS-01**: User can view history of all detected AF episodes
+- [x] **EPIS-02**: Each episode shows timestamp and duration
+- [x] **EPIS-03**: Each episode shows heart rate behavior during the episode
 - [ ] **HR-01**: User can understand how heart rate behaves during AF episodes
 - [ ] **HR-02**: User can see average and peak heart rate during AF
 - [ ] **HR-03**: User can identify unusually high heart rate during episodes
@@ -58,19 +58,19 @@
 
 ### Emergency & Notifications
 
-- [ ] **EMER-01**: User has quick access to essential emergency information
-- [ ] **EMER-02**: Emergency info includes diagnosis, current medications, recent rhythm activity
-- [ ] **NOTIF-01**: User receives notification when AF episode is detected
+- [x] **EMER-01**: User has quick access to essential emergency information
+- [x] **EMER-02**: Emergency info includes diagnosis, current medications, recent rhythm activity
+- [x] **NOTIF-01**: User receives notification when AF episode is detected
 - [ ] **NOTIF-02**: User receives notification for episodes lasting unusually long
 - [ ] **NOTIF-03**: User receives notification for significant increases in AF burden
 
 ### Foundation
 
-- [ ] **FOUN-01**: App reads heart rhythm data from Apple Watch via Apple Health (HealthKit)
-- [ ] **FOUN-02**: App clearly displays "Not a medical device" disclaimer
-- [ ] **FOUN-03**: All health data remains on-device under user control
-- [ ] **FOUN-04**: User explicitly controls any data sharing
-- [ ] **FOUN-05**: Core features work without network connectivity
+- [x] **FOUN-01**: App reads heart rhythm data from Apple Watch via Apple Health (HealthKit)
+- [x] **FOUN-02**: App clearly displays "Not a medical device" disclaimer
+- [x] **FOUN-03**: All health data remains on-device under user control
+- [x] **FOUN-04**: User explicitly controls any data sharing
+- [x] **FOUN-05**: Core features work without network connectivity
 
 ## v2 Requirements
 
@@ -107,19 +107,19 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DASH-01 | Phase 1: Foundation & Core Display | Pending |
-| DASH-02 | Phase 1: Foundation & Core Display | Pending |
-| DASH-03 | Phase 1: Foundation & Core Display | Pending |
-| DASH-04 | Phase 1: Foundation & Core Display | Pending |
-| OVER-01 | Phase 1: Foundation & Core Display | Pending |
-| OVER-02 | Phase 1: Foundation & Core Display | Pending |
-| BURN-01 | Phase 1: Foundation & Core Display | Pending |
+| DASH-01 | Phase 1: Foundation & Core Display | Complete |
+| DASH-02 | Phase 1: Foundation & Core Display | Complete |
+| DASH-03 | Phase 1: Foundation & Core Display | Complete |
+| DASH-04 | Phase 1: Foundation & Core Display | Complete |
+| OVER-01 | Phase 1: Foundation & Core Display | Complete |
+| OVER-02 | Phase 1: Foundation & Core Display | Complete |
+| BURN-01 | Phase 1: Foundation & Core Display | Complete |
 | BURN-02 | Phase 2: User Input & Analysis | Pending |
-| TIME-01 | Phase 1: Foundation & Core Display | Pending |
+| TIME-01 | Phase 1: Foundation & Core Display | Complete |
 | TIME-02 | Phase 2: User Input & Analysis | Pending |
-| EPIS-01 | Phase 1: Foundation & Core Display | Pending |
-| EPIS-02 | Phase 1: Foundation & Core Display | Pending |
-| EPIS-03 | Phase 1: Foundation & Core Display | Pending |
+| EPIS-01 | Phase 1: Foundation & Core Display | Complete |
+| EPIS-02 | Phase 1: Foundation & Core Display | Complete |
+| EPIS-03 | Phase 1: Foundation & Core Display | Complete |
 | HR-01 | Phase 2: User Input & Analysis | Pending |
 | HR-02 | Phase 2: User Input & Analysis | Pending |
 | HR-03 | Phase 2: User Input & Analysis | Pending |
@@ -140,16 +140,16 @@ Explicitly excluded. Documented to prevent scope creep.
 | REPT-02 | Phase 3: Advanced Features | Pending |
 | REPT-03 | Phase 3: Advanced Features | Pending |
 | REPT-04 | Phase 3: Advanced Features | Pending |
-| EMER-01 | Phase 1: Foundation & Core Display | Pending |
-| EMER-02 | Phase 1: Foundation & Core Display | Pending |
-| NOTIF-01 | Phase 1: Foundation & Core Display | Pending |
+| EMER-01 | Phase 1: Foundation & Core Display | Complete |
+| EMER-02 | Phase 1: Foundation & Core Display | Complete |
+| NOTIF-01 | Phase 1: Foundation & Core Display | Complete |
 | NOTIF-02 | Phase 2: User Input & Analysis | Pending |
 | NOTIF-03 | Phase 2: User Input & Analysis | Pending |
-| FOUN-01 | Phase 1: Foundation & Core Display | Pending |
-| FOUN-02 | Phase 1: Foundation & Core Display | Pending |
-| FOUN-03 | Phase 1: Foundation & Core Display | Pending |
-| FOUN-04 | Phase 1: Foundation & Core Display | Pending |
-| FOUN-05 | Phase 1: Foundation & Core Display | Pending |
+| FOUN-01 | Phase 1: Foundation & Core Display | Complete |
+| FOUN-02 | Phase 1: Foundation & Core Display | Complete |
+| FOUN-03 | Phase 1: Foundation & Core Display | Complete |
+| FOUN-04 | Phase 1: Foundation & Core Display | Complete |
+| FOUN-05 | Phase 1: Foundation & Core Display | Complete |
 
 **Coverage:**
 - v1 requirements: 43 total
