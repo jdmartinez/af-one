@@ -8,6 +8,10 @@ struct MoreView: View {
                     NavigationLink(destination: EmergencyView()) {
                         Label("Emergency Information", systemImage: "exclamationmark.triangle")
                     }
+                    
+                    NavigationLink(destination: ReportView()) {
+                        Label("Clinical Report", systemImage: "doc.text.fill")
+                    }
                 }
 
                 Section("Settings") {

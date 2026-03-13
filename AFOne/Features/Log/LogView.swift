@@ -56,7 +56,8 @@ struct LogView: View {
                                                 viewModel.selectedTriggers.remove(trigger)
                                             }
                                         }
-                                    )
+                                    ),
+                                    intensity: .constant(nil)
                                 )
                             }
                         }

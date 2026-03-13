@@ -163,7 +163,7 @@ final class NotificationService {
 
     func checkForBurdenIncrease() async {
         do {
-            let calculator = AFBurdenCalculator()
+            let calculator = AFBurdenCalculator.shared
             
             let currentBurden = try await calculator.calculateBurden(for: .week)
             

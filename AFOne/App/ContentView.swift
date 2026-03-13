@@ -1,9 +1,32 @@
 import SwiftUI
+import SwiftData
+import HealthKit
 
 struct ContentView: View {
     @State private var selectedTab = 0
-
+    @State private var isAuthorized: Bool? = nil
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
+        Group {
+            if let authorized = isAuthorized {
+                if authorized {
+                    mainTabView
+                } else {
+                    AuthorizationView {
+                        isAuthorized = true
+                    }
+                }
+            } else {
+                ProgressView("Checking HealthKit...")
+                    .task {
+                        await checkAuthorization()
+                    }
+            }
+        }
+    }
+    
+    private var mainTabView: some View {
         TabView(selection: $selectedTab) {
             DashboardView()
                 .tabItem {
@@ -47,7 +70,18 @@ struct ContentView: View {
                 }
                 .tag(6)
         }
-        .tabViewStyle(.page)
+        .tabViewStyle(.automatic)
+    }
+    
+    private func checkAuthorization() async {
+        let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)
+        let status = HKHealthStore().authorizationStatus(for: heartRateType!)
+        
+        if status == .sharingAuthorized {
+            isAuthorized = true
+        } else {
+            isAuthorized = false
+        }
     }
 }
 

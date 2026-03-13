@@ -53,6 +53,14 @@ final class DashboardViewModel {
         }
     }
     
+    var statusIcon: String {
+        switch currentStatus {
+        case .normal: return "heart.fill"
+        case .af: return "exclamationmark.triangle.fill"
+        case .unknown: return "questionmark.circle"
+        }
+    }
+    
     var dataEmpty: Bool {
         recentEpisodes.isEmpty && episodeCount == 0 && averageHR == 0
     }

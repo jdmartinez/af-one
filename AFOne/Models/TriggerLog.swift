@@ -1,3 +1,4 @@
+import Foundation
 import SwiftData
 
 enum TriggerType: String, CaseIterable, Codable {

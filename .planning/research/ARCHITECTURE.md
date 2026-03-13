@@ -148,7 +148,7 @@ class DashboardViewModel {
     var currentHeartRate: Double = 0
     var recentEpisodes: [RhythmEpisode] = []
     var afBurden: AFBurden?
-    
+
     func loadData() async {
         let service = HealthKitService.shared
         currentHeartRate = try await service.fetchLatestHeartRate()
@@ -174,10 +174,10 @@ class DashboardViewModel {
 class HealthKitService {
     static let shared = HealthKitService()
     private let healthStore = HKHealthStore()
-    
+
     // Authorization
     func requestAuthorization() async throws
-    
+
     // Queries
     func fetchHeartRateSamples(from: Date, to: Date) async throws -> [HeartRateReading]
     func fetchECGReadings() async throws -> [ECGReading]
@@ -194,7 +194,7 @@ class HealthKitService {
 
 **Trade-offs:**
 - Pros: Highly testable, no dependencies, deterministic
-- Cons: Must pass all data explicitly;不适合需要实时更新的场景
+- Cons: Must pass all data explicitly; not suitable for scenarios requiring real-time updates
 
 **Example:**
 ```swift
@@ -204,7 +204,7 @@ struct AnalysisEngine {
         let afDuration = episodes.reduce(0) { $0 + $1.duration }
         return AFBurden(percentage: afDuration / totalDuration, window: window)
     }
-    
+
     static func detectTrends(in readings: [HeartRateReading]) -> [TrendData] {
         // Pure transformation logic
     }
@@ -230,7 +230,7 @@ func fetchHeartRateSamples(from startDate: Date, to endDate: Date) async throws 
         predicates: [.sample(type: heartRateType, predicate: predicate)],
         sortDescriptors: [.init(\.endDate, order: .reverse)]
     )
-    
+
     let samples = try await descriptor.result(for: healthStore)
     return samples.map { HeartRateReading(from: $0) }
 }

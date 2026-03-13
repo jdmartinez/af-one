@@ -30,7 +30,12 @@ struct DashboardView: View {
                     }
                 }
             }
-            .refreshable(action: refresh)
+            .refreshable {
+                let viewModel = self.viewModel
+                Task { @MainActor in
+                    await viewModel.loadData()
+                }
+            }
             .sheet(isPresented: $showLogSheet) {
                 LogView()
             }
@@ -275,7 +280,7 @@ struct DashboardView: View {
     }
 
     private func refresh() {
-        Task {
+        Task { @MainActor in
             await viewModel.loadData()
         }
     }

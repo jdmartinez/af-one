@@ -3,7 +3,8 @@ import SwiftUI
 struct AuthorizationView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var viewModel = AuthorizationViewModel()
-
+    var onAuthorized: (() -> Void)?
+    
     var body: some View {
         VStack(spacing: 32) {
             Spacer()
@@ -72,6 +73,11 @@ struct AuthorizationView: View {
                 .font(.caption)
                 .foregroundStyle(.tertiary)
                 .padding(.bottom)
+        }
+        .onChange(of: viewModel.authorizationStatus) { _, newValue in
+            if newValue == .authorized {
+                onAuthorized?()
+            }
         }
     }
 

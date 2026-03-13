@@ -138,7 +138,7 @@ final class HealthKitService {
                     AFBurden(
                         date: sample.startDate,
                         percentage: sample.quantity.doubleValue(for: .percent()),
-                        sampleCount: sample.quantitySampleType?.samplesWereAggregatedFromRelatedSamples ?? false ? 1 : 0
+                        sampleCount: 1
                     )
                 }
                 continuation.resume(returning: burdens)
@@ -246,14 +246,16 @@ final class HealthKitService {
             throw HealthKitError.notAvailable
         }
         
-        if #available(iOS 18.0, *) {
+        if #available(iOS 26.0, *) {
             return try await fetchMedicationsiOS18()
-        } else {
+        } else if #available(iOS 18.0, *) {
             return try await fetchMedicationsLegacy()
+        } else {
+            return []
         }
     }
 
-    @available(iOS 18.0, *)
+    @available(iOS 26.0, *)
     private func fetchMedicationsiOS18() async throws -> [MedicationInfo] {
         let queryDescriptor = HKUserAnnotatedMedicationQueryDescriptor()
         

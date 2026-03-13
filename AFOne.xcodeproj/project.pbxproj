@@ -8,37 +8,133 @@
 
 /* Begin PBXBuildFile section */
 		01DE3D47DBEA900284FC528A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E50BC486643ED2B0CDC04 /* DashboardView.swift */; };
+		0D40C0D2CE9855D82AFD5712 /* MedicationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F915648BB1A4B706D8C708 /* MedicationsViewModel.swift */; };
+		1300A1D84E5F25408023BE7E /* TrendAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44391F375C1EECE4D9C9E3A /* TrendAnalyzer.swift */; };
+		1DFC0FBA4D581CCEAAF31BFA /* SymptomChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A80937961C1778BCABC74DA /* SymptomChip.swift */; };
+		20FC8F6C05D647E8C840BDB7 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED470A277CDBF0FFD2A54B7 /* OverviewView.swift */; };
+		38D725DCED8D9D28C4C8C40C /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A607B13DD643BAF5628442 /* AuthorizationViewModel.swift */; };
+		3A68798D27F76696D7B1B095 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43168A98C97DED7210E3CF8D /* ReportViewModel.swift */; };
 		3CB4408329091630A31B7C67 /* AFOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707F5949DEBBF56DA968E332 /* AFOneApp.swift */; };
 		4221AFC5369C49307A0D30CA /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62755871BCD58AC3A841A86 /* MoreView.swift */; };
+		44032A2AB95907470D1F49DB /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2E710AA14C5AFE5481448 /* TrendsView.swift */; };
+		4F42CA1FFCE25A9CECCBE7DE /* TrendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDB242C5CF21B75C2A635A /* TrendsViewModel.swift */; };
 		5248781853ED15B7FDF70404 /* EpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF391E1534AC018CE4C92554 /* EpisodeListView.swift */; };
 		551FDF6746CB11560FFE68F9 /* HeartRateReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB54C6636737D7793F121BDE /* HeartRateReading.swift */; };
 		55930977A761A617721A059E /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */; };
+		56B7D1519170C2E421EF23C2 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD111CA184E80663F6417BE /* AnalysisView.swift */; };
+		5874EF675F3B6BD5F56C6441 /* MedicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EC80FAED8C2420779CDC46 /* MedicationsView.swift */; };
 		60598A27840F66424E8B29BA /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CEBD4B555C773B19C0D4AA /* TimelineView.swift */; };
+		6AF4FAC0471B01474725ABA9 /* TriggerLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5152EC9E63667251CAE800AC /* TriggerLog.swift */; };
+		6DEA163D06B798EA23D27438 /* ReportGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8397867F5B8FFDA1EE1870 /* ReportGenerator.swift */; };
+		75E4EE9AEABB4D4BB33883CB /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705BBF7796F3EEBE7EE56E6 /* ReportView.swift */; };
 		7E1ED1E5DE4F1A03F0AA9F91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB592BAB55C123627822B20 /* ContentView.swift */; };
+		860B32020D84E989ADB36206 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE20666ADAB3ABA770B3755D /* DashboardViewModel.swift */; };
 		88D1E403326887A7C24798A5 /* RhythmEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DE80436C920EEE5D60EF3E /* RhythmEpisode.swift */; };
+		8E4C13810A352DCC870DFFD1 /* AFBurdenCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D86E106DAE00D2F21F5E8 /* AFBurdenCalculator.swift */; };
+		92B85ED571ADA8164AA5843C /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD2B38A8306D974C7859F9 /* LogViewModel.swift */; };
+		971F3252B9A4367EFEC97244 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CD839B9B9181A677B10604 /* NotificationService.swift */; };
+		A148A8D9EC2771B360CF2B67 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A76A90575E021B1B5F376F /* LogView.swift */; };
 		A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F0EC693B8E734A6322A15 /* EmergencyView.swift */; };
+		A30E1CAAB40B3D85632531E9 /* TriggerChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64DFE11591E4F93E9428283 /* TriggerChip.swift */; };
+		THEMEXX0002 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = THEMEXX0001 /* Theme.swift */; };
+		B4B1E8CB463408DEE3975831 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1588708678410AD18895EE1 /* AuthorizationView.swift */; };
+		B826462CEA78CBBCBB8D0634 /* SymptomLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */; };
+		BB1224BEEC59F80B39BF4C88 /* AnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FC38CF0473C462CF0C45BC /* AnalysisViewModel.swift */; };
+		D74723902905C5C12719AD4C /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */; };
 		D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */; };
+		DB178EBD4B5CA4FA57D9F7D3 /* CorrelationAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA63DC2C043A734ECE8A5D25 /* CorrelationAnalyzer.swift */; };
+		DD6C18AF8A6CB1CDE244C69B /* BurdenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC26E18F8AB928C9F83D522 /* BurdenChartView.swift */; };
 		DF3E601061D6FF8E4677CEC8 /* AFBurden.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C65B5EE473D9B5807E9950 /* AFBurden.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A76A90575E021B1B5F376F /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		1A80937961C1778BCABC74DA /* SymptomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomChip.swift; sourceTree = "<group>"; };
 		225E50BC486643ED2B0CDC04 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		397D86E106DAE00D2F21F5E8 /* AFBurdenCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFBurdenCalculator.swift; sourceTree = "<group>"; };
 		3BB592BAB55C123627822B20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		43168A98C97DED7210E3CF8D /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		5152EC9E63667251CAE800AC /* TriggerLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerLog.swift; sourceTree = "<group>"; };
+		55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
+		57F915648BB1A4B706D8C708 /* MedicationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewModel.swift; sourceTree = "<group>"; };
+		63A607B13DD643BAF5628442 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		65CDB242C5CF21B75C2A635A /* TrendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsViewModel.swift; sourceTree = "<group>"; };
 		707F5949DEBBF56DA968E332 /* AFOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFOneApp.swift; sourceTree = "<group>"; };
+		74CD839B9B9181A677B10604 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		777F0EC693B8E734A6322A15 /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
+		84C2E710AA14C5AFE5481448 /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
+		98EC80FAED8C2420779CDC46 /* MedicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsView.swift; sourceTree = "<group>"; };
 		9BC3AA3D87EFEEEC25332D6A /* AFOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AFOne.entitlements; sourceTree = "<group>"; };
+		9BCD2B38A8306D974C7859F9 /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
+		9BD111CA184E80663F6417BE /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		A4CEBD4B555C773B19C0D4AA /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		AE20666ADAB3ABA770B3755D /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		B1588708678410AD18895EE1 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		BA63DC2C043A734ECE8A5D25 /* CorrelationAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrelationAnalyzer.swift; sourceTree = "<group>"; };
 		BB54C6636737D7793F121BDE /* HeartRateReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateReading.swift; sourceTree = "<group>"; };
+		BD8397867F5B8FFDA1EE1870 /* ReportGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportGenerator.swift; sourceTree = "<group>"; };
+		BDC26E18F8AB928C9F83D522 /* BurdenChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurdenChartView.swift; sourceTree = "<group>"; };
+		BED470A277CDBF0FFD2A54B7 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		CF391E1534AC018CE4C92554 /* EpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
 		D5C65B5EE473D9B5807E9950 /* AFBurden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFBurden.swift; sourceTree = "<group>"; };
+		D705BBF7796F3EEBE7EE56E6 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
 		E0DE80436C920EEE5D60EF3E /* RhythmEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmEpisode.swift; sourceTree = "<group>"; };
+		E44391F375C1EECE4D9C9E3A /* TrendAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendAnalyzer.swift; sourceTree = "<group>"; };
+		E5FC38CF0473C462CF0C45BC /* AnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewModel.swift; sourceTree = "<group>"; };
 		E62755871BCD58AC3A841A86 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		E64DFE11591E4F93E9428283 /* TriggerChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerChip.swift; sourceTree = "<group>"; };
 		F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
+		THEMEXX0001 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		06E98CA6FCA09CCF2CE10514 /* Trends */ = {
+			isa = PBXGroup;
+			children = (
+				84C2E710AA14C5AFE5481448 /* TrendsView.swift */,
+				65CDB242C5CF21B75C2A635A /* TrendsViewModel.swift */,
+			);
+			path = Trends;
+			sourceTree = "<group>";
+		};
+		126B27832C96D717217D0123 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				BD8397867F5B8FFDA1EE1870 /* ReportGenerator.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		1DBD0CDFA61C3BD0C9FB4F32 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				74CD839B9B9181A677B10604 /* NotificationService.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		251B65D23D63ECC40D2CD8DF /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				397D86E106DAE00D2F21F5E8 /* AFBurdenCalculator.swift */,
+				BA63DC2C043A734ECE8A5D25 /* CorrelationAnalyzer.swift */,
+				E44391F375C1EECE4D9C9E3A /* TrendAnalyzer.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		26BFDCBB35B78388BF6BF320 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				9BD111CA184E80663F6417BE /* AnalysisView.swift */,
+				E5FC38CF0473C462CF0C45BC /* AnalysisViewModel.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
 		3229D643744975A87556E2B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -50,7 +146,10 @@
 		33125DF8A0F64921C0D707C4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				251B65D23D63ECC40D2CD8DF /* Analysis */,
+				126B27832C96D717217D0123 /* Export */,
 				990E8EE1C54BAFFF76B3EE03 /* HealthKit */,
+				1DBD0CDFA61C3BD0C9FB4F32 /* Notifications */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -68,12 +167,30 @@
 			path = AFOne;
 			sourceTree = "<group>";
 		};
+		42699D2B4721EBDEC83EC88B /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B1588708678410AD18895EE1 /* AuthorizationView.swift */,
+				63A607B13DD643BAF5628442 /* AuthorizationViewModel.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
 		4DAF4B4484CE248CEC7B5967 = {
 			isa = PBXGroup;
 			children = (
 				3DA29019634D5294E5DA48BB /* AFOne */,
 				3229D643744975A87556E2B7 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		5322B037EB3A33E3CAA064F7 /* Medications */ = {
+			isa = PBXGroup;
+			children = (
+				98EC80FAED8C2420779CDC46 /* MedicationsView.swift */,
+				57F915648BB1A4B706D8C708 /* MedicationsViewModel.swift */,
+			);
+			path = Medications;
 			sourceTree = "<group>";
 		};
 		96A61560BB6F9D8910318B95 /* More */ = {
@@ -105,8 +222,19 @@
 			isa = PBXGroup;
 			children = (
 				225E50BC486643ED2B0CDC04 /* DashboardView.swift */,
+				AE20666ADAB3ABA770B3755D /* DashboardViewModel.swift */,
+				BED470A277CDBF0FFD2A54B7 /* OverviewView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		CFC1C228DFE6CD83A680F6F3 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				11A76A90575E021B1B5F376F /* LogView.swift */,
+				9BCD2B38A8306D974C7859F9 /* LogViewModel.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		E21C3E1172F6FFE02FB961E2 /* Models */ = {
@@ -115,13 +243,25 @@
 				D5C65B5EE473D9B5807E9950 /* AFBurden.swift */,
 				BB54C6636737D7793F121BDE /* HeartRateReading.swift */,
 				E0DE80436C920EEE5D60EF3E /* RhythmEpisode.swift */,
+				F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */,
+				5152EC9E63667251CAE800AC /* TriggerLog.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E2ED2D0D724241586E9F1891 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				D705BBF7796F3EEBE7EE56E6 /* ReportView.swift */,
+				43168A98C97DED7210E3CF8D /* ReportViewModel.swift */,
+			);
+			path = Reports;
 			sourceTree = "<group>";
 		};
 		EB044497103D89D739AE207A /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */,
 				CF391E1534AC018CE4C92554 /* EpisodeListView.swift */,
 			);
 			path = Episodes;
@@ -130,10 +270,16 @@
 		F1F904CEB807D729695BDCE1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				26BFDCBB35B78388BF6BF320 /* Analysis */,
+				42699D2B4721EBDEC83EC88B /* Authorization */,
 				A47579A99CFFD22E4E18F057 /* Dashboard */,
 				EB044497103D89D739AE207A /* Episodes */,
+				CFC1C228DFE6CD83A680F6F3 /* Log */,
+				5322B037EB3A33E3CAA064F7 /* Medications */,
 				96A61560BB6F9D8910318B95 /* More */,
+				E2ED2D0D724241586E9F1891 /* Reports */,
 				9C06ADB0A994387AE7BC8C18 /* Timeline */,
+				06E98CA6FCA09CCF2CE10514 /* Trends */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -141,9 +287,18 @@
 		F31C890E34E7151EEA8E7955 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EXTENSXX001 /* Extensions */,
 				FFAA4D619D9A6055327FC90C /* Components */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		EXTENSXX001 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				THEMEXX0001 /* Theme.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F7E7FD2E00BF3DD12D357B26 /* App */ = {
@@ -158,7 +313,10 @@
 		FFAA4D619D9A6055327FC90C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BDC26E18F8AB928C9F83D522 /* BurdenChartView.swift */,
 				F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */,
+				1A80937961C1778BCABC74DA /* SymptomChip.swift */,
+				E64DFE11591E4F93E9428283 /* TriggerChip.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -223,17 +381,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF3E601061D6FF8E4677CEC8 /* AFBurden.swift in Sources */,
+				8E4C13810A352DCC870DFFD1 /* AFBurdenCalculator.swift in Sources */,
 				3CB4408329091630A31B7C67 /* AFOneApp.swift in Sources */,
+				56B7D1519170C2E421EF23C2 /* AnalysisView.swift in Sources */,
+				BB1224BEEC59F80B39BF4C88 /* AnalysisViewModel.swift in Sources */,
+				B4B1E8CB463408DEE3975831 /* AuthorizationView.swift in Sources */,
+				38D725DCED8D9D28C4C8C40C /* AuthorizationViewModel.swift in Sources */,
+				DD6C18AF8A6CB1CDE244C69B /* BurdenChartView.swift in Sources */,
 				7E1ED1E5DE4F1A03F0AA9F91 /* ContentView.swift in Sources */,
+				DB178EBD4B5CA4FA57D9F7D3 /* CorrelationAnalyzer.swift in Sources */,
 				01DE3D47DBEA900284FC528A /* DashboardView.swift in Sources */,
+				860B32020D84E989ADB36206 /* DashboardViewModel.swift in Sources */,
 				D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */,
 				A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */,
+				D74723902905C5C12719AD4C /* EpisodeDetailView.swift in Sources */,
 				5248781853ED15B7FDF70404 /* EpisodeListView.swift in Sources */,
 				55930977A761A617721A059E /* HealthKitService.swift in Sources */,
 				551FDF6746CB11560FFE68F9 /* HeartRateReading.swift in Sources */,
+				A148A8D9EC2771B360CF2B67 /* LogView.swift in Sources */,
+				92B85ED571ADA8164AA5843C /* LogViewModel.swift in Sources */,
+				5874EF675F3B6BD5F56C6441 /* MedicationsView.swift in Sources */,
+				0D40C0D2CE9855D82AFD5712 /* MedicationsViewModel.swift in Sources */,
 				4221AFC5369C49307A0D30CA /* MoreView.swift in Sources */,
+				971F3252B9A4367EFEC97244 /* NotificationService.swift in Sources */,
+				20FC8F6C05D647E8C840BDB7 /* OverviewView.swift in Sources */,
+				6DEA163D06B798EA23D27438 /* ReportGenerator.swift in Sources */,
+				75E4EE9AEABB4D4BB33883CB /* ReportView.swift in Sources */,
+				3A68798D27F76696D7B1B095 /* ReportViewModel.swift in Sources */,
 				88D1E403326887A7C24798A5 /* RhythmEpisode.swift in Sources */,
+				1DFC0FBA4D581CCEAAF31BFA /* SymptomChip.swift in Sources */,
+				B826462CEA78CBBCBB8D0634 /* SymptomLog.swift in Sources */,
 				60598A27840F66424E8B29BA /* TimelineView.swift in Sources */,
+				1300A1D84E5F25408023BE7E /* TrendAnalyzer.swift in Sources */,
+				44032A2AB95907470D1F49DB /* TrendsView.swift in Sources */,
+				4F42CA1FFCE25A9CECCBE7DE /* TrendsViewModel.swift in Sources */,
+				THEMEXX0002 /* Theme.swift in Sources */,
+				A30E1CAAB40B3D85632531E9 /* TriggerChip.swift in Sources */,
+				6AF4FAC0471B01474725ABA9 /* TriggerLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

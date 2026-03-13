@@ -30,11 +30,11 @@ enum AFStatusColor {
     static func color(for status: RhythmStatus) -> Color {
         switch status {
         case .normal:
-            return .normal
+            return normal
         case .af:
-            return .af
+            return af
         case .unknown:
-            return .unknown
+            return unknown
         }
     }
 }
@@ -47,13 +47,13 @@ enum HRColor {
     static func color(for bpm: Int) -> Color {
         switch bpm {
         case ..<60:
-            return .normal
+            return normal
         case 60..<100:
-            return .normal
+            return normal
         case 100..<120:
-            return .elevated
+            return elevated
         default:
-            return .high
+            return high
         }
     }
 }
@@ -67,13 +67,13 @@ enum BurdenColor {
     static func color(for burden: Double) -> Color {
         switch burden {
         case ..<1:
-            return .low
+            return low
         case 1..<5:
-            return .moderate
+            return moderate
         case 5..<10:
-            return .high
+            return high
         default:
-            return .veryHigh
+            return veryHigh
         }
     }
 }

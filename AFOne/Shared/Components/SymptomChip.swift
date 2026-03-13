@@ -11,7 +11,7 @@ struct SymptomChip: View {
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
                 .background(isSelected ? Color.accentColor.opacity(0.2) : Color(.systemGray6))
-                .foregroundStyle(isSelected ? .accentColor : .primary)
+                .foregroundStyle(isSelected ? Color.accentColor : Color.primary)
                 .clipShape(Capsule())
                 .overlay(
                     Capsule()
