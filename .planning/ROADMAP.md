@@ -107,7 +107,7 @@
 **Plans:** 3 plans
 
 - [x] 03-01-PLAN.md — TimePeriod extension + TrendAnalyzer
-- [ ] 03-02-PLAN.md — TrendsView UI with 6M/1Y charts
+- [x] 03-02-PLAN.md — TrendsView UI with 6M/1Y charts
 - [ ] 03-03-PLAN.md — Clinical Report generation and sharing
 
 ---
@@ -130,7 +130,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation & Core Display | 6/6 | Complete | 2026-03-11 |
 | 2. User Input & Analysis | 6/6 | Complete | 2026-03-13 |
-| 3. Advanced Features | 1/3 | In Progress | 2026-03-13 |
+| 3. Advanced Features | 2/3 | In Progress | 2026-03-13 |
 
 ---
 
