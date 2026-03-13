@@ -52,6 +52,10 @@ final class DashboardViewModel {
             }
         }
     }
+    
+    var dataEmpty: Bool {
+        recentEpisodes.isEmpty && episodeCount == 0 && averageHR == 0
+    }
 
     func loadData() async {
         isLoading = true
@@ -113,6 +117,8 @@ final class DashboardViewModel {
             case .day: previousPeriod = .day
             case .week: previousPeriod = .week
             case .month: previousPeriod = .month
+            case .sixMonths: previousPeriod = .sixMonths
+            case .oneYear: previousPeriod = .oneYear
             }
             
             previousBurden = try await AFBurdenCalculator.shared.calculateBurden(for: previousPeriod)
