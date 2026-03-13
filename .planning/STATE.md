@@ -26,11 +26,11 @@ progress:
 
 **Phase:** 3 - Advanced Features
 
-**Plan:** 03-03 complete (Clinical Report generation and sharing)
+**Plan:** 03-04 complete (Navigation link to ReportView)
 
 **Status:** Complete
 
-**Progress:** [==========] 100% (3/3 plans)
+**Progress:** [==========] 100% (4/4 plans)
 
 ---
 
@@ -78,6 +78,12 @@ progress:
 
 None identified yet.
 
+### Pending Todos
+
+| # | Date | Title | Area |
+|---|------|-------|------|
+| 1 | 2026-03-13 | Make UI compatible with iOS dark and light theme | ui |
+
 ---
 
 ## Session Continuity
@@ -88,7 +94,7 @@ None identified yet.
 - **Roadmap:** Created with 3 phases
 - **Phase 1:** Complete (6/6 plans)
 - **Phase 2:** Complete (6/6 plans)
-- **Phase 3:** Complete (3/3 plans - Clinical Report generation complete)
+- **Phase 3:** Complete (4/4 plans - Clinical Report + navigation link)
 - **Next Action:** All phases complete - project ready for v1.0 release
 
 ### History
