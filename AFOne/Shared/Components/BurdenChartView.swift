@@ -14,16 +14,16 @@ struct BurdenChartView: View {
                     y: .value("Burden", dataPoint.percentage)
                 )
                 .foregroundStyle(Color.accentColor.gradient)
-            case .week, .month:
+            case .week, .month, .sixMonths, .oneYear:
                 LineMark(
-                    x: .value("Date", dataPoint.date, unit: .day),
+                    x: .value("Date", dataPoint.date, unit: period == .oneYear ? .month : .day),
                     y: .value("Burden", dataPoint.percentage)
                 )
                 .foregroundStyle(Color.accentColor)
                 .interpolationMethod(.catmullRom)
                 
                 PointMark(
-                    x: .value("Date", dataPoint.date, unit: .day),
+                    x: .value("Date", dataPoint.date, unit: period == .oneYear ? .month : .day),
                     y: .value("Burden", dataPoint.percentage)
                 )
                 .foregroundStyle(Color.accentColor)
