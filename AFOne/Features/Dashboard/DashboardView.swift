@@ -21,7 +21,7 @@ struct DashboardView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink(destination: EmergencyView()) {
                         Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(Color(.systemOrange))
                     }
                     .help("Open emergency information")
                 }
@@ -75,7 +75,15 @@ struct DashboardView: View {
         ZStack {
             ScrollView {
                 VStack(spacing: 20) {
-                    statusCard
+                    // Zone 1 - Hero Card
+                    HeroCardView(
+                        isAFActive: viewModel.currentStatus == .af,
+                        currentHR: viewModel.averageHR > 0 ? viewModel.averageHR : nil,
+                        lastEpisodeDuration: nil,
+                        episodesToday: viewModel.episodeCount,
+                        confidenceLevel: "Alta confianza",
+                        episodeStartDate: nil
+                    )
                     
                     metricsSection
                     
@@ -152,7 +160,7 @@ struct DashboardView: View {
         switch viewModel.currentStatus {
         case .normal: return Color.afOne.rhythmSinusal
         case .af: return Color.afOne.rhythmAF
-        case .unknown: return .gray
+        case .unknown: return Color(.systemGray)
         }
     }
 
@@ -178,7 +186,7 @@ struct DashboardView: View {
                 value: "\(viewModel.averageHR)",
                 subtitle: "bpm",
                 icon: "heart",
-                color: .blue
+                color: Color(.systemBlue)
             )
             
             MetricCardView(

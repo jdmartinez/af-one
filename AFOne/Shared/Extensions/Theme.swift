@@ -25,11 +25,11 @@ extension Color {
     static let afOne = AFOneColors()
     
     struct AFOneColors {
-        let rhythmSinusal = Color("RhythmSinusal")
-        let rhythmAF = Color("RhythmAF")
-        let burdenLow = Color("BurdenLow")
-        let burdenMid = Color("BurdenMid")
-        let burdenHigh = Color("BurdenHigh")
+        let rhythmSinusal = Color("AFOne/RhythmSinusal")
+        let rhythmAF = Color("AFOne/RhythmAF")
+        let burdenLow = Color("AFOne/BurdenLow")
+        let burdenMid = Color("AFOne/BurdenMid")
+        let burdenHigh = Color("AFOne/BurdenHigh")
         
         /// Returns the appropriate burden color based on percentage thresholds
         /// - Parameter percentage: The AF burden percentage (0-100)
@@ -49,9 +49,9 @@ extension Color {
 
 // MARK: - Status Colors
 enum AFStatusColor {
-    static let normal = Color.green
-    static let af = Color.red
-    static let unknown = Color.gray
+    static let normal = Color.afOne.rhythmSinusal
+    static let af = Color.afOne.rhythmAF
+    static let unknown = Color(.systemGray)
     
     static func color(for status: RhythmStatus) -> Color {
         switch status {
@@ -67,9 +67,9 @@ enum AFStatusColor {
 
 // MARK: - Heart Rate Colors
 enum HRColor {
-    static let normal = Color.green
-    static let elevated = Color.orange
-    static let high = Color.red
+    static let normal = Color.afOne.rhythmSinusal
+    static let elevated = Color.afOne.burdenMid
+    static let high = Color.afOne.rhythmAF
     
     static func color(for bpm: Int) -> Color {
         switch bpm {
@@ -99,8 +99,8 @@ enum BurdenColor {
 
 // MARK: - Chart Colors
 enum ChartColors {
-    static let primary = Color.blue
-    static let secondary = Color.purple
-    static let tertiary = Color.orange
+    static let primary = Color(.systemBlue)
+    static let secondary = Color(.systemPurple)
+    static let tertiary = Color.afOne.burdenMid
     static let background = Color(.systemGroupedBackground)
 }
