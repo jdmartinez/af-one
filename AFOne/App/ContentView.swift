@@ -1,90 +1,72 @@
 import SwiftUI
 import SwiftData
-import HealthKit
 
+/// Main content view with GlassBottomBar tab navigation
 struct ContentView: View {
-    @State private var selectedTab = 0
-    @State private var isAuthorized: Bool? = nil
-    @Environment(\.dismiss) private var dismiss
+    @State private var selectedTab: Int = 0
+    @State private var isTabBarVisible: Bool = true
     
     var body: some View {
-        Group {
-            if let authorized = isAuthorized {
-                if authorized {
-                    mainTabView
-                } else {
-                    AuthorizationView {
-                        isAuthorized = true
-                    }
-                }
+        ZStack(alignment: .bottom) {
+            // Tab content
+            TabView(selection: $selectedTab) {
+                DashboardView()
+                    .tag(0)
+                
+                TimelineView()
+                    .tag(1)
+                
+                EpisodeListView()
+                    .tag(2)
+                
+                MedicationsView()
+                    .tag(3)
+                
+                AnalysisView()
+                    .tag(4)
+                
+                TrendsView()
+                    .tag(5)
+                
+                MoreView()
+                    .tag(6)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            
+            // GlassBottomBar with collapse behavior
+            if #available(iOS 26.0, *) {
+                GlassBottomBar(
+                    selectedTab: $selectedTab,
+                    isVisible: isTabBarVisible
+                )
+                .opacity(isTabBarVisible ? 1 : 0)
+                .offset(y: isTabBarVisible ? 0 : 100)
+                .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
             } else {
-                ProgressView("Checking HealthKit...")
-                    .task {
-                        await checkAuthorization()
-                    }
+                // Fallback for older iOS versions
+                GlassBottomBar(
+                    selectedTab: $selectedTab,
+                    isVisible: isTabBarVisible
+                )
+                .opacity(isTabBarVisible ? 1 : 0)
+                .offset(y: isTabBarVisible ? 0 : 100)
+                .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
+            }
+        }
+        .onChange(of: selectedTab) { _, _ in
+            // Reset tab bar visibility when switching tabs
+            withAnimation(.easeInOut(duration: 0.3)) {
+                isTabBarVisible = true
             }
         }
     }
-    
-    private var mainTabView: some View {
-        TabView(selection: $selectedTab) {
-            DashboardView()
-                .tabItem {
-                    Label("Dashboard", systemImage: "house.fill")
-                }
-                .tag(0)
-
-            TimelineView()
-                .tabItem {
-                    Label("Timeline", systemImage: "chart.bar.xaxis")
-                }
-                .tag(1)
-
-            EpisodeListView()
-                .tabItem {
-                    Label("Episodes", systemImage: "heart.circle")
-                }
-                .tag(2)
-
-            MedicationsView()
-                .tabItem {
-                    Label("Medications", systemImage: "pills")
-                }
-                .tag(3)
-
-            AnalysisView()
-                .tabItem {
-                    Label("Analysis", systemImage: "chart.bar.fill")
-                }
-                .tag(4)
-
-            TrendsView()
-                .tabItem {
-                    Label("Trends", systemImage: "chart.line.uptrend.xyaxis")
-                }
-                .tag(5)
-
-            MoreView()
-                .tabItem {
-                    Label("More", systemImage: "ellipsis.circle")
-                }
-                .tag(6)
-        }
-        .tabViewStyle(.automatic)
-    }
-    
-    private func checkAuthorization() async {
-        let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)
-        let status = HKHealthStore().authorizationStatus(for: heartRateType!)
-        
-        if status == .sharingAuthorized {
-            isAuthorized = true
-        } else {
-            isAuthorized = false
-        }
-    }
 }
 
+// MARK: - Preview
+
+#if DEBUG
 #Preview {
     ContentView()
+        .modelContainer(for: [SymptomLog.self, TriggerLog.self])
 }
+#endif

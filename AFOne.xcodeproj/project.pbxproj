@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DATEXXX001 /* DateFormatter+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DATEXXX002 /* DateFormatter+Localization.swift */; };
+		GLASXXX001 /* GlassBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = GLASXXX002 /* GlassBottomBar.swift */; };
 		01DE3D47DBEA900284FC528A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E50BC486643ED2B0CDC04 /* DashboardView.swift */; };
 		0D40C0D2CE9855D82AFD5712 /* MedicationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F915648BB1A4B706D8C708 /* MedicationsViewModel.swift */; };
 		1300A1D84E5F25408023BE7E /* TrendAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44391F375C1EECE4D9C9E3A /* TrendAnalyzer.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DATEXXX002 /* DateFormatter+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Localization.swift"; sourceTree = "<group>"; };
+		GLASXXX002 /* GlassBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassBottomBar.swift; sourceTree = "<group>"; };
 		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A76A90575E021B1B5F376F /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		1A80937961C1778BCABC74DA /* SymptomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomChip.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 		EXTENSXX001 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DATEXXX002 /* DateFormatter+Localization.swift */,
 				THEMEXX0001 /* Theme.swift */,
 			);
 			path = Extensions;
@@ -313,6 +318,7 @@
 		FFAA4D619D9A6055327FC90C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				GLASXXX002 /* GlassBottomBar.swift */,
 				BDC26E18F8AB928C9F83D522 /* BurdenChartView.swift */,
 				F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */,
 				1A80937961C1778BCABC74DA /* SymptomChip.swift */,
@@ -380,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DATEXXX001 /* DateFormatter+Localization.swift in Sources */,
 				DF3E601061D6FF8E4677CEC8 /* AFBurden.swift in Sources */,
 				8E4C13810A352DCC870DFFD1 /* AFBurdenCalculator.swift in Sources */,
 				3CB4408329091630A31B7C67 /* AFOneApp.swift in Sources */,
@@ -394,6 +401,7 @@
 				860B32020D84E989ADB36206 /* DashboardViewModel.swift in Sources */,
 				D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */,
 				A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */,
+				GLASXXX001 /* GlassBottomBar.swift in Sources */,
 				D74723902905C5C12719AD4C /* EpisodeDetailView.swift in Sources */,
 				5248781853ED15B7FDF70404 /* EpisodeListView.swift in Sources */,
 				55930977A761A617721A059E /* HealthKitService.swift in Sources */,
