@@ -4,6 +4,7 @@ import Charts
 struct DashboardView: View {
     @State private var viewModel = DashboardViewModel()
     @State private var showLogSheet = false
+    @State private var selectedBurdenPeriod: BurdenTimePeriod = .week
 
     var body: some View {
         NavigationStack {
@@ -200,54 +201,26 @@ struct DashboardView: View {
     }
 
     private var burdenSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Header with title and period picker
-            HStack {
-                Text("AF Burden")
-                    .font(.headline)
-                
-                Spacer()
-                
-                Picker("Period", selection: $viewModel.selectedPeriod) {
-                    ForEach(TimePeriod.allCases) { period in
-                        Text(period.rawValue).tag(period)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .frame(width: 180)
-                .onChange(of: viewModel.selectedPeriod) { _, _ in
-                    Task {
-                        await viewModel.loadBurden()
-                    }
-                }
-            }
-            
-            HStack(alignment: .firstTextBaseline, spacing: 4) {
-                Text(String(format: "%.1f", viewModel.currentBurden))
-                    .font(.system(size: 36, weight: .bold))
-                    .foregroundStyle(Color.accentColor)
-                Text("%")
-                    .font(.title3)
-                    .foregroundStyle(.secondary)
-                
-                Spacer()
-                
-                HStack(spacing: 4) {
-                    Image(systemName: viewModel.burdenTrendIcon)
-                    Text(viewModel.burdenTrend.description)
-                }
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-            }
-            
-            if !viewModel.burdenData.isEmpty {
-                BurdenChartView(data: viewModel.burdenData, period: viewModel.selectedPeriod)
-                    .frame(height: 150)
+        BurdenCardView(
+            burdenPercentage: viewModel.currentBurden,
+            selectedPeriod: $selectedBurdenPeriod,
+            burdenTrend: burdenTrendValue,
+            episodesToday: viewModel.episodeCount
+        )
+        .onChange(of: selectedBurdenPeriod) { _, newValue in
+            Task {
+                viewModel.selectedPeriod = newValue.timePeriod
+                await viewModel.loadBurden()
             }
         }
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+    
+    private var burdenTrendValue: Double {
+        switch viewModel.burdenTrend {
+        case .increasing: return 2.5
+        case .decreasing: return -2.5
+        case .stable: return 0.0
+        }
     }
 
     private var burdenColor: Color {
