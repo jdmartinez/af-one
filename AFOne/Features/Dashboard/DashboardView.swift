@@ -93,27 +93,16 @@ struct DashboardView: View {
                     if !viewModel.recentEpisodes.isEmpty {
                         recentEpisodesSection
                     }
+                    
+                    // Zone 5 - Symptom Capture Button
+                    SymptomCaptureButton(
+                        showLogSheet: $showLogSheet,
+                        isAFActive: viewModel.currentStatus == .af
+                    )
+                    .padding(.bottom, 32)
                 }
                 .padding()
             }
-        
-            VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: { showLogSheet = true }) {
-                            Image(systemName: "plus")
-                                .font(.title2.weight(.semibold))
-                                .foregroundStyle(.white)
-                                .frame(width: 56, height: 56)
-                                .background(Color.accentColor)
-                                .clipShape(Circle())
-                                .shadow(color: .black.opacity(0.2), radius: 4, y: 2)
-                        }
-                        .padding(.trailing, 20)
-                        .padding(.bottom, 20)
-                    }
-                }
         }
     }
 
