@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DATEXXX001 /* DateFormatter+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DATEXXX002 /* DateFormatter+Localization.swift */; };
-		GLASXXX001 /* GlassBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = GLASXXX002 /* GlassBottomBar.swift */; };
 		01DE3D47DBEA900284FC528A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E50BC486643ED2B0CDC04 /* DashboardView.swift */; };
 		0D40C0D2CE9855D82AFD5712 /* MedicationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F915648BB1A4B706D8C708 /* MedicationsViewModel.swift */; };
 		1300A1D84E5F25408023BE7E /* TrendAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44391F375C1EECE4D9C9E3A /* TrendAnalyzer.swift */; };
@@ -38,21 +36,21 @@
 		A148A8D9EC2771B360CF2B67 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A76A90575E021B1B5F376F /* LogView.swift */; };
 		A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F0EC693B8E734A6322A15 /* EmergencyView.swift */; };
 		A30E1CAAB40B3D85632531E9 /* TriggerChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64DFE11591E4F93E9428283 /* TriggerChip.swift */; };
-		THEMEXX0002 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = THEMEXX0001 /* Theme.swift */; };
 		B4B1E8CB463408DEE3975831 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1588708678410AD18895EE1 /* AuthorizationView.swift */; };
 		B826462CEA78CBBCBB8D0634 /* SymptomLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */; };
 		BB1224BEEC59F80B39BF4C88 /* AnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FC38CF0473C462CF0C45BC /* AnalysisViewModel.swift */; };
 		D74723902905C5C12719AD4C /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */; };
 		D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */; };
+		DATEXXX001 /* DateFormatter+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DATEXXX002 /* DateFormatter+Localization.swift */; };
 		DB178EBD4B5CA4FA57D9F7D3 /* CorrelationAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA63DC2C043A734ECE8A5D25 /* CorrelationAnalyzer.swift */; };
 		DD6C18AF8A6CB1CDE244C69B /* BurdenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC26E18F8AB928C9F83D522 /* BurdenChartView.swift */; };
 		DF3E601061D6FF8E4677CEC8 /* AFBurden.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C65B5EE473D9B5807E9950 /* AFBurden.swift */; };
+		GLASXXX001 /* GlassBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = GLASXXX002 /* GlassBottomBar.swift */; };
+		THEMEXX0002 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = THEMEXX0001 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DATEXXX002 /* DateFormatter+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Localization.swift"; sourceTree = "<group>"; };
-		GLASXXX002 /* GlassBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassBottomBar.swift; sourceTree = "<group>"; };
-		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A76A90575E021B1B5F376F /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		1A80937961C1778BCABC74DA /* SymptomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomChip.swift; sourceTree = "<group>"; };
 		225E50BC486643ED2B0CDC04 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -83,6 +81,7 @@
 		CF391E1534AC018CE4C92554 /* EpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
 		D5C65B5EE473D9B5807E9950 /* AFBurden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFBurden.swift; sourceTree = "<group>"; };
 		D705BBF7796F3EEBE7EE56E6 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		DATEXXX002 /* DateFormatter+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Localization.swift"; sourceTree = "<group>"; };
 		DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
 		E0DE80436C920EEE5D60EF3E /* RhythmEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmEpisode.swift; sourceTree = "<group>"; };
 		E44391F375C1EECE4D9C9E3A /* TrendAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendAnalyzer.swift; sourceTree = "<group>"; };
@@ -90,8 +89,9 @@
 		E62755871BCD58AC3A841A86 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		E64DFE11591E4F93E9428283 /* TriggerChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerChip.swift; sourceTree = "<group>"; };
 		F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
-		THEMEXX0001 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomLog.swift; sourceTree = "<group>"; };
+		GLASXXX002 /* GlassBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassBottomBar.swift; sourceTree = "<group>"; };
+		THEMEXX0001 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -271,6 +271,15 @@
 			path = Episodes;
 			sourceTree = "<group>";
 		};
+		EXTENSXX001 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DATEXXX002 /* DateFormatter+Localization.swift */,
+				THEMEXX0001 /* Theme.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F1F904CEB807D729695BDCE1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,15 +304,6 @@
 				FFAA4D619D9A6055327FC90C /* Components */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		EXTENSXX001 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DATEXXX002 /* DateFormatter+Localization.swift */,
-				THEMEXX0001 /* Theme.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F7E7FD2E00BF3DD12D357B26 /* App */ = {
@@ -354,7 +354,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					94A7B6785E0B102F906E737A = {
 						DevelopmentTeam = "";
@@ -473,6 +473,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -495,6 +496,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.9;
@@ -590,6 +592,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -605,6 +608,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;

@@ -20,8 +20,34 @@ extension Color {
     static var cardShadow: Color {
         Color.primary.opacity(0.1)
     }
+    
+    // MARK: - AFOne Brand Colors
+    static let afOne = AFOneColors()
+    
+    struct AFOneColors {
+        let rhythmSinusal = Color("RhythmSinusal")
+        let rhythmAF = Color("RhythmAF")
+        let burdenLow = Color("BurdenLow")
+        let burdenMid = Color("BurdenMid")
+        let burdenHigh = Color("BurdenHigh")
+        
+        /// Returns the appropriate burden color based on percentage thresholds
+        /// - Parameter percentage: The AF burden percentage (0-100)
+        /// - Returns: The corresponding burden color (low < 5.5%, mid 5.5-10.9%, high >= 11%)
+        func burdenColor(for percentage: Double) -> Color {
+            switch percentage {
+            case ..<5.5:
+                return burdenLow
+            case 5.5..<11.0:
+                return burdenMid
+            default:
+                return burdenHigh
+            }
+        }
+    }
 }
 
+// MARK: - Status Colors
 enum AFStatusColor {
     static let normal = Color.green
     static let af = Color.red
@@ -39,6 +65,7 @@ enum AFStatusColor {
     }
 }
 
+// MARK: - Heart Rate Colors
 enum HRColor {
     static let normal = Color.green
     static let elevated = Color.orange
@@ -58,26 +85,19 @@ enum HRColor {
     }
 }
 
+// MARK: - Burden Colors (legacy - use Color.afOne.burdenColor instead)
 enum BurdenColor {
-    static let low = Color.green
-    static let moderate = Color.yellow
-    static let high = Color.orange
-    static let veryHigh = Color.red
+    static let low = Color.afOne.burdenLow
+    static let moderate = Color.afOne.burdenMid
+    static let high = Color.afOne.burdenMid
+    static let veryHigh = Color.afOne.burdenHigh
     
     static func color(for burden: Double) -> Color {
-        switch burden {
-        case ..<1:
-            return low
-        case 1..<5:
-            return moderate
-        case 5..<10:
-            return high
-        default:
-            return veryHigh
-        }
+        return Color.afOne.burdenColor(for: burden)
     }
 }
 
+// MARK: - Chart Colors
 enum ChartColors {
     static let primary = Color.blue
     static let secondary = Color.purple

@@ -150,8 +150,8 @@ struct DashboardView: View {
 
     private var statusColor: Color {
         switch viewModel.currentStatus {
-        case .normal: return .green
-        case .af: return .red
+        case .normal: return Color.afOne.rhythmSinusal
+        case .af: return Color.afOne.rhythmAF
         case .unknown: return .gray
         }
     }
@@ -170,7 +170,7 @@ struct DashboardView: View {
                 value: "\(viewModel.episodeCount)",
                 subtitle: "Last 7 days",
                 icon: "heart.circle",
-                color: .red
+                color: Color.afOne.rhythmAF
             )
             
             MetricCardView(
@@ -243,10 +243,7 @@ struct DashboardView: View {
     }
 
     private var burdenColor: Color {
-        if viewModel.afBurden < 1 { return .green }
-        if viewModel.afBurden < 5 { return .yellow }
-        if viewModel.afBurden < 20 { return .orange }
-        return .red
+        return Color.afOne.burdenColor(for: viewModel.afBurden)
     }
 
     private var recentEpisodesSection: some View {
