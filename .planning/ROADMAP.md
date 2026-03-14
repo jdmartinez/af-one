@@ -83,7 +83,7 @@
 | 4. UI Enhancements | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 5. Theme & Dashboard | v0.2 | 6/5 | Complete | 2026-03-14 |
 | 6. Polish & Localization | v0.2 | 2/2 | Complete | 2026-03-14 |
-| 7. Dashboard Redesign | v1.0 | 2/7 | In Progress | - |
+| 7. Dashboard Redesign | v1.0 | 3/7 | In Progress | - |
 
 **Plans:**
 - [x] 06-01: Liquid Glass tab bar with collapse
@@ -101,7 +101,7 @@
 **Plan breakdown:**
 - [x] 07-02: Color Assets & Theme System
 - [x] 07-03: Hero Card (Zone 1)
-- [ ] 07-04: AF Burden Card (Zone 2)
+- [x] 07-04: AF Burden Card (Zone 2)
 - [ ] 07-05: 24h Rhythm Map (Zone 3)
 - [ ] 07-06: Clinical Metrics Grid (Zone 4)
 - [ ] 07-07: Symptom Capture Button (Zone 5)
