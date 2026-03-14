@@ -18,7 +18,7 @@ extension Color {
     }
     
     static var cardShadow: Color {
-        Color.black.opacity(0.1)
+        Color.primary.opacity(0.1)
     }
 }
 

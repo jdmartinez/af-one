@@ -8,12 +8,16 @@ AFOne is an iOS application that helps patients with **paroxysmal atrial fibrill
 
 Transform Apple Watch heart rhythm data into clear, clinically meaningful insights that help PAF patients understand their condition, recognize patterns, and communicate effectively with their cardiologist.
 
-## Current State
+## Current Milestone: v0.2 (UI Enhancements)
 
-**Shipped:** v0.1 Alpha (2026-03-13)
-- 4 phases, 20 plans, 73 files, +7,780 LOC Swift
-- Core display, user input, analysis, and UI enhancements complete
-- See .planning/milestones/v0.1-ROADMAP.md for details
+**Goal:** Improve UI/UX with iOS-native appearance, localization, and polish
+
+**Target features:**
+- Make UI compatible with iOS dark and light theme
+- Redesign dashboard cards with Health app-like UI
+- Remove duplicate back button in More views
+- Implement collapsible Liquid Glass tab bar
+- Localize the app based on iOS language
 
 ## Requirements
 
@@ -31,15 +35,15 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 - ✓ HealthKit integration
 - ✓ Notifications for AF episodes
 
-### Active (v1.0 MVP)
+### Active (v0.2 UI Enhancements)
 
-- [ ] Multi-window AF burden analysis (daily, weekly, monthly)
-- [ ] Advanced timeline pattern detection (nocturnal, clusters)
-- [ ] Symptom-rhythm correlation analysis
-- [ ] Medication awareness from health records
-- [ ] Long-term trends (6-month, 1-year views)
-- [ ] Clinical report generation for cardiologist
-- [ ] Enhanced notifications (long episodes, burden changes)
+- [ ] Make UI compatible with iOS dark and light theme
+- [ ] Redesign dashboard cards with Health app-like UI
+- [ ] Remove duplicate back button in More views
+- [ ] Implement collapsible Liquid Glass tab bar
+- [ ] Localize the app based on iOS language
+
+### Future (v1.0 MVP)
 
 ### Out of Scope
 
@@ -70,4 +74,4 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 
 ---
 
-*Last updated: 2026-03-13 after v0.1 Alpha milestone*
+*Last updated: 2026-03-13 for v0.2 UI Enhancements milestone*
