@@ -50,6 +50,7 @@ struct ReportView: View {
                 await viewModel.generateReport()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: - View Components

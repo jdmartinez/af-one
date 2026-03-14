@@ -23,11 +23,7 @@ struct DashboardView: View {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .foregroundStyle(.orange)
                     }
-                }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: refresh) {
-                        Image(systemName: "arrow.clockwise")
-                    }
+                    .help("Open emergency information")
                 }
             }
             .refreshable {
@@ -140,9 +136,8 @@ struct DashboardView: View {
                 .foregroundStyle(.tertiary)
         }
         .padding()
-        .background(Color.cardBackground)
-        .cornerRadius(12)
-        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
     private var statusIcon: String {
@@ -162,10 +157,7 @@ struct DashboardView: View {
     }
 
     private var metricsSection: some View {
-        LazyVGrid(columns: [
-            GridItem(.flexible()),
-            GridItem(.flexible())
-        ], spacing: 12) {
+        LazyVStack(spacing: 12) {
             MetricCardView(
                 title: "AF Burden",
                 value: String(format: "%.1f%%", viewModel.afBurden),
@@ -201,6 +193,7 @@ struct DashboardView: View {
 
     private var burdenSection: some View {
         VStack(alignment: .leading, spacing: 12) {
+            // Header with title and period picker
             HStack {
                 Text("AF Burden")
                     .font(.headline)
@@ -213,7 +206,7 @@ struct DashboardView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .frame(width: 200)
+                .frame(width: 180)
                 .onChange(of: viewModel.selectedPeriod) { _, _ in
                     Task {
                         await viewModel.loadBurden()
@@ -245,9 +238,8 @@ struct DashboardView: View {
             }
         }
         .padding()
-        .background(Color.cardBackground)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
     private var burdenColor: Color {
@@ -274,9 +266,8 @@ struct DashboardView: View {
             }
         }
         .padding()
-        .background(Color.cardBackground)
-        .cornerRadius(12)
-        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
     private func refresh() {
@@ -295,31 +286,40 @@ struct MetricCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Image(systemName: icon)
-                    .foregroundStyle(color)
-                Text(title)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-
-            HStack(alignment: .firstTextBaseline, spacing: 2) {
-                Text(value)
-                    .font(.title2)
-                    .fontWeight(.bold)
-
-                if let subtitle = subtitle {
-                    Text(subtitle)
+            // Header: colored circle icon + title on left, value on right
+            HStack(alignment: .firstTextBaseline) {
+                HStack(spacing: 6) {
+                    ZStack {
+                        Circle()
+                            .fill(color)
+                            .frame(width: 10, height: 10)
+                        Image(systemName: icon)
+                            .font(.system(size: 6))
+                            .foregroundStyle(.white)
+                    }
+                    Text(title)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
+                
+                Spacer()
+                
+                Text(value)
+                    .font(.system(size: 34, weight: .bold))
+            }
+            
+            // Optional subtitle
+            if let subtitle = subtitle {
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
         }
-        .padding()
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.cardBackground)
-        .cornerRadius(12)
-        .shadow(color: .cardShadow, radius: 2, x: 0, y: 1)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 

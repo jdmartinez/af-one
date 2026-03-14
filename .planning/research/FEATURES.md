@@ -171,3 +171,92 @@ Features to defer until product-market fit is established.
 ---
 *Feature research for: iOS Heart Rhythm Monitoring / AFib Tracking*
 *Researched: 2026-03-10*
+
+---
+
+# v0.2 UI Enhancements — Feature Research
+
+## Feature Categories
+
+### UI Polish (Table Stakes)
+
+Features users expect from any modern iOS app.
+
+| Feature | Why Expected | Complexity | Notes |
+|---------|--------------|------------|-------|
+| Dark/Light theme support | Half of iOS users prefer dark mode | LOW | Use semantic colors, test both modes |
+| Health app-like dashboard | Familiar patterns from Apple Health | MEDIUM | Cards, icons, semantic colors |
+| Proper navigation | No redundant UI elements | LOW | Remove duplicate back buttons |
+| Localization | Global user base expects native language | MEDIUM | String Catalogs, test RTL |
+
+### Modern UI (Differentiators)
+
+Features that make the app feel premium and modern.
+
+| Feature | Value Proposition | Complexity | Notes |
+|---------|-------------------|------------|-------|
+| Liquid Glass tab bar | iOS 26 native look and feel | MEDIUM | Use `.glassEffect()`, test collapse |
+| Smooth animations | Premium feel | LOW | Test all transitions |
+
+## Expected Behaviors
+
+### Dark/Light Theme
+- App automatically matches system appearance
+- All custom colors have dark variants in asset catalogs
+- No jarring transitions when switching modes
+- Semantic colors used throughout (`.primary`, `.background`)
+
+### Dashboard Redesign
+- Cards with clear titles and icons
+- Semantic coloring (green=normal, red=alert)
+- Period picker inside card header
+- Proper spacing and hierarchy
+- Pull-to-refresh sufficient (no extra reload button)
+
+### Navigation
+- No duplicate back buttons in sub-views
+- Proper NavigationStack usage
+- Appropriate back button labels
+
+### Liquid Glass Tab Bar
+- Default collapsed showing prominent Dashboard
+- Expands on tap to show all tabs
+- Uses iOS 26 `.glassEffect()` or native TabView
+- Animates between states
+- Content scrolls under tab bar
+
+### Localization
+- All user-facing strings in String Catalog
+- Dates/times use device locale
+- RTL support for future languages
+- Test with longer translations (German, French)
+
+## Feature Dependencies
+
+```
+Dark/Light Theme
+    └──requires──> Asset catalog colors (Any, Dark)
+    └──requires──> Semantic color usage throughout
+
+Dashboard Redesign
+    └──requires──> Dark/Light Theme (consistent in both)
+    └──requires──> Existing DashboardView.swift
+
+Navigation Fixes
+    └──requires──> Code review of MoreView, ReportView
+
+Liquid Glass Tab Bar
+    └──requires──> iOS 26+ target (or graceful fallback)
+    └──requires──> Existing TabView structure
+
+Localization
+    └──requires──> String Catalog file
+    └──requires──> All strings wrapped in Text() or String(localized:)
+```
+
+## Sources
+
+- [Apple Health App Design](https://developer.apple.com/design/human-interface-guidelines/healthkit) — HIGH confidence
+- [WWDC25 Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/323/) — HIGH confidence
+- [iOS Dark Mode Best Practices](https://medium.com/@chandra.welim/dark-mode-implement-it-right-or-dont-implement-it-at-all-9960616ce1b7) — HIGH confidence
+- [SwiftUI Localization](https://intlpull.com/blog/swift-ios-localization-complete-guide-2026) — HIGH confidence

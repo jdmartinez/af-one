@@ -358,3 +358,193 @@
 - How aggressively can we cache HealthKit data locally without violating privacy constraints?
 - What's realistic AF burden calculation accuracy with opportunistic sampling?
 - Should we attempt background refresh or rely on foreground-only?
+
+---
+
+# v0.2 UI Enhancements — Common Pitfalls
+
+## Critical Pitfalls
+
+### 1. Hardcoded Colors Breaking Dark Mode
+
+**What goes wrong:** App looks broken in dark mode — white text on white background, invisible buttons.
+
+**Why it happens:**
+- Using `.foregroundColor(.white)` or `.foregroundColor(.black)` directly
+- Using RGB values like `Color(red: 0.5, green: 0.5, blue: 0.5)` without dark variants
+- Not testing both modes during development
+
+**Consequences:**
+- Half your users have broken UI
+- App Store reviews complaining about dark mode
+- Professional appearance damaged
+
+**Prevention:**
+- Always use semantic colors: `.primary`, `.secondary`, `.background`
+- Create asset catalog colors with "Any, Dark" appearances
+- Test with Simulator's Environment Overrides (Shift+Cmd+A)
+- Use `@Environment(\.colorScheme)` for conditional styling only when necessary
+
+**Warning signs:**
+- Color literals like `.white`, `.black`, `.gray` in code
+- No dark mode testing before release
+
+**Phase:** UI Theme — This must be foundational.
+
+---
+
+### 2. Liquid Glass Applied to Wrong Elements
+
+**What goes wrong:** Glass effect on content views instead of navigation layer, creating visual confusion.
+
+**Why it happens:**
+- Applying `.glassEffect()` to cards, list items, or content
+- Apple specifies: "Liquid Glass is best reserved for the navigation layer"
+- Putting glass on glass creates visual artifacts
+
+**Consequences:**
+- UI looks cluttered and non-native
+- Performance issues from too many glass layers
+- Violates Apple Human Interface Guidelines
+
+**Prevention:**
+- Apply glass only to: Tab bars, toolbars, floating buttons, sheets
+- Never apply to: Cards, list items, content containers
+- Use native TabView behavior — iOS 26 applies glass automatically
+- If using custom navigation, wrap in `GlassEffectContainer`
+
+**Warning signs:**
+- Multiple `.glassEffect()` modifiers in content views
+- Glass appearing "stacked"
+
+**Phase:** Liquid Glass implementation
+
+---
+
+### 3. Localization Done Wrong
+
+**What goes wrong:** Layout breaks with longer translations, text truncated, strings not translated.
+
+**Why it happens:**
+- Hardcoded strings instead of `Text("key")`
+- Fixed-width frames that don't accommodate translation length
+- No String Catalog file
+- Not using device locale for dates/numbers
+
+**Consequences:**
+- German/French users see English text
+- Text overflow or truncation
+- Poor international user experience
+
+**Prevention:**
+- Use String Catalog (`.xcstrings`) for all user-facing text
+- Test with longer translations (add "LONG" variant)
+- Use flexible layouts — avoid `.frame(width: 120)`
+- Use `.leading`/`.trailing` instead of `.left`/`.right`
+- Use `Text(date, format:)` for locale-aware dates
+
+**Warning signs:**
+- String literals in views
+- Fixed-width frames
+- Manual date formatting
+
+**Phase:** Localization implementation
+
+---
+
+## Moderate Pitfalls
+
+### 4. Duplicate Navigation Elements
+
+**What goes wrong:** Redundant back buttons, duplicate toolbars, navigation confusion.
+
+**Why it happens:**
+- Mixing `NavigationLink` with manual back button
+- Using `.navigationBarBackButtonHidden(true)` incorrectly
+- Presenting sheets incorrectly in navigation stack
+
+**Consequences:**
+- Users confused about navigation
+- Ugly UI with duplicate elements
+- iOS 26 may be stricter about this
+
+**Prevention:**
+- Use standard NavigationStack patterns
+- Prefer `.toolbar { NavigationLinkBackButton }` for custom back
+- Test navigation on all screen sizes
+
+**Warning signs:**
+- Two back buttons visible
+- Unexpected "Back" text
+- Sheet appearing incorrectly
+
+**Phase:** Navigation fixes
+
+---
+
+### 5. iOS Version Compatibility
+
+**What goes wrong:** iOS 26 APIs crash on iOS 18/19 devices, or graceful degradation fails.
+
+**Why it happens:**
+- Using `.glassEffect()` without availability checks
+- Not testing on older iOS versions
+- Assuming all users upgrade immediately
+
+**Consequences:**
+- App crashes on older devices
+- Poor App Store reviews
+- Excludes users on older iOS
+
+**Prevention:**
+- Use `#available(iOS 26, *)` checks for new APIs
+- Provide fallback UI for older iOS
+- Test minimum deployment target regularly
+- Consider: What's your minimum iOS version?
+
+**Warning signs:**
+- No availability annotations on iOS 26 APIs
+- Only testing on latest iOS
+
+**Phase:** Liquid Glass implementation
+
+---
+
+### 6. Theme Toggle Confusion
+
+**What goes wrong:** User sets theme preference, but app doesn't respect it or toggles unexpectedly.
+
+**Why it happens:**
+- Not persisting theme preference in UserDefaults
+- Conflicting `.preferredColorScheme` modifiers
+- System appearance changes not handled
+
+**Consequences:**
+- User frustration with theme switching
+- App appears "broken" or unresponsive
+
+**Prevention:**
+- Use `@AppStorage` for theme preference
+- Apply `.preferredColorScheme` at root level only
+- Consider: System-only is simplest (no custom toggle)
+
+**Phase:** Theme implementation
+
+---
+
+## Phase-Specific Warnings
+
+| Phase | Likely Pitfall | Mitigation |
+|-------|---------------|------------|
+| Dark/Light Theme | #1, #6 | Use semantic colors, test both modes |
+| Dashboard Redesign | #1 | Test card appearance in dark mode |
+| Navigation Fixes | #4 | Use standard NavigationStack patterns |
+| Liquid Glass | #2, #5 | Apply only to navigation layer, add availability checks |
+| Localization | #3 | Use String Catalog, test with long strings |
+
+## Sources
+
+- [Apple WWDC25 Liquid Glass Guidelines](https://developer.apple.com/videos/play/wwdc2025/323/) — HIGH confidence
+- [SwiftUI Dark Mode Best Practices](https://medium.com/@chandra.welim/dark-mode-implement-it-right-or-dont-implement-it-at-all-9960616ce1b7) — HIGH confidence
+- [iOS Localization Tutorial](https://crowdin.com/blog/ios-localization) — HIGH confidence
+- [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) — **PRIMARY REFERENCE**

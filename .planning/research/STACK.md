@@ -1,7 +1,7 @@
 # Technology Stack
 
 **Project:** AFOne - iOS Heart Rhythm Monitoring App
-**Researched:** 2026-03-10
+**Researched:** 2026-03-10, updated 2026-03-13 for v0.2
 **Confidence:** HIGH
 
 ## Recommended Stack
@@ -127,3 +127,60 @@ Given AFOne targets users who own Apple Watch (Series 4+ for ECG, Series 1+ for 
 - [DGCharts Swift Package Index](https://swiftpackageindex.com/ChartsOrg/Charts) — MEDIUM confidence (community library)
 - [iOS Architecture 2025](https://medium.com/@rashadsh/mvvm-vs-viper-vs-tca-best-architecture-for-your-next-app-159e11e333e9) — MEDIUM confidence (community article)
 - [SwiftUI HealthKit Integration](https://www.createwithswift.com/reading-data-from-healthkit-in-a-swiftui-app/) — MEDIUM confidence (tutorial)
+
+---
+
+# v0.2 UI Enhancements — Stack Additions
+
+## iOS 26 Liquid Glass
+
+- **API:** `.glassEffect()` modifier — applies Liquid Glass material to any view
+- **Variants:** `.regular` (standard), `.clear` (specialized), `.interactive` (touch feedback)
+- **Shape:** Custom shapes via `in: Shape` parameter (RoundedRectangle, Capsule, Circle)
+- **Tint:** `.tint()` for accent coloring on glass surfaces
+- **Container:** `GlassEffectContainer` for grouping multiple glass elements
+- **Collapse on scroll:** `tabBarMinimizeBehavior(.onScroll)` for iPhone tab bars
+- **Key Point:** Use native SwiftUI — iOS 26 automatically applies Liquid Glass to TabView
+
+## Dark/Light Theme Support
+
+- **Semantic Colors:** `.primary`, `.secondary`, `.background`, `.systemBackground`
+- **Environment:** `@Environment(\.colorScheme) var colorScheme`
+- **Asset Catalogs:** Create Color Sets with "Any, Dark" appearances for custom adaptive colors
+- **Override:** `.preferredColorScheme(.dark)` / `.light` / `nil` (system)
+- **Key Point:** Use asset catalog colors with Any/Dark variants, avoid hardcoded colors
+
+## Localization
+
+- **String Catalogs:** `.xcstrings` format — Xcode's recommended approach
+- **API:** `String(localized:)`, `Text("key")`, `LocalizedStringKey`
+- **Environment:** `@Environment(\.locale) var locale`
+- **RTL:** Use `.leading`/`.trailing` instead of `.left`/`.right`, `layoutDirection` environment
+- **Pluralization:** Use `.stringsdict` for complex plural rules
+
+## What NOT to Add
+
+| Pattern | Avoid | Use Instead |
+|---------|-------|-------------|
+| Manual blur | Custom UIVisualEffectView | Native `.glassEffect()` |
+| Custom nav | Custom tab implementations | NavigationStack/TabView |
+| Hardcoded colors | `.red`, `.blue`, `.white` | Semantic colors, asset catalogs |
+| Raw strings | `NSLocalizedString` | String Catalogs `.xcstrings` |
+
+## Integration Points
+
+| Feature | Existing Code | Integration |
+|---------|--------------|-------------|
+| Dark/Light theme | ColorScheme (existing) | Add asset catalog colors, review all hardcoded colors |
+| Dashboard redesign | DashboardView.swift | Restyle cards, add semantic colors |
+| Liquid Glass tab | TabView (existing) | Add `.glassEffect()` to custom tabs, test collapse behavior |
+| Localization | All Views | Add String Catalog, wrap strings |
+| Navigation fixes | MoreView, ReportView | Review navigation structure |
+
+## Sources
+
+- [Apple WWDC25 - Build a SwiftUI app with the new design](https://developer.apple.com/videos/play/wwdc2025/323/) — HIGH confidence
+- [Liquid Glass SwiftUI Guide](https://swiftcrafted.dev/article/mastering-liquid-glass-swiftui-complete-guide-ios-26-design-language) — HIGH confidence
+- [SwiftUI Dark Mode Best Practices](https://medium.com/@chandra.welim/dark-mode-implement-it-right-or-dont-implement-it-at-all-9960616ce1b7) — HIGH confidence
+- [iOS Localization with SwiftUI](https://intlpull.com/blog/swift-ios-localization-complete-guide-2026) — HIGH confidence
+- **[Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) — PRIMARY REFERENCE**

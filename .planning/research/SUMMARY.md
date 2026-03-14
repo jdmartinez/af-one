@@ -193,3 +193,52 @@ Phases with standard patterns (skip research-phase):
 
 *Research completed: 2026-03-10*
 *Ready for roadmap: yes*
+
+---
+
+# v0.2 UI Enhancements — Research Summary
+
+## Executive Summary
+
+v0.2 focuses on UI polish: dark/light theme support, dashboard redesign, navigation fixes, Liquid Glass tab bar, and localization. These are presentation-layer improvements that don't change the data architecture.
+
+## Key Findings
+
+### Stack Additions
+
+| Feature | Technology | Notes |
+|---------|-----------|-------|
+| Dark/Light Theme | Semantic colors, Asset Catalogs | Use `.primary`, `.background`, create Color Sets with "Any, Dark" |
+| Liquid Glass | `.glassEffect()` (iOS 26) | Apply only to navigation layer; native TabView gets it automatically |
+| Localization | String Catalogs (`.xcstrings`) | Wrap all strings; use device locale for dates |
+| Navigation | Standard NavigationStack | Avoid duplicate back buttons |
+
+### Feature Table Stakes
+
+- Dark/Light theme support — Expected by half of iOS users
+- Health app-like dashboard — Familiar patterns from Apple Health
+- Proper navigation — No redundant UI elements
+
+### Differentiators
+
+- Liquid Glass tab bar — iOS 26 native look and feel
+- Localization support — Global user base
+
+## Watch Out For
+
+1. **Hardcoded colors break dark mode** — Use semantic colors, test both modes
+2. **Glass on wrong elements** — Only on navigation layer, not content
+3. **Layout breaks with translations** — Use flexible layouts, test longer strings
+4. **iOS 26 APIs crash on older iOS** — Use availability checks
+
+## Build Order
+
+1. Theme foundation (asset catalog colors)
+2. Dashboard redesign
+3. Navigation fixes
+4. Liquid Glass tab bar
+5. Localization
+
+---
+
+*Research updated: 2026-03-13 for v0.2*

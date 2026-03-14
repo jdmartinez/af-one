@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v0.2
 milestone_name: UI Enhancements
-status: not_started
-last_updated: "2026-03-13T19:30:00.000Z"
+status: in_progress
+last_updated: "2026-03-13T19:45:00.000Z"
 progress:
-  total_phases: 0
+  total_phases: 2
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -24,13 +24,13 @@ progress:
 
 ## Current Position
 
-**Phase:** Not started (defining requirements)
+**Phase:** 5 - Theme & Dashboard Redesign
 
-**Plan:** —
+**Plan:** Context complete
 
-**Status:** Defining requirements
+**Status:** v0.2 milestone in progress
 
-**Progress:** [............] 0%
+**Progress:** [............] 0% (0/2 phases)
 
 ---
 
@@ -38,10 +38,10 @@ progress:
 
 | Metric | Value |
 |--------|-------|
-| v1 Requirements | 43 |
-| Mapped to Phases | 43 |
-| Phase Count | 3 |
-| Granularity | Coarse |
+| v0.2 Requirements | 5 |
+| Mapped to Phases | 5 |
+| Phase Count | 2 |
+| Granularity | Standard |
 
 ---
 
@@ -104,3 +104,6 @@ None identified yet.
 ---
 
 *State updated: 2026-03-13*
+
+*Roadmap Evolution: Phase 7 added with dashboard redesign specification*
+- Phase 05-01: Updated Theme cardShadow to adaptive (Color.primary.opacity(0.1)); uses adaptive Color.primary instead of Color.black in dark mode

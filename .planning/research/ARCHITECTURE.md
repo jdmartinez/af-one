@@ -426,3 +426,118 @@ HealthKitService has no dependencies (build first). AnalysisEngine is stateless 
 ---
 *Architecture research for: AFOne - iOS Heart Rhythm Monitoring Application*
 *Researched: 2026-03-10*
+
+---
+
+# v0.2 UI Enhancements — Architecture Integration
+
+## Component Changes
+
+### New Components
+
+| Component | Purpose | Location |
+|-----------|---------|----------|
+| ThemeManager | Theme persistence, system detection | Shared/Theme/ |
+| ColorExtensions | Semantic color definitions | Shared/Theme/Colors.swift |
+| Localizable.strings | String translations | Resources/ |
+
+### Modified Components
+
+| Component | Changes | Notes |
+|-----------|---------|-------|
+| ContentView/TabView | Add Liquid Glass effect | Wrap in GlassEffectContainer if custom |
+| DashboardView | Redesign cards | Add icons, semantic colors |
+| MoreView | Fix navigation | Remove duplicate back button |
+| ReportView | Fix navigation | Remove duplicate back button |
+
+## Integration Points
+
+### Dark/Light Theme
+
+```
+ThemeManager (singleton)
+    ↓
+@Environment(\.colorScheme) ← System appearance
+    ↓
+Asset Catalog Colors (Any, Dark variants)
+    ↓
+All Views use semantic colors
+```
+
+**Build order:**
+1. Create asset catalog color sets
+2. Add ThemeManager for user preference
+3. Update views to use semantic colors
+4. Test both modes
+
+### Liquid Glass Tab Bar
+
+```
+TabView (existing)
+    ↓ (iOS 26 automatically applies)
+Liquid Glass surface
+    ↓
+Optional: .glassEffect() for custom elements
+    ↓
+tabBarMinimizeBehavior(.onScroll) for collapse
+```
+
+**Build order:**
+1. Review existing TabView structure
+2. Add `.glassEffect()` to custom tab elements
+3. Test on iOS 26 device/simulator
+4. Add graceful fallback for older iOS
+
+### Localization
+
+```
+Localizable.xcstrings
+    ↓
+Text("key") in SwiftUI
+    ↓
+@Environment(\.locale) for formatting
+    ↓
+All views render translated text
+```
+
+**Build order:**
+1. Create Localizable.xcstrings
+2. Wrap all user-facing strings
+3. Test with device language
+4. Test RTL layout
+
+## Data Flow Changes
+
+UI enhancements don't change data flow. They're presentation-layer changes only.
+
+## Suggested Build Order
+
+1. **Theme Foundation**
+   - Create asset catalog colors
+   - Update existing views with semantic colors
+   - Test both dark and light modes
+
+2. **Dashboard Redesign**
+   - Restyle metric cards
+   - Add icons and semantic colors
+   - Fix navigation issues
+
+3. **Navigation Fixes**
+   - Review MoreView navigation structure
+   - Remove duplicate back buttons
+   - Test all More sub-views
+
+4. **Liquid Glass Tab Bar**
+   - Review existing TabView
+   - Add glass effect to custom elements
+   - Test collapse behavior
+
+5. **Localization**
+   - Create String Catalog
+   - Wrap all strings
+   - Test translations
+
+## Sources
+
+- [Apple WWDC25 SwiftUI](https://developer.apple.com/videos/play/wwdc2025/323/) — HIGH confidence
+- [SwiftUI Theming](https://medium.com/@garejakirit/how-to-set-theme-in-an-ios-app-swiftui-ui-kit-light-dark-mode-custom-colors-and-scalable-82e91c495886) — HIGH confidence
