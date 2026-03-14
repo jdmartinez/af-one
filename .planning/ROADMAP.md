@@ -3,7 +3,7 @@
 ## Milestones
 
 - ✅ **v0.1 Alpha** — Phases 1-4 (shipped 2026-03-13)
-- 🚧 **v0.2 UI Enhancements** — Phase 5 complete, Phase 6 (in progress)
+- ✅ **v0.2 UI Enhancements** — Phase 6 complete
 - 📋 **v1.0 MVP** — Phases 7+ (planned)
 
 ---
@@ -45,7 +45,7 @@
 - [x] 05-02: Dashboard redesign (Apple Health style)
 - [x] 05-03: Navigation fixes (duplicate back buttons)
 
-#### Phase 6: Polish & Localization
+### ✅ Phase 6: Polish & Localization
 
 **Goal:** Add Liquid Glass effects and localization support
 
@@ -80,8 +80,12 @@
 | 3. Advanced Features | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 4. UI Enhancements | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 5. Theme & Dashboard | v0.2 | 3/3 | Complete | 2026-03-14 |
-| 6. Polish & Localization | v0.2 | TBD | Not started | - |
+| 6. Polish & Localization | v0.2 | 2/2 | Complete | 2026-03-14 |
 | 7. Dashboard Redesign | v1.0 | 7 | Ready | - |
+
+**Plans:**
+- [x] 06-01: Liquid Glass tab bar with collapse
+- [x] 06-02: Localization foundation and string catalog
 
 ### Phase 7: Dashboard Redesign Specification
 
