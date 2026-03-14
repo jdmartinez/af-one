@@ -81,9 +81,9 @@
 | 2. User Input & Analysis | v0.1 | 6/6 | Complete | 2026-03-13 |
 | 3. Advanced Features | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 4. UI Enhancements | v0.1 | 4/4 | Complete | 2026-03-13 |
-| 5. Theme & Dashboard | 6/5 | Complete   | 2026-03-14 | 2026-03-14 |
+| 5. Theme & Dashboard | v0.2 | 6/5 | Complete | 2026-03-14 |
 | 6. Polish & Localization | v0.2 | 2/2 | Complete | 2026-03-14 |
-| 7. Dashboard Redesign | v1.0 | 7 | Ready | - |
+| 7. Dashboard Redesign | v1.0 | 1/7 | In Progress | - |
 
 **Plans:**
 - [x] 06-01: Liquid Glass tab bar with collapse
@@ -99,7 +99,7 @@
 **Status:** Ready for execution.
 
 **Plan breakdown:**
-- [ ] 07-02: Color Assets & Theme System
+- [x] 07-02: Color Assets & Theme System
 - [ ] 07-03: Hero Card (Zone 1)
 - [ ] 07-04: AF Burden Card (Zone 2)
 - [ ] 07-05: 24h Rhythm Map (Zone 3)
