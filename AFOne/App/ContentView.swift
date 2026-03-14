@@ -5,9 +5,14 @@ import SwiftData
 struct ContentView: View {
     @State private var selectedTab: Int = 0
     @State private var isTabBarVisible: Bool = true
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         ZStack(alignment: .bottom) {
+            // Background that responds to colorScheme changes
+            Color(.systemBackground)
+                .ignoresSafeArea()
+            
             // Tab content
             TabView(selection: $selectedTab) {
                 DashboardView()
