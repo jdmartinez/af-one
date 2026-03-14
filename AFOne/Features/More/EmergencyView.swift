@@ -56,6 +56,5 @@ struct EmergencyView: View {
             }
         }
         .navigationTitle("Emergency")
-        .navigationBarBackButtonHidden(true)
     }
 }

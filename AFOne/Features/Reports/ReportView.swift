@@ -27,12 +27,6 @@ struct ReportView: View {
             .navigationTitle("Clinical Report")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {
-                        dismiss()
-                    }
-                }
-                
                 if viewModel.hasReport {
                     ToolbarItem(placement: .primaryAction) {
                         ShareLink(
@@ -50,7 +44,6 @@ struct ReportView: View {
                 await viewModel.generateReport()
             }
         }
-        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: - View Components
