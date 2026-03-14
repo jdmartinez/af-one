@@ -161,8 +161,8 @@ extension Date {
 extension Locale {
     /// Current locale's language direction
     var isRightToLeft: Bool {
-        let languageDirection = Locale.characterDirection(forLanguage: self.languageCode)
-        return languageDirection == .rightToLeft
+        let language = Locale.Language(identifier: languageCode)
+        return language.characterDirection == .rightToLeft
     }
     
     /// Current locale's language code

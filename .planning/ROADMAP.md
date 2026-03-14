@@ -41,9 +41,11 @@
 5. All views tested in both color schemes
 
 **Plans:**
-- [x] 05-01: Theme fixes (cardShadow)
+6/5 plans complete
 - [x] 05-02: Dashboard redesign (Apple Health style)
 - [x] 05-03: Navigation fixes (duplicate back buttons)
+- [ ] 05-04: Fix back buttons (gap closure)
+- [ ] 05-05: Dynamic theme switching (gap closure)
 
 ### ✅ Phase 6: Polish & Localization
 
@@ -79,7 +81,7 @@
 | 2. User Input & Analysis | v0.1 | 6/6 | Complete | 2026-03-13 |
 | 3. Advanced Features | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 4. UI Enhancements | v0.1 | 4/4 | Complete | 2026-03-13 |
-| 5. Theme & Dashboard | v0.2 | 3/3 | Complete | 2026-03-14 |
+| 5. Theme & Dashboard | 6/5 | Complete   | 2026-03-14 | 2026-03-14 |
 | 6. Polish & Localization | v0.2 | 2/2 | Complete | 2026-03-14 |
 | 7. Dashboard Redesign | v1.0 | 7 | Ready | - |
 
