@@ -90,6 +90,12 @@ struct DashboardView: View {
                     
                     burdenSection
                     
+                    // Zone 3 - 24h Rhythm Map
+                    RhythmMapView(hourlyData: viewModel.hourlyRhythmData)
+                    
+                    // Zone 4 - Clinical Metrics Grid
+                    ClinicalMetricsGridView(clinicalData: viewModel.clinicalMetricsData)
+                    
                     if !viewModel.recentEpisodes.isEmpty {
                         recentEpisodesSection
                     }

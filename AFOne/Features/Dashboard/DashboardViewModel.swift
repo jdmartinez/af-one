@@ -64,6 +64,72 @@ final class DashboardViewModel {
     var dataEmpty: Bool {
         recentEpisodes.isEmpty && episodeCount == 0 && averageHR == 0
     }
+    
+    // MARK: - Clinical Metrics Data for Zone 4
+    
+    var clinicalMetricsData: ClinicalMetricsData {
+        let currentEpisode = recentEpisodes.first
+        let hasAFToday = episodeCount > 0 && currentStatus == .af
+        
+        return ClinicalMetricsData(
+            spo2DuringEpisode: nil,
+            hrvDuringSR: nil,
+            ventricularResponseAF: hasAFToday ? averageHR : nil,
+            currentEpisodeDuration: currentEpisode.map { $0.endDate?.timeIntervalSince($0.startDate) },
+            episodeOnsetDate: currentEpisode?.startDate,
+            unmatchedSymptomCount: 0,
+            mostRecentUnmatchedDate: nil
+        )
+    }
+    
+    // MARK: - Hourly Rhythm Data for Zone 3
+    
+    var hourlyRhythmData: [HourlyRhythmData] {
+        // Generate sample data - in production this would come from HealthKit
+        (0..<24).map { hour in
+            let classification: RhythmClassification
+            let sampleCount: Int
+            let hr: Int?
+            
+            switch hour {
+            case 0...5:
+                classification = .noData
+                sampleCount = 0
+                hr = nil
+            case 6...8:
+                classification = .sinusRhythm
+                sampleCount = 8
+                hr = 65
+            case 9...11:
+                classification = .sinusRhythm
+                sampleCount = 2
+                hr = 72
+            case 12...14:
+                classification = .atrialFibrillation
+                sampleCount = 10
+                hr = 120
+            case 15...17:
+                classification = .atrialFibrillation
+                sampleCount = 1
+                hr = 110
+            case 18...20:
+                classification = .sinusRhythm
+                sampleCount = 7
+                hr = 80
+            default:
+                classification = .noData
+                sampleCount = 0
+                hr = nil
+            }
+            
+            return HourlyRhythmData(
+                hour: hour,
+                rhythmClassification: classification,
+                sampleCount: sampleCount,
+                averageHeartRate: hr
+            )
+        }
+    }
 
     func loadData() async {
         isLoading = true
