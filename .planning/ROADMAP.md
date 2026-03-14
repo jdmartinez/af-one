@@ -3,7 +3,7 @@
 ## Milestones
 
 - ✅ **v0.1 Alpha** — Phases 1-4 (shipped 2026-03-13)
-- 🚧 **v0.2 UI Enhancements** — Phases 5-6 (in progress)
+- 🚧 **v0.2 UI Enhancements** — Phase 5 complete, Phase 6 (in progress)
 - 📋 **v1.0 MVP** — Phases 7+ (planned)
 
 ---
@@ -41,9 +41,9 @@
 5. All views tested in both color schemes
 
 **Plans:**
-- [ ] 05-01: Theme fixes (cardShadow)
-- [ ] 05-02: Dashboard redesign (Apple Health style)
-- [ ] 05-03: Navigation fixes (duplicate back buttons)
+- [x] 05-01: Theme fixes (cardShadow)
+- [x] 05-02: Dashboard redesign (Apple Health style)
+- [x] 05-03: Navigation fixes (duplicate back buttons)
 
 #### Phase 6: Polish & Localization
 
@@ -79,7 +79,7 @@
 | 2. User Input & Analysis | v0.1 | 6/6 | Complete | 2026-03-13 |
 | 3. Advanced Features | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 4. UI Enhancements | v0.1 | 4/4 | Complete | 2026-03-13 |
-| 5. Theme & Dashboard | v0.2 | 3/3 | Ready | - |
+| 5. Theme & Dashboard | v0.2 | 3/3 | Complete | 2026-03-14 |
 | 6. Polish & Localization | v0.2 | TBD | Not started | - |
 | 7. Dashboard Redesign | v1.0 | 7 | Ready | - |
 
