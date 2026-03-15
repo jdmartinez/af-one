@@ -303,20 +303,20 @@ struct DayBlockView: View {
                 .frame(width: 30, height: 30)
         }
         .frame(width: 60, height: 80)
-        .background(isSelected ? Color.blue.opacity(0.1) : Color.clear)
+        .background(isSelected ? Color(.systemBlue).opacity(0.1) : Color.clear)
         .cornerRadius(8)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)
+                .stroke(isSelected ? Color(.systemBlue) : Color.clear, lineWidth: 2)
         )
     }
 
     private var rhythmColor: Color {
-        guard day.hasData else { return .gray.opacity(0.3) }
+        guard day.hasData else { return Color(.systemGray).opacity(0.3) }
         switch day.dominantRhythm {
-        case .normal: return .green
-        case .af: return .red
-        case .unknown: return .gray
+        case .normal: return Color.afOne.rhythmSinusal
+        case .af: return Color.afOne.rhythmAF
+        case .unknown: return Color(.systemGray)
         }
     }
 }
