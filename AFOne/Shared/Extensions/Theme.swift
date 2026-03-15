@@ -25,11 +25,11 @@ extension Color {
     static let afOne = AFOneColors()
     
     struct AFOneColors {
-        let rhythmSinusal = Color(red: 0.22, green: 0.76, blue: 0.38)
-        let rhythmAF = Color(red: 0.84, green: 0.27, blue: 0.27)
-        let burdenLow = Color(red: 0.22, green: 0.76, blue: 0.38)
-        let burdenMid = Color(red: 0.98, green: 0.73, blue: 0.09)
-        let burdenHigh = Color(red: 0.84, green: 0.27, blue: 0.27)
+        let rhythmSinusal = Color("AFOne/AFOneRhythmSinusal")
+        let rhythmAF = Color("AFOne/AFOneRhythmAF")
+        let burdenLow = Color("AFOne/AFOneBurdenLow")
+        let burdenMid = Color("AFOne/AFOneBurdenMid")
+        let burdenHigh = Color("AFOne/AFOneBurdenHigh")
         
         /// Returns the appropriate burden color based on percentage thresholds
         /// - Parameter percentage: The AF burden percentage (0-100)

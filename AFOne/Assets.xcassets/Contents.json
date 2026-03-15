@@ -2,5 +2,27 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  }
+  },
+  "colors" : [
+    {
+      "idiom" : "universal",
+      "filename" : "AFOneRhythmSinusal.colorset"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "AFOneRhythmAF.colorset"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "AFOneBurdenLow.colorset"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "AFOneBurdenMid.colorset"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "AFOneBurdenHigh.colorset"
+    }
+  ]
 }
