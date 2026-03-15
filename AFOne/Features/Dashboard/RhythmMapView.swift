@@ -167,7 +167,7 @@ struct RhythmMapView: View {
         
         switch data.rhythmClassification {
         case .sinusRhythm:
-            barColor = Color.blue
+            barColor = Color(.systemBlue)
             opacity = data.sampleCount < 3 ? 0.4 : 0.5
         case .atrialFibrillation:
             barColor = Color.afOne.rhythmAF
