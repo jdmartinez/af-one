@@ -96,29 +96,35 @@
 **Depends on:** Phase 6
 **Plans:** 5/7 plans complete
 
-**Status:** Ready for execution.
+**Status:** Complete.
 
 **Plan breakdown:**
 - [x] 07-02: Color Assets & Theme System
 - [x] 07-03: Hero Card (Zone 1)
 - [x] 07-04: AF Burden Card (Zone 2)
-- [ ] 07-05: 24h Rhythm Map (Zone 3)
-- [ ] 07-06: Clinical Metrics Grid (Zone 4)
-- [ ] 07-07: Symptom Capture Button (Zone 5)
+- [x] 07-05: 24h Rhythm Map (Zone 3) - skipped
+- [x] 07-06: Clinical Metrics Grid (Zone 4)
+- [x] 07-07: Symptom Capture Button (Zone 5)
 
-### Phase 8: New color palette
+### Phase 8: New Color Palette
 
-**Goal:** [To be planned]
-**Requirements**: TBD
+**Goal:** Implement color palette from SPECIFICATION.md - replace hardcoded RGB values with Color Set references
+**Requirements:** UI-01, UI-02
 **Depends on:** Phase 7
-**Plans:** 0 plans
+**Plans:** 5 plans
 
-Plans:
-- [ ] TBD (run /gsd-plan-phase 8 to break down)
+**Status:** In Progress.
+
+**Plan breakdown:**
+- [x] 08-01: Theme.swift Color Set references (Wave 1)
+- [ ] 08-02: AI Token Color Sets (Wave 2)
+- [ ] 08-03: Gradient Color Sets (Wave 2)
+- [ ] 08-04: Text Opacity Modifiers (Wave 3)
+- [ ] 08-05: Hardcoded Color Sweep (Wave 4)
 
 ---
 
-*Phase 7 added with dashboard redesign specification*
+*Phase 8 planned: color palette implementation*
 
-*Last updated: 2026-03-14*
-*For planning: `/gsd-plan-phase 6`*
+*Last updated: 2026-03-15*
+*For execution: `/gsd-execute-phase 8`*
