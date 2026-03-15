@@ -111,14 +111,14 @@
 **Goal:** Implement color palette from SPECIFICATION.md - replace hardcoded RGB values with Color Set references
 **Requirements:** UI-01, UI-02
 **Depends on:** Phase 7
-**Plans:** 5 plans
+**Plans:** 6/5 plans complete
 
 **Status:** In Progress.
 
 **Plan breakdown:**
 - [x] 08-01: Theme.swift Color Set references (Wave 1)
-- [ ] 08-02: AI Token Color Sets (Wave 2)
-- [ ] 08-03: Gradient Color Sets (Wave 2)
+- [x] 08-02: AI Token Color Sets (Wave 2)
+- [x] 08-03: Gradient Color Sets (Wave 2)
 - [ ] 08-04: Text Opacity Modifiers (Wave 3)
 - [ ] 08-05: Hardcoded Color Sweep (Wave 4)
 
