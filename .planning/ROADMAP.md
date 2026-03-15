@@ -83,7 +83,7 @@
 | 4. UI Enhancements | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 5. Theme & Dashboard | v0.2 | 6/5 | Complete | 2026-03-14 |
 | 6. Polish & Localization | v0.2 | 2/2 | Complete | 2026-03-14 |
-| 7. Dashboard Redesign | v1.0 | Complete    | 2026-03-14 | - |
+| 7. Dashboard Redesign | v1.0 | Complete    | 2026-03-14 | 7/7 |
 
 **Plans:**
 - [x] 06-01: Liquid Glass tab bar with collapse
@@ -111,7 +111,7 @@
 **Goal:** Implement color palette from SPECIFICATION.md - replace hardcoded RGB values with Color Set references
 **Requirements:** UI-01, UI-02
 **Depends on:** Phase 7
-**Plans:** 6/5 plans complete
+**Plans:** 7/5 plans complete
 
 **Status:** In Progress.
 
@@ -119,7 +119,7 @@
 - [x] 08-01: Theme.swift Color Set references (Wave 1)
 - [x] 08-02: AI Token Color Sets (Wave 2)
 - [x] 08-03: Gradient Color Sets (Wave 2)
-- [ ] 08-04: Text Opacity Modifiers (Wave 3)
+- [x] 08-04: Text Opacity Modifiers (Wave 3)
 - [ ] 08-05: Hardcoded Color Sweep (Wave 4)
 
 ---

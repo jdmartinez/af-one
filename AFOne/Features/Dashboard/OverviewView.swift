@@ -127,7 +127,7 @@ struct OverviewView: View {
                     x: .value("Day", day.date, unit: .day),
                     y: .value("Episodes", day.episodeCount)
                 )
-                .foregroundStyle(day.hasEpisodes ? Color.red : Color.green)
+                .foregroundStyle(day.hasEpisodes ? Color.afOne.rhythmAF : Color.afOne.rhythmSinusal)
                 .cornerRadius(4)
             }
             .frame(height: 150)
