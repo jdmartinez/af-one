@@ -1,77 +1,33 @@
 import SwiftUI
 import SwiftData
 
-/// Main content view with GlassBottomBar tab navigation
+/// Main content view
 struct ContentView: View {
-    @State private var selectedTab: Int = 0
-    @State private var isTabBarVisible: Bool = true
-    @Environment(\.colorScheme) private var colorScheme
-    
     var body: some View {
-        ZStack(alignment: .bottom) {
-            // Background that responds to colorScheme changes
-            Color(.systemBackground)
-                .ignoresSafeArea()
-            
-            // Tab content
-            TabView(selection: $selectedTab) {
+        TabView {
+            Tab("Dashboard", systemImage: "heart.text.square.fill") {
                 DashboardView()
-                    .tag(0)
-                
-                TimelineView()
-                    .tag(1)
-                
+            }
+            Tab("Episodes", systemImage: "waveform.path.ecg") {
                 EpisodeListView()
-                    .tag(2)
-                
-                MedicationsView()
-                    .tag(3)
-                
-                AnalysisView()
-                    .tag(4)
-                
+            }
+            Tab("Trends", systemImage: "chart.line.uptrend.xyaxis") {
                 TrendsView()
-                    .tag(5)
-                
+            }
+            Tab("Analysis", systemImage: "staroflife.fill") {
+                AnalysisView()
+            }
+            Tab("More", systemImage: "ellipsis", role: .search) {
                 MoreView()
-                    .tag(6)
-            }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            
-            // GlassBottomBar with collapse behavior
-            if #available(iOS 26.0, *) {
-                GlassBottomBar(
-                    selectedTab: $selectedTab,
-                    isVisible: isTabBarVisible
-                )
-                .opacity(isTabBarVisible ? 1 : 0)
-                .offset(y: isTabBarVisible ? 0 : 100)
-                .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
-            } else {
-                // Fallback for older iOS versions
-                GlassBottomBar(
-                    selectedTab: $selectedTab,
-                    isVisible: isTabBarVisible
-                )
-                .opacity(isTabBarVisible ? 1 : 0)
-                .offset(y: isTabBarVisible ? 0 : 100)
-                .animation(.easeInOut(duration: 0.3), value: isTabBarVisible)
-            }
-        }
-        .onChange(of: selectedTab) { _, _ in
-            // Reset tab bar visibility when switching tabs
-            withAnimation(.easeInOut(duration: 0.3)) {
-                isTabBarVisible = true
             }
         }
     }
 }
 
-// MARK: - Preview
-
 #if DEBUG
 #Preview {
     ContentView()
         .modelContainer(for: [SymptomLog.self, TriggerLog.self])
+        .preferredColorScheme(.dark)
 }
 #endif

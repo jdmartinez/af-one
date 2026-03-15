@@ -9,6 +9,7 @@ struct AFOneApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.dark)
                 .environment(healthKitService)
                 .onChange(of: scenePhase) { _, newPhase in
                     if newPhase == .active {

@@ -83,7 +83,7 @@
 | 4. UI Enhancements | v0.1 | 4/4 | Complete | 2026-03-13 |
 | 5. Theme & Dashboard | v0.2 | 6/5 | Complete | 2026-03-14 |
 | 6. Polish & Localization | v0.2 | 2/2 | Complete | 2026-03-14 |
-| 7. Dashboard Redesign | v1.0 | 3/7 | In Progress | - |
+| 7. Dashboard Redesign | v1.0 | Complete    | 2026-03-14 | - |
 
 **Plans:**
 - [x] 06-01: Liquid Glass tab bar with collapse
@@ -94,7 +94,7 @@
 **Goal:** Implement dashboard UI redesign with clinical state signaling per SPECIFICATION.md
 **Requirements:** UI-01, UI-02
 **Depends on:** Phase 6
-**Plans:** 7 plans (02-07)
+**Plans:** 5/7 plans complete
 
 **Status:** Ready for execution.
 
@@ -105,6 +105,16 @@
 - [ ] 07-05: 24h Rhythm Map (Zone 3)
 - [ ] 07-06: Clinical Metrics Grid (Zone 4)
 - [ ] 07-07: Symptom Capture Button (Zone 5)
+
+### Phase 8: New color palette
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 7
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd-plan-phase 8 to break down)
 
 ---
 

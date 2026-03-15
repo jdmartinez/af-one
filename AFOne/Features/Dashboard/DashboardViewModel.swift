@@ -75,7 +75,7 @@ final class DashboardViewModel {
             spo2DuringEpisode: nil,
             hrvDuringSR: nil,
             ventricularResponseAF: hasAFToday ? averageHR : nil,
-            currentEpisodeDuration: currentEpisode.map { $0.endDate?.timeIntervalSince($0.startDate) },
+            currentEpisodeDuration: currentEpisode.map { $0.endDate.timeIntervalSince($0.startDate) },
             episodeOnsetDate: currentEpisode?.startDate,
             unmatchedSymptomCount: 0,
             mostRecentUnmatchedDate: nil

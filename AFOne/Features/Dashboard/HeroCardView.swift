@@ -86,19 +86,11 @@ struct HeroCardView: View {
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color(.secondarySystemBackground))
-                .overlay(
-                    LinearGradient(
-                        gradient: Gradient(colors: gradientColors),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(rhythmColor.opacity(0.3), lineWidth: isAFActive ? 1 : 0)
         )
-        .padding(.horizontal, 16)
         .accessibilityElement(children: .combine)
         .accessibilityLabel(accessibilityDescription)
         .accessibilityValue(accessibilityTimerValue)

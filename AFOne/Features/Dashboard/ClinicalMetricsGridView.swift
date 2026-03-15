@@ -30,32 +30,30 @@ struct ClinicalMetricsData {
 struct ClinicalMetricsGridView: View {
     let clinicalData: ClinicalMetricsData
     
-    /// Columns for the LazyVGrid (2 columns, 10pt spacing)
     private let columns = [
         GridItem(.flexible(), spacing: 10),
         GridItem(.flexible(), spacing: 10)
     ]
     
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 10) {
-            // SpO₂ during episode card
+        LazyVGrid(columns: [
+            GridItem(.flexible(), spacing: 10),
+            GridItem(.flexible(), spacing: 10)
+        ], spacing: 10) {
             spo2Card
-            
-            // HRV during SR card
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             hrvCard
-            
-            // Ventricular response AF card
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             ventricularResponseCard
-            
-            // Episode duration card
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             episodeDurationCard
-            
-            // Wide card - Unmatched symptoms
-            unmatchedSymptomsCard
-                .gridCellColumns(2)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .padding(16)
+        
+        UnmatchedSymptomsCard(data: clinicalData)
     }
+    
+    
     
     // MARK: - SpO₂ During Episode Card
     
@@ -244,7 +242,9 @@ struct ClinicalMetricsGridView: View {
                 }
             }
         }
-        .padding(16)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 16)
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .background(Color(.secondarySystemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .accessibilityElement(children: .combine)
@@ -281,12 +281,11 @@ struct MetricCard: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            // Icon and label row
-            HStack(spacing: 6) {
+            HStack(spacing: 10) {
                 Image(systemName: icon)
-                    .font(.title3)
-                    .foregroundStyle(.secondary)
-                    .frame(width: iconSize, height: iconSize)
+                    .font(.body)
+                    .foregroundStyle(Color.afOne.rhythmSinusal)
+                    .frame(width: 16, height: 16)
                 
                 Text(label)
                     .font(.caption2)
@@ -294,7 +293,6 @@ struct MetricCard: View {
                     .foregroundStyle(.tertiary)
             }
             
-            // Value with optional unit
             HStack(alignment: .firstTextBaseline, spacing: 2) {
                 Text(value)
                     .font(.title3)
@@ -314,15 +312,15 @@ struct MetricCard: View {
                 }
             }
             
-            // Sub-label
             if let subLabel = subLabel {
                 Text(subLabel)
                     .font(.caption)
                     .foregroundStyle(.tertiary)
             }
         }
-        .padding(16)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 16)
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .background(Color(.secondarySystemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .accessibilityElement(children: .combine)
@@ -343,6 +341,53 @@ struct MetricCard: View {
             label += ". \(subLabel)"
         }
         return label
+    }
+}
+
+// MARK: - UnmatchedSymptomsCard
+struct UnmatchedSymptomsCard: View {
+    let data: ClinicalMetricsData
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 10) {
+                Text("SÍNTOMAS SIN RITMO EXPLICATIVO")
+                    .font(.caption2)
+                    .textCase(.uppercase)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.tertiary)
+            }
+
+            HStack(alignment: .firstTextBaseline) {
+                Text("\(data.unmatchedSymptomCount)")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.primary)
+                Spacer()
+            }
+
+            if let recentDate = data.mostRecentUnmatchedDate {
+                HStack {
+                    Text(RelativeDateTimeFormatter().localizedString(
+                        for: recentDate, relativeTo: Date()
+                    ))
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+                    Spacer()
+                    Button("Ver correlación →") { }
+                        .font(.caption)
+                        .foregroundStyle(Color.accentColor)
+                }
+            } else {
+                Text("Sin síntomas registrados")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 18))
     }
 }
 
