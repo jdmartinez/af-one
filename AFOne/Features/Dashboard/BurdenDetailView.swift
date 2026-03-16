@@ -18,7 +18,13 @@ struct BurdenDetailView: View {
             .padding()
         }
         .navigationTitle("Carga de FA")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Carga de FA")
+                    .font(.headline)
+            }
+        }
         .task {
             await viewModel.loadData()
         }
