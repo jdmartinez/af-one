@@ -241,8 +241,11 @@ struct BurdenEpisodeRow: View {
                         .font(.caption2)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 3)
-                        .background(Color.secondary.opacity(0.1))
                         .clipShape(Capsule())
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.secondary.opacity(0.3), lineWidth: 1)
+                        )
                 }
                 
                 if episode.hasECG {
@@ -250,8 +253,11 @@ struct BurdenEpisodeRow: View {
                         .font(.caption2)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 3)
-                        .background(Color.blue.opacity(0.15))
                         .clipShape(Capsule())
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.blue.opacity(0.3), lineWidth: 1)
+                        )
                 }
                 
                 if episode.insufficientData {
