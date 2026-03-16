@@ -8,13 +8,29 @@ AFOne is an iOS application that helps patients with **paroxysmal atrial fibrill
 
 Transform Apple Watch heart rhythm data into clear, clinically meaningful insights that help PAF patients understand their condition, recognize patterns, and communicate effectively with their cardiologist.
 
-## Current State: v0.2 (Shipped 2026-03-16)
+## Current State: v0.3 (In Progress)
 
-**Shipped:** UI Enhancements milestone complete
-- Phase 5: Theme & Dashboard Redesign
-- Phase 6: Polish & Localization
-- Phase 7: Dashboard Redesign Specification
-- Phase 8: New Color Palette
+**In progress:** UI Improvements milestone
+- Phase 9: Home Screen UI (ready for planning)
+- Phase 10: AF Burden Detail View (pending)
+- Phase 11: Symptom Correlation View (pending)
+- Phase 12: Rhythm Map View (pending)
+- Phase 13: Emergency Report View (pending)
+- Phase 14: Data Honesty Rules (pending)
+
+---
+
+## Current Milestone: v0.3 UI Improvements
+
+**Goal:** Improve UI views for v1.0 MVP features - enhanced data visualization, better navigation patterns, improved accessibility
+
+**Target features:**
+- Multi-window AF burden analysis UI (daily, weekly, monthly)
+- Advanced timeline pattern detection UI (nocturnal, clusters)
+- Symptom-rhythm correlation analysis UI
+- Clinical report generation UI
+- Enhanced notifications UI
+- Long-term trends UI (6-month, 1-year)
 
 ## Requirements
 
@@ -37,14 +53,14 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 - ✓ Color palette with Color Set references
 - ✓ Semantic color system throughout
 
-### Active (v1.0 MVP)
+### Active (v0.3 UI Improvements)
 
-- [ ] Multi-window AF burden analysis (daily, weekly, monthly)
-- [ ] Advanced timeline pattern detection (nocturnal, clusters)
-- [ ] Symptom-rhythm correlation analysis
-- [ ] Clinical report generation for cardiologist
-- [ ] Enhanced notifications (long episodes, burden changes)
-- [ ] Long-term trends (6-month, 1-year views)
+- [ ] Multi-window AF burden analysis UI (daily, weekly, monthly)
+- [ ] Advanced timeline pattern detection UI (nocturnal, clusters)
+- [ ] Symptom-rhythm correlation analysis UI
+- [ ] Clinical report generation UI
+- [ ] Enhanced notifications UI
+- [ ] Long-term trends UI (6-month, 1-year views)
 
 ### Out of Scope
 
@@ -82,3 +98,7 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 ---
 
 *Last updated: 2026-03-16 after v0.2 UI Enhancements milestone*
+
+---
+
+*Last updated: 2026-03-16 — Milestone v0.3 UI Improvements started*

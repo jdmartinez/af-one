@@ -84,13 +84,18 @@ struct DashboardView: View {
                     lastEpisodeDuration: nil,
                     episodesToday: viewModel.episodeCount,
                     confidenceLevel: "Alta confianza",
-                    episodeStartDate: nil
+                    episodeStartDate: nil,
+                    hasRecentEpisode: viewModel.hasRecentEpisode,
+                    recentEpisodeEndDate: viewModel.recentEpisodeEndDate
                 )
-
+                
+                SectionHeaderView(title: "AF BURDEN", showNavigationLink: false)
                 burdenSection
-
+                
+                SectionHeaderView(title: "MAPA DE RITMO", showNavigationLink: false)
                 RhythmMapView(hourlyData: viewModel.hourlyRhythmData)
-
+                
+                SectionHeaderView(title: "MÉTRICAS CLÍNICAS")
                 ClinicalMetricsGridView(clinicalData: viewModel.clinicalMetricsData)
 
                 SymptomCaptureButton(
@@ -142,6 +147,29 @@ struct DashboardView: View {
 }
 
 // MARK: - Supporting Views
+
+struct SectionHeaderView: View {
+    let title: String
+    var showNavigationLink: Bool = false
+    var navigationDestination: AnyView? = nil
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.caption2)
+                .textCase(.uppercase)
+                .foregroundStyle(.secondary)
+            Spacer()
+            if showNavigationLink, let destination = navigationDestination {
+                NavigationLink(destination: destination) {
+                    Text("Ver más")
+                        .font(.caption)
+                }
+            }
+        }
+        .padding(.horizontal, 4)
+    }
+}
 
 struct EpisodeRowView: View {
     let episode: RhythmEpisode

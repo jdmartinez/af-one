@@ -12,18 +12,32 @@ struct HeroCardView: View {
     let confidenceLevel: String
     let episodeStartDate: Date?
     
+    // State B - Recent Episode parameters
+    let hasRecentEpisode: Bool
+    let recentEpisodeEndDate: Date?
+    
     @State private var isPulsing = false
     @State private var currentTime = Date()
     @Environment(\.accessibilityReduceMotion) var reduceMotion
     @Environment(\.colorScheme) var colorScheme
     
     // MARK: - Computed Properties
+    private var isStateB: Bool {
+        !isAFActive && hasRecentEpisode
+    }
+    
     private var rhythmColor: Color {
-        isAFActive ? Color.afOne.rhythmAF : Color.afOne.rhythmSinusal
+        if isStateB {
+            return Color.orange
+        }
+        return isAFActive ? Color.afOne.rhythmAF : Color.afOne.rhythmSinusal
     }
     
     private var rhythmLabel: String {
-        isAFActive ? "Fibrilación Auricular" : "Ritmo Sinusal"
+        if isStateB {
+            return "Ritmo Sinusal"
+        }
+        return isAFActive ? "Fibrilación Auricular" : "Ritmo Sinusal"
     }
     
     private var confidenceBadge: String {
@@ -31,11 +45,20 @@ struct HeroCardView: View {
     }
     
     private var glowRadius: CGFloat {
-        isAFActive ? 8 : 6
+        if isStateB {
+            return 6
+        }
+        return isAFActive ? 8 : 6
     }
     
     private var gradientColors: [Color] {
-        if isAFActive {
+        if isStateB {
+            return [
+                Color.orange.opacity(0.12),
+                Color.orange.opacity(0.04),
+                Color.clear
+            ]
+        } else if isAFActive {
             return [
                 Color.afOne.rhythmAF.opacity(0.15),
                 Color.afOne.rhythmAF.opacity(0.05),
@@ -75,6 +98,12 @@ struct HeroCardView: View {
                     .padding(.bottom, 12)
             }
             
+            // Recent episode banner (State B - amber)
+            if isStateB {
+                recentEpisodeBanner
+                    .padding(.bottom, 12)
+            }
+            
             // Stats row
             statsRow
             
@@ -91,18 +120,18 @@ struct HeroCardView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(
                         LinearGradient(
-                            colors: isAFActive ? HeroGradient.af : HeroGradient.sr,
+                            colors: gradientColors,
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
                     )
-                    .opacity(isAFActive ? 0.35 : 0.25)
+                    .opacity(isStateB ? 0.3 : (isAFActive ? 0.35 : 0.25))
             }
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(
-                    rhythmColor.opacity(isAFActive ? 0.5 : 0.15),
+                    rhythmColor.opacity(isStateB ? 0.4 : (isAFActive ? 0.5 : 0.15)),
                     lineWidth: 1
                 )
         )
@@ -200,7 +229,7 @@ struct HeroCardView: View {
             Spacer()
             
             // Emergency button
-                    Link(destination: URL(string: "tel://112")!) {
+            NavigationLink(destination: EmergencyView()) {
                 HStack(spacing: 4) {
                     Image(systemName: "phone.fill")
                     Text("Urgencias")
@@ -220,6 +249,46 @@ struct HeroCardView: View {
         .overlay(
             RoundedRectangle(cornerRadius: 14)
                 .stroke(Color.afOne.rhythmAF.opacity(0.3), lineWidth: 1)
+        )
+    }
+    
+    // MARK: - Recent Episode Banner (State B)
+    private var recentEpisodeBanner: some View {
+        HStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("EPISODIO RECIENTE")
+                    .font(.caption2)
+                    .textCase(.uppercase)
+                    .foregroundStyle(Color.orange)
+                
+                if let endDate = recentEpisodeEndDate {
+                    Text(elapsedTimeText(from: endDate))
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                }
+            }
+            
+            Spacer()
+            
+            NavigationLink(destination: EmergencyView()) {
+                HStack(spacing: 4) {
+                    Text("Ver informe")
+                        .fontWeight(.semibold)
+                }
+                .font(.subheadline)
+                .foregroundStyle(Color.orange)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(Color.orange.opacity(0.15))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+        }
+        .padding(12)
+        .background(Color.orange.opacity(0.1))
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(Color.orange.opacity(0.3), lineWidth: 1)
         )
     }
     
@@ -305,6 +374,18 @@ struct HeroCardView: View {
         return formatter.string(from: date)
     }
     
+    private func elapsedTimeText(from date: Date) -> String {
+        let interval = currentTime.timeIntervalSince(date)
+        let hours = Int(interval) / 3600
+        let minutes = (Int(interval) % 3600) / 60
+        
+        if hours > 0 {
+            return "hace \(hours)h \(minutes)min"
+        } else {
+            return "hace \(minutes)min"
+        }
+    }
+    
     private var accessibilityDescription: String {
         if isAFActive {
             return "Fibrilación auricular en progreso. Episodio confirmado."
@@ -341,7 +422,9 @@ struct HeroCardView: View {
         lastEpisodeDuration: "14 h",
         episodesToday: 2,
         confidenceLevel: "Alta confianza",
-        episodeStartDate: nil
+        episodeStartDate: nil,
+        hasRecentEpisode: false,
+        recentEpisodeEndDate: nil
     )
     .preferredColorScheme(.dark)
 }
@@ -353,7 +436,23 @@ struct HeroCardView: View {
         lastEpisodeDuration: nil,
         episodesToday: 1,
         confidenceLevel: "Alta",
-        episodeStartDate: Date().addingTimeInterval(-1800)
+        episodeStartDate: Date().addingTimeInterval(-1800),
+        hasRecentEpisode: false,
+        recentEpisodeEndDate: nil
+    )
+    .preferredColorScheme(.dark)
+}
+
+#Preview("State B - Recent Episode") {
+    HeroCardView(
+        isAFActive: false,
+        currentHR: 65,
+        lastEpisodeDuration: "2h 15min",
+        episodesToday: 1,
+        confidenceLevel: "Alta confianza",
+        episodeStartDate: nil,
+        hasRecentEpisode: true,
+        recentEpisodeEndDate: Date().addingTimeInterval(-7200)
     )
     .preferredColorScheme(.dark)
 }

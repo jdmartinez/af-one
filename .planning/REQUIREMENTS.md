@@ -1,93 +1,168 @@
-# Requirements: AFOne v0.2 UI Enhancements
+# Requirements: AFOne
 
-**Defined:** 2026-03-13  
-**Core Value:** Transform Apple Watch heart rhythm data into clear, clinically meaningful insights
+**Defined:** 2026-03-16
+**Core Value:** Transform Apple Watch heart rhythm data into clear, clinically meaningful insights that help PAF patients understand their condition, recognize patterns, and communicate effectively with their cardiologist.
 
----
+## v0.3 Requirements
 
-## v0.2 Requirements
+### Home Screen (Resumen)
 
-### UI Theme
+- [ ] **HOME-01**: Navigation bar displays "Resumen" as large title that collapses to inline on scroll, with trailing emergency access button (exclamationmark.triangle.fill) that opens EmergencyReportView
+- [ ] **HOME-02**: Section headers (AF Burden, Rhythm Map, Clinical Metrics) positioned outside and above cards with HStack layout - title left (uppercase, secondary), navigation link right (blue)
+- [ ] **HOME-03**: Hero card displays State A (Sinus Rhythm - no recent episode) with green dot and HeroGradient.sr
+- [ ] **HOME-04**: Hero card displays State B (Sinus Rhythm with recent episode) - amber contextual banner below rhythm row showing "EPISODIO RECIENTE" with elapsed time and "Ver informe" button
+- [ ] **HOME-05**: Hero card displays State C (AF Active) with red gradient, red dot, red border, and "Informe" button (not tel://112)
+- [ ] **HOME-06**: Toolbar emergency button visible regardless of rhythm state, opens EmergencyReportView directly
 
-- [x] **UI-01**: Make UI compatible with iOS dark and light theme
-- [ ] **UI-01.1**: Create asset catalog colors with dark mode variants
-- [ ] **UI-01.2**: Replace hardcoded colors with semantic colors throughout
-- [ ] **UI-01.3**: Test all views in both light and dark mode
+### AF Burden Detail View
 
-### Dashboard Redesign
+- [ ] **BURD-01**: Segmented picker (24h / 7 días / 30 días) controls all data in view
+- [ ] **BURD-02**: Primary burden percentage displayed with clinical threshold coloring (Low <5.5%, Mid 5.5-10.9%, High ≥11%)
+- [ ] **BURD-03**: Threshold badge shows clinical reference (ASSERT <5.5%, ASSERT ≥5.5%, TRENDS ≥11%)
+- [ ] **BURD-04**: Progress bar with gradient fill and tick marks at 5.5% and 11%
+- [ ] **BURD-05**: Delta row shows change vs previous period with color coding
+- [ ] **BURD-06**: Three-column window comparison showing burden for all time windows
+- [ ] **BURD-07**: 14-day trend bar chart with threshold coloring and insufficient-data handling (40% opacity)
+- [ ] **BURD-08**: Recent episodes list with duration, HR, SpO2, ECG chips and insufficient-data warnings
+- [ ] **BURD-09**: Clinical context section with threshold explanations and anticoagulation note
+- [ ] **BURD-10**: Data honesty notes displayed ("Valor estimado", "calculado a partir de eventos irregularHeartRhythmEvent")
 
-- [x] **UI-02**: Redesign dashboard cards with Health app-like UI
-- [ ] **UI-02.1**: Add clear titles to all metric cards
-- [ ] **UI-02.2**: Add icons to card headers using semantic colors
-- [ ] **UI-02.3**: Move period picker inside AF Burden card header
-- [ ] **UI-02.4**: Remove redundant reload button (keep pull-to-refresh)
-- [ ] **UI-02.5**: Fix card border rendering issues
-- [ ] **UI-02.6**: Add labels/tooltips to toolbar buttons
+### Symptom Correlation View
 
-### Navigation Fixes
+- [ ] **SYMP-01**: Three-column summary grid showing "Síntomas con FA" (green), "Síntomas sin FA" (amber), "FA silente" (red)
+- [ ] **SYMP-02**: Daily timeline with segmented picker (Hoy / 7 días / 30 días)
+- [ ] **SYMP-03**: Dual-track timeline showing rhythm bar track and symptom pin markers with correlation highlighting
+- [ ] **SYMP-04**: Event list with badges ("FA confirmada", "Sin correlación", "FA silente"), timestamps, and rhythm pills
+- [ ] **SYMP-05**: Event detail sheet showing symptom captured, rhythm in ±30min window, and clinical note
+- [ ] **SYMP-06**: Detected patterns section (nocturnal symptoms without AF, symptoms preceding AF, asymptomatic AF count)
+- [ ] **SYMP-07**: Methodological note explaining ±30min correlation window and Apple Watch limitations
 
-- [ ] **UI-03**: Remove duplicate back button in More views
-- [ ] **UI-03.1**: Fix More > Emergency Information duplicate back button
-- [ ] **UI-03.2**: Fix More > Clinical Report duplicate back button
+### Rhythm Map View
 
-### Liquid Glass Tab Bar
+- [ ] **RHYM-01**: Scenario buttons for switching between days (today, yesterday, high-burden day)
+- [ ] **RHYM-02**: Segmented picker (Día / Semana / Mes)
+- [ ] **RHYM-03**: Dual-layer chart with bar layer (rhythm by hour) and line layer (HR trend)
+- [ ] **RHYM-04**: Bars with <3 samples rendered at 35% opacity with warning tooltip
+- [ ] **RHYM-05**: Stats row showing SR%, AF%, No data%, Episode count
+- [ ] **RHYM-06**: Episode list with duration, mean HR, SpO2, ECG chip, insufficient-data warnings
+- [ ] **RHYM-07**: Data coverage bar showing percentage of hours with data (color coded)
+- [ ] **RHYM-08**: Circadian pattern histogram showing AF onset frequency by 3-hour blocks
 
-- [ ] **UI-04**: Implement collapsible Liquid Glass tab bar
-- [ ] **UI-04.1**: Add Liquid Glass effect to navigation bar
-- [ ] **UI-04.2**: Implement collapse on scroll behavior
-- [ ] **UI-04.3**: Add availability checks for iOS 26 APIs
+### Emergency Report View
 
-### Localization
+- [ ] **EMER-01**: Full-bleed red header with urgency badge, app name, timestamp
+- [ ] **EMER-02**: Patient block showing name, age, sex, known diagnosis
+- [ ] **EMER-03**: Episode strip showing elapsed time since onset, current HR, SpO2 with timestamps
+- [ ] **EMER-04**: Current episode details section with onset time, duration, mean HR, SpO2, symptoms, ECG result
+- [ ] **EMER-05**: AF history section with 30-day burden timeline, episode count, mean duration, burden %, AF type
+- [ ] **EMER-06**: Active medication section with medication rows and class badges (Anticoagulante, β-bloqueante, Antiarrítmico)
+- [ ] **EMER-07**: Relevant history timeline with diagnosis, cardioversions, allergies, referring cardiologist
+- [ ] **EMER-08**: Limitations banner explaining Apple Watch detection limitations
+- [ ] **EMER-09**: Source footer with version, timestamp, legal disclaimer
+- [ ] **EMER-10**: tel://112 link present inside report (not as primary home screen action)
 
-- [ ] **UI-05**: Localize the app based on iOS language
-- [ ] **UI-05.1**: Create Localizable.xcstrings string catalog
-- [ ] **UI-05.2**: Wrap all user-facing strings in Text() or String(localized:)
-- [ ] **UI-05.3**: Use locale-aware date/time formatting
-- [ ] **UI-05.4**: Test RTL layout readiness
+### Data Honesty Rules
 
----
+- [ ] **DATA-01**: All estimated values display "est." suffix in every view
+- [ ] **DATA-02**: SpO2 shows "Sin dato" when no coincident reading, never out-of-window value
+- [ ] **DATA-03**: Episode timer displays mandatory disclosure "Desde último dato de Apple Watch"
+- [ ] **DATA-04**: User-declared data (medication, history) displays "Declarada por el paciente" note
+- [ ] **DATA-05**: Rhythm map bars with <3 samples render at 35-40% opacity with tooltip warning
 
-## Future Requirements
+## v0.4+ Requirements
 
-### v1.0 MVP (Deferred)
+Deferred to future release. Tracked but not in current roadmap.
 
-- Multi-window AF burden analysis (daily, weekly, monthly)
-- Advanced timeline pattern detection (nocturnal, clusters)
-- Symptom-rhythm correlation analysis
-- Medication awareness from health records
-- Long-term trends (6-month, 1-year views)
-- Clinical report generation for cardiologist
-- Enhanced notifications (long episodes, burden changes)
+### Trends
 
----
+- **TRND-01**: 6-month trend charts
+- **TRND-02**: 1-year trend charts
+
+### Notifications
+
+- **NOTF-01**: Enhanced notifications for long episodes
+- **NOTF-02**: Notifications for burden threshold changes
+
+### Additional Views
+
+- **VIEW-01**: Clinical Metrics detail (HRV, SpO2, Ventricular Response, Duration)
+- **VIEW-02**: AI Insights panel
+- **VIEW-03**: Medication view
+- **VIEW-04**: Settings view
 
 ## Out of Scope
 
+Explicitly excluded. Documented to prevent scope creep.
+
 | Feature | Reason |
 |---------|--------|
-| Medical diagnosis | AFOne is informational only, not a medical device |
-| Treatment recommendations | Liability concerns |
-| Cloud infrastructure | Violates privacy-first principle |
-| Real-time cardiac monitoring | Creates anxiety without clinical value |
-| Android platform | Apple Watch ecosystem required |
-
----
+| Enhanced notifications | Deferred to v0.4 - requires notification infrastructure |
+| Long-term trends (6-month, 1-year) | Deferred to v0.4 - requires data aggregation layer |
+| AI Insights panel | Requires ML model integration, defer to future |
+| Medication management view | User-declared only in v0.3 Emergency Report |
+| Settings view | Not in v0.3 scope |
+| Real-time ECG streaming | Apple Watch limitation, not achievable |
+| Cloud sync | Offline-first design principle |
 
 ## Traceability
 
+Which phases cover which requirements. Updated during roadmap creation.
+
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| UI-01 | v0.2 | Complete |
-| UI-02 | v0.2 | Complete |
-| UI-03 | v0.2 | Pending |
-| UI-04 | v0.2 | Pending |
-| UI-05 | v0.2 | Pending |
+| HOME-01 | Phase 9 | Pending |
+| HOME-02 | Phase 9 | Pending |
+| HOME-03 | Phase 9 | Pending |
+| HOME-04 | Phase 9 | Pending |
+| HOME-05 | Phase 9 | Pending |
+| HOME-06 | Phase 9 | Pending |
+| BURD-01 | Phase 10 | Pending |
+| BURD-02 | Phase 10 | Pending |
+| BURD-03 | Phase 10 | Pending |
+| BURD-04 | Phase 10 | Pending |
+| BURD-05 | Phase 10 | Pending |
+| BURD-06 | Phase 10 | Pending |
+| BURD-07 | Phase 10 | Pending |
+| BURD-08 | Phase 10 | Pending |
+| BURD-09 | Phase 10 | Pending |
+| BURD-10 | Phase 10 | Pending |
+| SYMP-01 | Phase 11 | Pending |
+| SYMP-02 | Phase 11 | Pending |
+| SYMP-03 | Phase 11 | Pending |
+| SYMP-04 | Phase 11 | Pending |
+| SYMP-05 | Phase 11 | Pending |
+| SYMP-06 | Phase 11 | Pending |
+| SYMP-07 | Phase 11 | Pending |
+| RHYM-01 | Phase 12 | Pending |
+| RHYM-02 | Phase 12 | Pending |
+| RHYM-03 | Phase 12 | Pending |
+| RHYM-04 | Phase 12 | Pending |
+| RHYM-05 | Phase 12 | Pending |
+| RHYM-06 | Phase 12 | Pending |
+| RHYM-07 | Phase 12 | Pending |
+| RHYM-08 | Phase 12 | Pending |
+| EMER-01 | Phase 13 | Pending |
+| EMER-02 | Phase 13 | Pending |
+| EMER-03 | Phase 13 | Pending |
+| EMER-04 | Phase 13 | Pending |
+| EMER-05 | Phase 13 | Pending |
+| EMER-06 | Phase 13 | Pending |
+| EMER-07 | Phase 13 | Pending |
+| EMER-08 | Phase 13 | Pending |
+| EMER-09 | Phase 13 | Pending |
+| EMER-10 | Phase 13 | Pending |
+| DATA-01 | Phase 14 | Pending |
+| DATA-02 | Phase 14 | Pending |
+| DATA-03 | Phase 14 | Pending |
+| DATA-04 | Phase 14 | Pending |
+| DATA-05 | Phase 14 | Pending |
 
 **Coverage:**
-- v0.2 requirements: 5 total
-- Mapped to phases: 5
+- v0.3 requirements: 45 total
+- Mapped to phases: 45 ✓
 - Unmapped: 0 ✓
 
 ---
 
-*Requirements defined: 2026-03-13*
+*Requirements defined: 2026-03-16*
+*Last updated: 2026-03-16 after v0.3 milestone initialization*

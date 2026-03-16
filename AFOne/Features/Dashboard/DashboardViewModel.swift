@@ -12,6 +12,10 @@ final class DashboardViewModel {
     var lastUpdated: Date = Date()
     var trend: TrendDirection = .stable
     
+    // State B - Recent Episode
+    var hasRecentEpisode: Bool = false
+    var recentEpisodeEndDate: Date? = nil
+    
     // Multi-window burden
     var selectedPeriod: TimePeriod = .week
     var burdenData: [BurdenDataPoint] = []
