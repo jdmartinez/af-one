@@ -72,12 +72,6 @@ struct BurdenCardView: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Section header
-            Text("AF BURDEN")
-                .font(.caption2)
-                .textCase(.uppercase)
-                .foregroundStyle(.tertiary)
-            
             // Time window selector
             timeWindowPicker
             

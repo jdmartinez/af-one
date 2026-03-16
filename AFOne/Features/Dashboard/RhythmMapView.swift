@@ -102,9 +102,6 @@ struct RhythmMapView: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Section header
-            headerSection
-            
             // Bar chart
             barChartSection
             

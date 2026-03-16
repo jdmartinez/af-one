@@ -52,19 +52,14 @@ struct HeroCardView: View {
     }
     
     private var gradientColors: [Color] {
-        if isStateB {
-            return [
-                Color.orange.opacity(0.12),
-                Color.orange.opacity(0.04),
-                Color.clear
-            ]
-        } else if isAFActive {
+        if isAFActive {
             return [
                 Color.afOne.rhythmAF.opacity(0.15),
                 Color.afOne.rhythmAF.opacity(0.05),
                 Color.clear
             ]
         } else {
+            // State B uses same gradient as SR (only banner is amber)
             return [
                 Color.afOne.rhythmSinusal.opacity(0.1),
                 Color.afOne.rhythmSinusal.opacity(0.03),

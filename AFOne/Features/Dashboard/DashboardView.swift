@@ -20,7 +20,7 @@ struct DashboardView: View {
             .navigationTitle("Resumen")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .principal) {
                     NavigationLink(destination: EmergencyView()) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .foregroundStyle(Color(.systemOrange))
