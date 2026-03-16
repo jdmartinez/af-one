@@ -68,6 +68,9 @@ struct BurdenDetailView: View {
                 }
             }
         }
+        .padding()
+        .background(Color(.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     private var threeColumnComparison: some View {
@@ -115,6 +118,9 @@ struct BurdenDetailView: View {
                 }
             }
         }
+        .padding()
+        .background(Color(.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     private var trendChartSection: some View {
@@ -177,11 +183,9 @@ struct BurdenDetailView: View {
             
             DataHonestyNote(text: "Barras con <3 muestras shown at 40% opacity")
         }
-    }
-    
-    private func burdenLevelColor(for data: BurdenData) -> Color {
-        let level: BurdenLevel = data.percentage < 5.5 ? .low : (data.percentage < 11 ? .medium : .high)
-        return data.insufficientData ? level.color.opacity(0.4) : level.color
+        .padding()
+        .background(Color(.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     private var clinicalContextSection: some View {
@@ -196,7 +200,15 @@ struct BurdenDetailView: View {
                 
                 AnticoagulationNote()
             }
+            .padding()
+            .background(Color(.secondarySystemBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
+    }
+    
+    private func burdenLevelColor(for data: BurdenData) -> Color {
+        let level: BurdenLevel = data.percentage < 5.5 ? .low : (data.percentage < 11 ? .medium : .high)
+        return data.insufficientData ? level.color.opacity(0.4) : level.color
     }
     
     private var dataHonestySection: some View {
@@ -241,11 +253,8 @@ struct BurdenEpisodeRow: View {
                         .font(.caption2)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 3)
+                        .background(Color(.secondarySystemBackground))
                         .clipShape(Capsule())
-                        .overlay(
-                            Capsule()
-                                .stroke(Color.secondary.opacity(0.3), lineWidth: 1)
-                        )
                 }
                 
                 if episode.hasECG {
@@ -253,11 +262,8 @@ struct BurdenEpisodeRow: View {
                         .font(.caption2)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 3)
+                        .background(Color(.secondarySystemBackground))
                         .clipShape(Capsule())
-                        .overlay(
-                            Capsule()
-                                .stroke(Color.blue.opacity(0.3), lineWidth: 1)
-                        )
                 }
                 
                 if episode.insufficientData {
@@ -268,6 +274,8 @@ struct BurdenEpisodeRow: View {
             }
         }
         .padding()
+        .background(Color(.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     private func formatDuration(_ duration: TimeInterval) -> String {
