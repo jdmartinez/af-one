@@ -24,9 +24,9 @@ final class OverviewViewModel {
 
         var color: Color {
             switch self {
-            case .improving: return .green
+            case .improving: return .afOne.rhythmSinusal
             case .stable: return .yellow
-            case .worsening: return .red
+            case .worsening: return .afOne.rhythmAF
             }
         }
     }

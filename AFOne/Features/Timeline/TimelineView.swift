@@ -257,13 +257,13 @@ struct TimelineView: View {
 
     private var legendView: some View {
         HStack(spacing: 12) {
-            LegendItem(color: .green, label: "Normal")
-            LegendItem(color: .red, label: "AF")
-            LegendItem(color: .gray, label: "Unknown")
+            LegendItem(color: .afOne.rhythmSinusal, label: "Normal")
+            LegendItem(color: .afOne.rhythmAF, label: "AF")
+            LegendItem(color: .systemGray, label: "Unknown")
             if !recentSymptoms.isEmpty {
                 Divider()
                     .frame(height: 12)
-                LegendItem(color: .red, label: "Symptom")
+                LegendItem(color: .afOne.rhythmAF, label: "Symptom")
             }
         }
     }
@@ -278,9 +278,9 @@ struct TimelineView: View {
 
     private func rhythmColor(_ rhythm: TimelineViewModel.RhythmState) -> Color {
         switch rhythm {
-        case .normal: return .green
-        case .af: return .red
-        case .unknown: return .gray
+        case .normal: return .afOne.rhythmSinusal
+        case .af: return .afOne.rhythmAF
+        case .unknown: return .systemGray
         }
     }
 }

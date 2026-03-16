@@ -49,7 +49,7 @@ struct DisclaimerView: View {
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color(.systemBlue))
                     .foregroundColor(.white)
                     .cornerRadius(12)
             }

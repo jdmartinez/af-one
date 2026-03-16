@@ -12,12 +12,12 @@ struct TriggerChip: View {
                 .font(.subheadline)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(isSelected ? Color.orange.opacity(0.2) : Color(.systemGray6))
-                .foregroundStyle(isSelected ? .orange : .primary)
+                .background(isSelected ? Color(.systemBlue).opacity(0.2) : Color(.systemGray6))
+                .foregroundStyle(isSelected ? Color(.systemBlue) : .primary)
                 .clipShape(Capsule())
                 .overlay(
                     Capsule()
-                        .stroke(isSelected ? Color.orange : Color.clear, lineWidth: 1)
+                        .stroke(isSelected ? Color(.systemBlue) : Color.clear, lineWidth: 1)
                 )
         }
         .buttonStyle(.plain)

@@ -11,7 +11,7 @@ struct AuthorizationView: View {
 
             Image(systemName: "heart.text.square.fill")
                 .font(.system(size: 80))
-                .foregroundStyle(.red)
+                .foregroundStyle(Color.afOne.rhythmAF)
 
             VStack(spacing: 16) {
                 Text("Welcome to AFOne")
@@ -61,7 +61,7 @@ struct AuthorizationView: View {
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color(.systemBlue))
                     .foregroundColor(.white)
                     .cornerRadius(12)
                 }
