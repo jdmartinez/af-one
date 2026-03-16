@@ -7,12 +7,12 @@
 
 ### Home Screen (Resumen)
 
-- [ ] **HOME-01**: Navigation bar displays "Resumen" as large title that collapses to inline on scroll, with trailing emergency access button (exclamationmark.triangle.fill) that opens EmergencyReportView
-- [ ] **HOME-02**: Section headers (AF Burden, Rhythm Map, Clinical Metrics) positioned outside and above cards with HStack layout - title left (uppercase, secondary), navigation link right (blue)
-- [ ] **HOME-03**: Hero card displays State A (Sinus Rhythm - no recent episode) with green dot and HeroGradient.sr
-- [ ] **HOME-04**: Hero card displays State B (Sinus Rhythm with recent episode) - amber contextual banner below rhythm row showing "EPISODIO RECIENTE" with elapsed time and "Ver informe" button
-- [ ] **HOME-05**: Hero card displays State C (AF Active) with red gradient, red dot, red border, and "Informe" button (not tel://112)
-- [ ] **HOME-06**: Toolbar emergency button visible regardless of rhythm state, opens EmergencyReportView directly
+- [x] **HOME-01**: Navigation bar displays "Resumen" as large title that collapses to inline on scroll, with trailing emergency access button (exclamationmark.triangle.fill) that opens EmergencyReportView
+- [x] **HOME-02**: Section headers (AF Burden, Rhythm Map, Clinical Metrics) positioned outside and above cards with HStack layout - title left (uppercase, secondary), navigation link right (blue)
+- [x] **HOME-03**: Hero card displays State A (Sinus Rhythm - no recent episode) with green dot and HeroGradient.sr
+- [x] **HOME-04**: Hero card displays State B (Sinus Rhythm with recent episode) - amber contextual banner below rhythm row showing "EPISODIO RECIENTE" with elapsed time and "Ver informe" button
+- [x] **HOME-05**: Hero card displays State C (AF Active) with red gradient, red dot, red border, and "Informe" button (not tel://112)
+- [x] **HOME-06**: Toolbar emergency button visible regardless of rhythm state, opens EmergencyReportView directly
 
 ### AF Burden Detail View
 
@@ -110,12 +110,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HOME-01 | Phase 9 | Pending |
-| HOME-02 | Phase 9 | Pending |
-| HOME-03 | Phase 9 | Pending |
-| HOME-04 | Phase 9 | Pending |
-| HOME-05 | Phase 9 | Pending |
-| HOME-06 | Phase 9 | Pending |
+| HOME-01 | Phase 9 | Complete |
+| HOME-02 | Phase 9 | Complete |
+| HOME-03 | Phase 9 | Complete |
+| HOME-04 | Phase 9 | Complete |
+| HOME-05 | Phase 9 | Complete |
+| HOME-06 | Phase 9 | Complete |
 | BURD-01 | Phase 10 | Pending |
 | BURD-02 | Phase 10 | Pending |
 | BURD-03 | Phase 10 | Pending |

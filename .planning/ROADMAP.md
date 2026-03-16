@@ -36,7 +36,7 @@
 5. Hero card displays State B (recent episode) with amber contextual banner showing "EPISODIO RECIENTE", elapsed time, and "Ver informe" button
 6. Hero card displays State C (AF Active) with red gradient, red dot, red border, and "Informe" button
 
-**Plans:** 1 plan (09-01-PLAN.md)
+**Plans:** 1/1 plans complete
 
 ---
 
@@ -159,7 +159,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 9. Home Screen UI | 1/1 | ✓ | - |
+| 9. Home Screen UI | 1/1 | Complete    | 2026-03-16 |
 | 10. AF Burden Detail View | 0/1 | Not started | - |
 | 11. Symptom Correlation View | 0/1 | Not started | - |
 | 12. Rhythm Map View | 0/1 | Not started | - |
