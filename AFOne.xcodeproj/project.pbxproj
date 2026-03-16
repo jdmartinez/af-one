@@ -23,6 +23,7 @@
 		551FDF6746CB11560FFE68F9 /* HeartRateReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB54C6636737D7793F121BDE /* HeartRateReading.swift */; };
 		55930977A761A617721A059E /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */; };
 		56B7D1519170C2E421EF23C2 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD111CA184E80663F6417BE /* AnalysisView.swift */; };
+		57E12EC29CA1959E925BADB7 /* BurdenDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFEF0CD90AD831BECACE332 /* BurdenDetailView.swift */; };
 		5874EF675F3B6BD5F56C6441 /* MedicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EC80FAED8C2420779CDC46 /* MedicationsView.swift */; };
 		60598A27840F66424E8B29BA /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CEBD4B555C773B19C0D4AA /* TimelineView.swift */; };
 		6470FE3978974982F1AE3A81 /* SymptomCaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34094261AB76DB29EE46B /* SymptomCaptureButton.swift */; };
@@ -43,10 +44,13 @@
 		A30E1CAAB40B3D85632531E9 /* TriggerChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64DFE11591E4F93E9428283 /* TriggerChip.swift */; };
 		AB5824D294D924A3241F0D5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC27DD1F05DF4B56E614274 /* Assets.xcassets */; };
 		ABBC001377F1DB55B02873CE /* RhythmMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05620EA6752E8C2F6AE562B1 /* RhythmMapView.swift */; };
+		B1EEA824E497A00904FF041E /* ThresholdComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CAECEF174E45B2E895B7E9 /* ThresholdComponents.swift */; };
 		B4B1E8CB463408DEE3975831 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1588708678410AD18895EE1 /* AuthorizationView.swift */; };
 		B826462CEA78CBBCBB8D0634 /* SymptomLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */; };
 		BB1224BEEC59F80B39BF4C88 /* AnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FC38CF0473C462CF0C45BC /* AnalysisViewModel.swift */; };
+		C43F437213912B1DE019ACBB /* BurdenDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B054A2DFD57C0279939BC0 /* BurdenDetailViewModel.swift */; };
 		C50CE129306F4B8BE0E5DF51 /* HeroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92CC7BA557DB3FFA1F3C19 /* HeroCardView.swift */; };
+		CEBC265740F8E5973F0372C4 /* TextOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CB0B8E78F4146D626EC /* TextOpacity.swift */; };
 		D007D3C803ED3C277B6CA361 /* DateFormatter+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5EC112C536A87E0A4064C5 /* DateFormatter+Localization.swift */; };
 		D74723902905C5C12719AD4C /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */; };
 		D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */; };
@@ -57,16 +61,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05620EA6752E8C2F6AE562B1 /* RhythmMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmMapView.swift; sourceTree = "<group>"; };
 		11A76A90575E021B1B5F376F /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		1A80937961C1778BCABC74DA /* SymptomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomChip.swift; sourceTree = "<group>"; };
 		1AC27DD1F05DF4B56E614274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		225E50BC486643ED2B0CDC04 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		25B054A2DFD57C0279939BC0 /* BurdenDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurdenDetailViewModel.swift; sourceTree = "<group>"; };
 		2FE34094261AB76DB29EE46B /* SymptomCaptureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCaptureButton.swift; sourceTree = "<group>"; };
 		397D86E106DAE00D2F21F5E8 /* AFBurdenCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFBurdenCalculator.swift; sourceTree = "<group>"; };
 		3BB592BAB55C123627822B20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43168A98C97DED7210E3CF8D /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		46CAECEF174E45B2E895B7E9 /* ThresholdComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdComponents.swift; sourceTree = "<group>"; };
 		5152EC9E63667251CAE800AC /* TriggerLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerLog.swift; sourceTree = "<group>"; };
 		55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
 		57F915648BB1A4B706D8C708 /* MedicationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewModel.swift; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 		AA92CC7BA557DB3FFA1F3C19 /* HeroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCardView.swift; sourceTree = "<group>"; };
 		AE20666ADAB3ABA770B3755D /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		B1588708678410AD18895EE1 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		B48A9CB0B8E78F4146D626EC /* TextOpacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOpacity.swift; sourceTree = "<group>"; };
 		BA5EC112C536A87E0A4064C5 /* DateFormatter+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Localization.swift"; sourceTree = "<group>"; };
 		BA63DC2C043A734ECE8A5D25 /* CorrelationAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrelationAnalyzer.swift; sourceTree = "<group>"; };
 		BB54C6636737D7793F121BDE /* HeartRateReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateReading.swift; sourceTree = "<group>"; };
@@ -106,6 +113,7 @@
 		E64DFE11591E4F93E9428283 /* TriggerChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerChip.swift; sourceTree = "<group>"; };
 		F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomLog.swift; sourceTree = "<group>"; };
+		FEFEF0CD90AD831BECACE332 /* BurdenDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurdenDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -208,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				BA5EC112C536A87E0A4064C5 /* DateFormatter+Localization.swift */,
+				B48A9CB0B8E78F4146D626EC /* TextOpacity.swift */,
 				A8F965E2F7F9D7E0B906BA5C /* Theme.swift */,
 			);
 			path = Extensions;
@@ -259,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				A1EAA77C989BE4683E7CB868 /* BurdenCardView.swift */,
+				FEFEF0CD90AD831BECACE332 /* BurdenDetailView.swift */,
+				25B054A2DFD57C0279939BC0 /* BurdenDetailViewModel.swift */,
 				9BFE8E49BE0C07FF0F601784 /* ClinicalMetricsGridView.swift */,
 				225E50BC486643ED2B0CDC04 /* DashboardView.swift */,
 				AE20666ADAB3ABA770B3755D /* DashboardViewModel.swift */,
@@ -351,6 +362,7 @@
 				F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */,
 				6F4E8A9E1FA6943797AE4B19 /* GlassBottomBar.swift */,
 				1A80937961C1778BCABC74DA /* SymptomChip.swift */,
+				46CAECEF174E45B2E895B7E9 /* ThresholdComponents.swift */,
 				E64DFE11591E4F93E9428283 /* TriggerChip.swift */,
 			);
 			path = Components;
@@ -437,6 +449,8 @@
 				38D725DCED8D9D28C4C8C40C /* AuthorizationViewModel.swift in Sources */,
 				0958DDEFBD83FF2D8F6055BA /* BurdenCardView.swift in Sources */,
 				DD6C18AF8A6CB1CDE244C69B /* BurdenChartView.swift in Sources */,
+				57E12EC29CA1959E925BADB7 /* BurdenDetailView.swift in Sources */,
+				C43F437213912B1DE019ACBB /* BurdenDetailViewModel.swift in Sources */,
 				6E79C2162FC1DFC133C12133 /* ClinicalMetricsGridView.swift in Sources */,
 				7E1ED1E5DE4F1A03F0AA9F91 /* ContentView.swift in Sources */,
 				DB178EBD4B5CA4FA57D9F7D3 /* CorrelationAnalyzer.swift in Sources */,
@@ -466,7 +480,9 @@
 				6470FE3978974982F1AE3A81 /* SymptomCaptureButton.swift in Sources */,
 				1DFC0FBA4D581CCEAAF31BFA /* SymptomChip.swift in Sources */,
 				B826462CEA78CBBCBB8D0634 /* SymptomLog.swift in Sources */,
+				CEBC265740F8E5973F0372C4 /* TextOpacity.swift in Sources */,
 				E2501A48C1C6802A29CB9EFE /* Theme.swift in Sources */,
+				B1EEA824E497A00904FF041E /* ThresholdComponents.swift in Sources */,
 				60598A27840F66424E8B29BA /* TimelineView.swift in Sources */,
 				1300A1D84E5F25408023BE7E /* TrendAnalyzer.swift in Sources */,
 				44032A2AB95907470D1F49DB /* TrendsView.swift in Sources */,
@@ -554,11 +570,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = AFOne/AFOne.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_KEY_CFBundleDisplayName = AFOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "AFOne needs access to your health data to display heart rhythm information.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "AFOne needs access to update your health data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -566,18 +579,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.afone.AFOne;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -586,11 +594,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = AFOne/AFOne.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_KEY_CFBundleDisplayName = AFOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "AFOne needs access to your health data to display heart rhythm information.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "AFOne needs access to update your health data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -598,18 +603,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.afone.AFOne;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
