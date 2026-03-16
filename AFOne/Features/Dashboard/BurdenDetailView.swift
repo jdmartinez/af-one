@@ -11,6 +11,7 @@ struct BurdenDetailView: View {
                 primaryBurdenSection
                 threeColumnComparison
                 trendChartSection
+                episodesListSection
                 clinicalContextSection
                 dataHonestySection
             }
@@ -42,35 +43,144 @@ struct BurdenDetailView: View {
     }
     
     private var primaryBurdenSection: some View {
-        VStack(spacing: 16) {
+        VStack(alignment: .leading, spacing: 12) {
             if let burden = viewModel.currentBurden {
-                VStack(spacing: 12) {
-                    HStack(alignment: .top, spacing: 16) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(String(format: "%.1f", burden.percentage))
-                                .font(.system(size: 56, weight: .bold, design: .rounded))
-                                .foregroundStyle(viewModel.burdenLevel.color)
-                            
-                            Text("de tiempo en FA")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        }
-                        
-                        Spacer()
-                        
-                        VStack(alignment: .trailing, spacing: 8) {
-                            ThresholdBadge(level: viewModel.burdenLevel)
-                            ClinicalReferenceBadge(level: viewModel.burdenLevel)
-                        }
-                    }
-                    
-                    DataHonestyNote(text: "Valor estimado")
-                }
+                primaryValueSection(burden: burden)
+                progressBarSection(burden: burden)
+                legendSection
+                deltaSection(burden: burden)
             }
         }
-        .padding()
-        .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(20)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
+    }
+    
+    private func primaryValueSection(burden: BurdenData) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 4) {
+            Text(String(format: "%.1f", burden.percentage))
+                .font(.system(size: 52, weight: .bold, design: .rounded))
+                .foregroundStyle(viewModel.burdenLevel.color)
+            
+            Text("%")
+                .font(.title3)
+                .foregroundStyle(.secondary)
+                .baselineOffset(8)
+            
+            Spacer()
+            
+            thresholdBadge(burden: burden)
+        }
+    }
+    
+    private func thresholdBadge(burden: BurdenData) -> some View {
+        let text: String = {
+            switch burden.percentage {
+            case ..<5.5: return "↓ ASSERT <5.5%"
+            case 5.5..<11.0: return "5.5-10.9% ASSERT"
+            default: return "≥11% Alto"
+            }
+        }()
+        
+        return Text(text)
+            .font(.caption)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
+            .background(viewModel.burdenLevel.color.opacity(0.15), in: Capsule())
+            .foregroundStyle(viewModel.burdenLevel.color.opacity(0.7))
+    }
+    
+    private func progressBarSection(burden: BurdenData) -> some View {
+        GeometryReader { geometry in
+            let maxWidth = geometry.size.width
+            let fillWidth = min((burden.percentage / 11.0) * maxWidth, maxWidth)
+            let midPoint = maxWidth / 2
+            
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 3)
+                    .fill(Color(.systemFill))
+                    .frame(height: 6)
+                
+                RoundedRectangle(cornerRadius: 3)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.afOne.burdenLow, viewModel.burdenLevel.color],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+                    .frame(width: fillWidth, height: 6)
+                
+                Rectangle()
+                    .fill(Color.afOne.burdenMid.opacity(0.6))
+                    .frame(width: 2, height: 12)
+                    .position(x: midPoint, y: 6)
+                
+                Rectangle()
+                    .fill(Color.afOne.burdenHigh.opacity(0.6))
+                    .frame(width: 2, height: 12)
+                    .position(x: maxWidth, y: 6)
+            }
+        }
+        .frame(height: 12)
+    }
+    
+    private var legendSection: some View {
+        HStack(spacing: 16) {
+            Label {
+                Text("Bajo riesgo")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            } icon: {
+                Circle()
+                    .fill(Color.afOne.burdenLow)
+                    .frame(width: 8, height: 8)
+            }
+            
+            Spacer()
+            
+            Label {
+                Text("≥5.5% ASSERT")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            } icon: {
+                Circle()
+                    .fill(Color.afOne.burdenMid)
+                    .frame(width: 8, height: 8)
+            }
+            
+            Spacer()
+            
+            Label {
+                Text("≥11% Alto")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            } icon: {
+                Circle()
+                    .fill(Color.afOne.burdenHigh)
+                    .frame(width: 8, height: 8)
+            }
+        }
+    }
+    
+    private func deltaSection(burden: BurdenData) -> some View {
+        VStack(spacing: 8) {
+            Divider()
+            
+            HStack {
+                HStack(spacing: 4) {
+                    Image(systemName: viewModel.deltaIsPositive ? "arrow.up" : "arrow.down")
+                    Text(viewModel.deltaText)
+                }
+                .font(.caption)
+                .foregroundStyle(viewModel.deltaIsPositive ? Color.afOne.rhythmAF : Color.afOne.rhythmSinusal)
+                
+                Spacer()
+                
+                Text("\(burden.episodeCount) episodios")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+        }
     }
     
     private var threeColumnComparison: some View {
@@ -78,7 +188,7 @@ struct BurdenDetailView: View {
             Text("Comparación de períodos")
                 .font(.headline)
             
-            HStack(spacing: 12) {
+            HStack(spacing: 0) {
                 ForEach(BurdenPeriod.allCases) { period in
                     let burden = viewModel.allPeriodsBurden.first { $0.period == period }
                     let prevBurden = viewModel.allPeriodsBurden.first { $0.period == period }?.previousPercentage
@@ -115,12 +225,17 @@ struct BurdenDetailView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
+                    
+                    if period != .month {
+                        Divider()
+                            .frame(height: 80)
+                    }
                 }
             }
+            .padding(.vertical, 8)
         }
-        .padding()
-        .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(20)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
     }
     
     private var trendChartSection: some View {
@@ -128,64 +243,130 @@ struct BurdenDetailView: View {
             Text("Tendencia de 14 días")
                 .font(.headline)
             
-            if viewModel.trendData.isEmpty {
-                Chart {
-                    ForEach(0..<14, id: \.self) { day in
-                        let value = Double.random(in: 3...15)
-                        let level: BurdenLevel = value < 5.5 ? .low : (value < 11 ? .medium : .high)
+            ZStack {
+                if viewModel.trendData.isEmpty {
+                    Chart {
+                        ForEach(0..<14, id: \.self) { day in
+                            let value = Double.random(in: 3...15)
+                            let level: BurdenLevel = value < 5.5 ? .low : (value < 11 ? .medium : .high)
+                            
+                            BarMark(
+                                x: .value("Día", day),
+                                y: .value("Carga", value)
+                            )
+                            .foregroundStyle(level.color.opacity(value < 3 ? 0.4 : 1.0))
+                        }
                         
-                        BarMark(
-                            x: .value("Día", day),
-                            y: .value("Carga", value)
-                        )
-                        .foregroundStyle(level.color.opacity(value < 3 ? 0.4 : 1.0))
-                    }
-                }
-                .chartYScale(domain: 0...20)
-                .chartYAxis(.hidden)
-                .chartXAxis {
-                    AxisMarks(values: .stride(by: 1)) { value in
-                        AxisValueLabel {
-                            if let day = value.as(Int.self) {
-                                let date = Calendar.current.date(byAdding: .day, value: -(13 - day), to: Date()) ?? Date()
-                                Text(date, format: .dateTime.weekday(.narrow))
+                        RuleMark(y: .value("5.5%", 5.5))
+                            .foregroundStyle(Color.gray.opacity(0.5))
+                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
+                            .annotation(position: .trailing, alignment: .leading) {
+                                Text("5.5%")
                                     .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                        
+                        RuleMark(y: .value("11%", 11))
+                            .foregroundStyle(Color.gray.opacity(0.5))
+                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
+                            .annotation(position: .trailing, alignment: .leading) {
+                                Text("11%")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                    }
+                    .chartYScale(domain: 0...20)
+                    .chartYAxis(.hidden)
+                    .chartXAxis {
+                        AxisMarks(values: .stride(by: 1)) { value in
+                            AxisValueLabel {
+                                if let day = value.as(Int.self) {
+                                    let date = Calendar.current.date(byAdding: .day, value: -(13 - day), to: Date()) ?? Date()
+                                    Text(date, format: .dateTime.weekday(.narrow))
+                                        .font(.caption2)
+                                }
                             }
                         }
                     }
-                }
-                .frame(height: 200)
-            } else {
-                Chart {
-                    ForEach(viewModel.trendData) { data in
-                        BarMark(
-                            x: .value("Día", viewModel.trendData.firstIndex(of: data) ?? 0),
-                            y: .value("Carga", data.percentage)
-                        )
-                        .foregroundStyle(burdenLevelColor(for: data))
-                    }
-                }
-                .chartYScale(domain: 0...20)
-                .chartYAxis(.hidden)
-                .chartXAxis {
-                    AxisMarks(values: .stride(by: 1)) { value in
-                        AxisValueLabel {
-                            if let day = value.as(Int.self) {
-                                let date = Calendar.current.date(byAdding: .day, value: -(13 - day), to: Date()) ?? Date()
-                                Text(date, format: .dateTime.weekday(.narrow))
+                    .frame(height: 200)
+                } else {
+                    Chart {
+                        ForEach(viewModel.trendData) { data in
+                            BarMark(
+                                x: .value("Día", viewModel.trendData.firstIndex(of: data) ?? 0),
+                                y: .value("Carga", data.percentage)
+                            )
+                            .foregroundStyle(burdenLevelColor(for: data))
+                        }
+                        
+                        RuleMark(y: .value("5.5%", 5.5))
+                            .foregroundStyle(Color.gray.opacity(0.5))
+                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
+                            .annotation(position: .trailing, alignment: .leading) {
+                                Text("5.5%")
                                     .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                        
+                        RuleMark(y: .value("11%", 11))
+                            .foregroundStyle(Color.gray.opacity(0.5))
+                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
+                            .annotation(position: .trailing, alignment: .leading) {
+                                Text("11%")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                    }
+                    .chartYScale(domain: 0...20)
+                    .chartYAxis(.hidden)
+                    .chartXAxis {
+                        AxisMarks(values: .stride(by: 1)) { value in
+                            AxisValueLabel {
+                                if let day = value.as(Int.self) {
+                                    let date = Calendar.current.date(byAdding: .day, value: -(13 - day), to: Date()) ?? Date()
+                                    Text(date, format: .dateTime.weekday(.narrow))
+                                        .font(.caption2)
+                                }
                             }
                         }
                     }
+                    .frame(height: 200)
                 }
-                .frame(height: 200)
             }
             
             DataHonestyNote(text: "Barras con <3 muestras shown at 40% opacity")
         }
-        .padding()
-        .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(20)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
+    }
+    
+    private func burdenLevelColor(for data: BurdenData) -> Color {
+        let level: BurdenLevel = data.percentage < 5.5 ? .low : (data.percentage < 11 ? .medium : .high)
+        return data.insufficientData ? level.color.opacity(0.4) : level.color
+    }
+    
+    private var episodesListSection: some View {
+        VStack(spacing: 12) {
+            Text("Episodios recientes")
+                .font(.headline)
+            
+            if viewModel.recentEpisodes.isEmpty {
+                VStack(spacing: 8) {
+                    Image(systemName: "heart.fill")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                    Text("No hay episodios recientes")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 32)
+            } else {
+                ForEach(viewModel.recentEpisodes) { episode in
+                    BurdenEpisodeRow(episode: episode)
+                }
+            }
+        }
     }
     
     private var clinicalContextSection: some View {
@@ -200,15 +381,9 @@ struct BurdenDetailView: View {
                 
                 AnticoagulationNote()
             }
-            .padding()
-            .background(Color(.secondarySystemBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(20)
+            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
         }
-    }
-    
-    private func burdenLevelColor(for data: BurdenData) -> Color {
-        let level: BurdenLevel = data.percentage < 5.5 ? .low : (data.percentage < 11 ? .medium : .high)
-        return data.insufficientData ? level.color.opacity(0.4) : level.color
     }
     
     private var dataHonestySection: some View {
