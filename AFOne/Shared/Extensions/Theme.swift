@@ -108,14 +108,14 @@ enum ChartColors {
 // MARK: - Hero Gradient Colors
 struct HeroGradient {
     static let sr = [
-        Color("AFOne/HeroSR1"),
-        Color("AFOne/HeroSR2"),
-        Color("AFOne/HeroSR3")
+        Color("HeroSR1"),
+        Color("HeroSR2"),
+        Color("HeroSR3")
     ]
     
     static let af = [
-        Color("AFOne/HeroAF1"),
-        Color("AFOne/HeroAF2"),
-        Color("AFOne/HeroAF3")
+        Color("HeroAF1"),
+        Color("HeroAF2"),
+        Color("HeroAF3")
     ]
 }

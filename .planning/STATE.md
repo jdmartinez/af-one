@@ -93,6 +93,7 @@ None identified yet.
 | 3 | 2026-03-13 | Localize the app | ui | Pending (future phase) |
 | 4 | 2026-03-14 | Fix AF Burden blue bars height on Day | ui | Pending |
 | 5 | 2026-03-14 | Fix tab bar scroll collapse not working | ui | Pending |
+| 6 | 2026-03-16 | Align emergency button with Resumen title | ui | Pending |
 
 ---
 

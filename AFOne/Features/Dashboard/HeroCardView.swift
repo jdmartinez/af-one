@@ -87,29 +87,24 @@ struct HeroCardView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color(.secondarySystemBackground))
-                
-                if isAFActive {
-                    LinearGradient(
-                        colors: HeroGradient.af,
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(
+                        LinearGradient(
+                            colors: isAFActive ? HeroGradient.af : HeroGradient.sr,
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                     )
-                    .opacity(0.15)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                } else {
-                    LinearGradient(
-                        colors: HeroGradient.sr,
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                    .opacity(0.1)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                }
+                    .opacity(isAFActive ? 0.35 : 0.25)
             }
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(rhythmColor.opacity(0.3), lineWidth: isAFActive ? 1 : 0)
+                .stroke(
+                    rhythmColor.opacity(isAFActive ? 0.5 : 0.15),
+                    lineWidth: 1
+                )
         )
         .accessibilityElement(children: .combine)
         .accessibilityLabel(accessibilityDescription)
