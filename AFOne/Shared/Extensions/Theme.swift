@@ -104,3 +104,18 @@ enum ChartColors {
     static let tertiary = Color.afOne.burdenMid
     static let background = Color(.systemGroupedBackground)
 }
+
+// MARK: - Hero Gradient Colors
+struct HeroGradient {
+    static let sr = [
+        Color("AFOne/HeroSR1"),
+        Color("AFOne/HeroSR2"),
+        Color("AFOne/HeroSR3")
+    ]
+    
+    static let af = [
+        Color("AFOne/HeroAF1"),
+        Color("AFOne/HeroAF2"),
+        Color("AFOne/HeroAF3")
+    ]
+}

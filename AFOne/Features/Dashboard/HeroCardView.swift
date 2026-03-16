@@ -84,8 +84,28 @@ struct HeroCardView: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 18)
         .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color(.secondarySystemBackground))
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color(.secondarySystemBackground))
+                
+                if isAFActive {
+                    LinearGradient(
+                        colors: HeroGradient.af,
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .opacity(0.15)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                } else {
+                    LinearGradient(
+                        colors: HeroGradient.sr,
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .opacity(0.1)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                }
+            }
         )
         .overlay(
             RoundedRectangle(cornerRadius: 20)
