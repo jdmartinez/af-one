@@ -259,7 +259,7 @@ struct TimelineView: View {
         HStack(spacing: 12) {
             LegendItem(color: .afOne.rhythmSinusal, label: "Normal")
             LegendItem(color: .afOne.rhythmAF, label: "AF")
-            LegendItem(color: .systemGray, label: "Unknown")
+            LegendItem(color: Color(.systemGray), label: "Unknown")
             if !recentSymptoms.isEmpty {
                 Divider()
                     .frame(height: 12)
@@ -280,7 +280,7 @@ struct TimelineView: View {
         switch rhythm {
         case .normal: return .afOne.rhythmSinusal
         case .af: return .afOne.rhythmAF
-        case .unknown: return .systemGray
+        case .unknown: return Color(.systemGray)
         }
     }
 }
