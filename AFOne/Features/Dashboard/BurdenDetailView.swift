@@ -9,18 +9,21 @@ struct BurdenDetailView: View {
             VStack(spacing: 24) {
                 periodPicker
                 primaryBurdenSection
-                progressSection
-                deltaSection
                 threeColumnComparison
                 trendChartSection
-                episodesListSection
                 clinicalContextSection
                 dataHonestySection
             }
             .padding()
         }
         .navigationTitle("Carga de FA")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Carga de FA")
+                    .font(.headline)
+            }
+        }
         .task {
             await viewModel.loadData()
         }
@@ -39,83 +42,45 @@ struct BurdenDetailView: View {
     }
     
     private var primaryBurdenSection: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 16) {
             if let burden = viewModel.currentBurden {
-                HStack(alignment: .top, spacing: 16) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(String(format: "%.1f", burden.percentage))
-                            .font(.system(size: 56, weight: .bold, design: .rounded))
-                            .foregroundStyle(viewModel.burdenLevel.color)
+                VStack(spacing: 12) {
+                    HStack(alignment: .top, spacing: 16) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(String(format: "%.1f", burden.percentage))
+                                .font(.system(size: 56, weight: .bold, design: .rounded))
+                                .foregroundStyle(viewModel.burdenLevel.color)
+                            
+                            Text("de tiempo en FA")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
                         
-                        Text("de tiempo en FA")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        Spacer()
+                        
+                        VStack(alignment: .trailing, spacing: 8) {
+                            ThresholdBadge(level: viewModel.burdenLevel)
+                            ClinicalReferenceBadge(level: viewModel.burdenLevel)
+                        }
                     }
                     
-                    Spacer()
-                    
-                    VStack(alignment: .trailing, spacing: 8) {
-                        ThresholdBadge(level: viewModel.burdenLevel)
-                        ClinicalReferenceBadge(level: viewModel.burdenLevel)
-                    }
+                    DataHonestyNote(text: "Valor estimado")
                 }
-                
-                DataHonestyNote(text: "Valor estimado")
-            }
-        }
-        .padding()
-        .background(Color.secondary.opacity(0.05))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-    }
-    
-    private var progressSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Progreso")
-                .font(.headline)
-            
-            if let burden = viewModel.currentBurden {
-                BurdenProgressBar(
-                    percentage: burden.percentage,
-                    level: viewModel.burdenLevel
-                )
-                
-                HStack {
-                    Text("0%")
-                    Spacer()
-                    Text("5.5%")
-                    Spacer()
-                    Text("11%")
-                    Spacer()
-                    Text("100%")
-                }
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-            }
-        }
-    }
-    
-    private var deltaSection: some View {
-        Group {
-            if viewModel.currentBurden != nil {
-                DeltaRow(
-                    deltaText: viewModel.deltaText,
-                    isPositive: viewModel.deltaIsPositive
-                )
-                .padding()
-                .background(Color.secondary.opacity(0.05))
-                .clipShape(RoundedRectangle(cornerRadius: 12))
             }
         }
     }
     
     private var threeColumnComparison: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(spacing: 12) {
             Text("Comparación de períodos")
                 .font(.headline)
             
             HStack(spacing: 12) {
                 ForEach(BurdenPeriod.allCases) { period in
                     let burden = viewModel.allPeriodsBurden.first { $0.period == period }
+                    let prevBurden = viewModel.allPeriodsBurden.first { $0.period == period }?.previousPercentage
+                    let currentBurden = viewModel.allPeriodsBurden.first { $0.period == period }?.percentage
+                    
                     VStack(spacing: 8) {
                         Text(period.rawValue)
                             .font(.caption)
@@ -126,21 +91,34 @@ struct BurdenDetailView: View {
                             .fontWeight(.semibold)
                             .foregroundStyle(.primary)
                         
+                        if let current = currentBurden, let previous = prevBurden {
+                            let delta = current - previous
+                            HStack(spacing: 2) {
+                                Image(systemName: delta >= 0 ? "arrow.up" : "arrow.down")
+                                    .font(.caption2)
+                                Text(String(format: "%.1f%%", abs(delta)))
+                                    .font(.caption2)
+                            }
+                            .foregroundStyle(delta >= 0 ? .red : .green)
+                        } else {
+                            Text("—")
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                        }
+                        
                         Text(burden.map { "\($0.episodeCount) epis." } ?? "—")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
                     }
                     .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.secondary.opacity(0.05))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .padding(.vertical, 12)
                 }
             }
         }
     }
     
     private var trendChartSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(spacing: 12) {
             Text("Tendencia de 14 días")
                 .font(.headline)
             
@@ -158,8 +136,17 @@ struct BurdenDetailView: View {
                     }
                 }
                 .chartYScale(domain: 0...20)
-                .chartYAxis {
-                    AxisMarks(position: .leading)
+                .chartYAxis(.hidden)
+                .chartXAxis {
+                    AxisMarks(values: .stride(by: 1)) { value in
+                        AxisValueLabel {
+                            if let day = value.as(Int.self) {
+                                let date = Calendar.current.date(byAdding: .day, value: -(13 - day), to: Date()) ?? Date()
+                                Text(date, format: .dateTime.weekday(.narrow))
+                                    .font(.caption2)
+                            }
+                        }
+                    }
                 }
                 .frame(height: 200)
             } else {
@@ -173,8 +160,17 @@ struct BurdenDetailView: View {
                     }
                 }
                 .chartYScale(domain: 0...20)
-                .chartYAxis {
-                    AxisMarks(position: .leading)
+                .chartYAxis(.hidden)
+                .chartXAxis {
+                    AxisMarks(values: .stride(by: 1)) { value in
+                        AxisValueLabel {
+                            if let day = value.as(Int.self) {
+                                let date = Calendar.current.date(byAdding: .day, value: -(13 - day), to: Date()) ?? Date()
+                                Text(date, format: .dateTime.weekday(.narrow))
+                                    .font(.caption2)
+                            }
+                        }
+                    }
                 }
                 .frame(height: 200)
             }
@@ -188,45 +184,18 @@ struct BurdenDetailView: View {
         return data.insufficientData ? level.color.opacity(0.4) : level.color
     }
     
-    private var episodesListSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Episodios recientes")
-                .font(.headline)
-            
-            if viewModel.recentEpisodes.isEmpty {
-                VStack(spacing: 8) {
-                    Image(systemName: "heart.fill")
-                        .font(.title2)
-                        .foregroundStyle(.secondary)
-                    Text("No hay episodios recientes")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 32)
-            } else {
-                ForEach(viewModel.recentEpisodes) { episode in
-                    BurdenEpisodeRow(episode: episode)
-                }
-            }
-        }
-    }
-    
     private var clinicalContextSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Contexto clínico")
                 .font(.headline)
             
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 16) {
                 ClinicalThresholdExplanation()
                 
                 Divider()
                 
                 AnticoagulationNote()
             }
-            .padding()
-            .background(Color.blue.opacity(0.05))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
     
@@ -293,8 +262,6 @@ struct BurdenEpisodeRow: View {
             }
         }
         .padding()
-        .background(Color.secondary.opacity(0.05))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     private func formatDuration(_ duration: TimeInterval) -> String {
@@ -310,12 +277,16 @@ struct BurdenEpisodeRow: View {
 
 struct ClinicalThresholdExplanation: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("Referencias clínicas")
-                .font(.subheadline)
-                .fontWeight(.semibold)
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: "heart.text.square.fill")
+                    .foregroundStyle(.blue)
+                Text("Referencias clínicas")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+            }
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 8) {
                 ThresholdRow(
                     level: "Bajo (<5.5%)",
                     reference: "ASSERT trial",
@@ -342,16 +313,14 @@ struct ThresholdRow: View {
     let description: String
     
     var body: some View {
-        HStack(alignment: .top, spacing: 8) {
+        VStack(alignment: .leading, spacing: 2) {
             Text(level)
                 .font(.caption)
                 .fontWeight(.medium)
-                .frame(width: 80, alignment: .leading)
             
             Text(reference)
                 .font(.caption2)
                 .foregroundStyle(.secondary)
-                .frame(width: 60, alignment: .leading)
             
             Text(description)
                 .font(.caption)
@@ -362,10 +331,14 @@ struct ThresholdRow: View {
 
 struct AnticoagulationNote: View {
     var body: some View {
-        HStack(alignment: .top, spacing: 8) {
-            Image(systemName: "pills.fill")
-                .font(.caption)
-                .foregroundStyle(.blue)
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 8) {
+                Image(systemName: "pills.fill")
+                    .foregroundStyle(.blue)
+                Text("Anticoagulación")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+            }
             
             Text("La decisión de iniciar anticoagulación debe tomarla su cardiólogo considerando su riesgo individual.")
                 .font(.caption)
