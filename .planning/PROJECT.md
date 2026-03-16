@@ -8,20 +8,17 @@ AFOne is an iOS application that helps patients with **paroxysmal atrial fibrill
 
 Transform Apple Watch heart rhythm data into clear, clinically meaningful insights that help PAF patients understand their condition, recognize patterns, and communicate effectively with their cardiologist.
 
-## Current Milestone: v0.2 (UI Enhancements)
+## Current State: v0.2 (Shipped 2026-03-16)
 
-**Goal:** Improve UI/UX with iOS-native appearance, localization, and polish
-
-**Target features:**
-- Make UI compatible with iOS dark and light theme
-- Redesign dashboard cards with Health app-like UI
-- Remove duplicate back button in More views
-- Implement collapsible Liquid Glass tab bar
-- Localize the app based on iOS language
+**Shipped:** UI Enhancements milestone complete
+- Phase 5: Theme & Dashboard Redesign
+- Phase 6: Polish & Localization
+- Phase 7: Dashboard Redesign Specification
+- Phase 8: New Color Palette
 
 ## Requirements
 
-### Validated (v0.1 Alpha)
+### Validated (v0.1 Alpha + v0.2)
 
 - ✓ Dashboard with current rhythm context and summary metrics
 - ✓ Rhythm monitoring overview with AF frequency
@@ -34,16 +31,20 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 - ✓ Emergency information quick access
 - ✓ HealthKit integration
 - ✓ Notifications for AF episodes
+- ✓ Dark/light theme support
+- ✓ Dashboard cards with Apple Health-style UI
+- ✓ Liquid Glass tab bar with collapse
+- ✓ Color palette with Color Set references
+- ✓ Semantic color system throughout
 
-### Active (v0.2 UI Enhancements)
+### Active (v1.0 MVP)
 
-- [ ] Make UI compatible with iOS dark and light theme
-- [ ] Redesign dashboard cards with Health app-like UI
-- [ ] Remove duplicate back button in More views
-- [ ] Implement collapsible Liquid Glass tab bar
-- [ ] Localize the app based on iOS language
-
-### Future (v1.0 MVP)
+- [ ] Multi-window AF burden analysis (daily, weekly, monthly)
+- [ ] Advanced timeline pattern detection (nocturnal, clusters)
+- [ ] Symptom-rhythm correlation analysis
+- [ ] Clinical report generation for cardiologist
+- [ ] Enhanced notifications (long episodes, burden changes)
+- [ ] Long-term trends (6-month, 1-year views)
 
 ### Out of Scope
 
@@ -56,10 +57,12 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 
 ## Context
 
-- **Platform**: iOS (modern devices), Apple Watch as primary data source
+- **Platform**: iOS 17+ (modern devices), Apple Watch as primary data source
 - **Data Source**: Apple Health records containing heart rhythm data from Apple Watch
 - **Offline-first**: Core capabilities work without network connectivity
 - **Privacy-first**: All health data remains on-device under user control
+- **Tech Stack**: SwiftUI, Swift Charts, SwiftData, MVVM + Clean Architecture
+- **Shipped LOC**: ~10,000+ Swift
 
 ## Key Decisions
 
@@ -71,7 +74,11 @@ Transform Apple Watch heart rhythm data into clear, clinically meaningful insigh
 | Not a medical device | Regulatory clearance would delay launch | ✓ Validated |
 | SwiftData @Model | Apple's recommended persistence for iOS 17+ | ✓ Validated |
 | BarMark for day, LineMark for week/month | Optimal visualization for each time granularity | ✓ Validated |
+| Semantic colors + Color Set assets | Per SPECIFICATION.md Section 2 - iOS HIG compliance and accessibility | ✓ Validated |
+| Zone-based dashboard layout | Hero Card transforms between SR and AF Active states per SPEC.md Section 4 | ✓ Validated |
+| Theme.swift Color Set references | Replace hardcoded RGB with Color Set assets in Assets.xcassets per SPEC.md | ✓ Validated |
+| AI token color palette | Violet base with confidence indicators for future AI features | ✓ Validated |
 
 ---
 
-*Last updated: 2026-03-13 for v0.2 UI Enhancements milestone*
+*Last updated: 2026-03-16 after v0.2 UI Enhancements milestone*
