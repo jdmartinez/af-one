@@ -89,7 +89,7 @@ struct DashboardView: View {
                     recentEpisodeEndDate: viewModel.recentEpisodeEndDate
                 )
                 
-                SectionHeaderView(title: "AF BURDEN", showNavigationLink: false)
+                SectionHeaderView(title: "AF BURDEN", showNavigationLink: true, navigationDestination: AnyView(BurdenDetailView()))
                 burdenSection
                 
                 SectionHeaderView(title: "MAPA DE RITMO", showNavigationLink: false)

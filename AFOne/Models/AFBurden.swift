@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 struct AFBurden: Identifiable, Codable {
     var id: Date { date }

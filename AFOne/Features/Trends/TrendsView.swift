@@ -31,7 +31,7 @@ struct TrendsView: View {
                 await viewModel.loadTrends()
             }
         }
-        .tabBarMinimizeBehavior(.onScrollDown)
+        .modifier(TabBarMinimizeModifier())
         .task {
             await viewModel.loadTrends()
         }
@@ -271,4 +271,14 @@ struct TrendsView: View {
 #Preview {
     TrendsView()
         .preferredColorScheme(.dark)
+}
+
+struct TabBarMinimizeModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26.0, *) {
+            content.tabBarMinimizeBehavior(.onScrollDown)
+        } else {
+            content
+        }
+    }
 }
