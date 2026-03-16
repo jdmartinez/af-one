@@ -184,7 +184,7 @@ struct BurdenDetailView: View {
     }
     
     private var threeColumnComparison: some View {
-        VStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: 12) {
             Text("Comparación de períodos")
                 .font(.headline)
             
@@ -239,11 +239,11 @@ struct BurdenDetailView: View {
     }
     
     private var trendChartSection: some View {
-        VStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: 12) {
             Text("Tendencia de 14 días")
                 .font(.headline)
             
-            ZStack {
+            ZStack(alignment: .topTrailing) {
                 if viewModel.trendData.isEmpty {
                     Chart {
                         ForEach(0..<14, id: \.self) { day in
@@ -255,25 +255,16 @@ struct BurdenDetailView: View {
                                 y: .value("Carga", value)
                             )
                             .foregroundStyle(level.color.opacity(value < 3 ? 0.4 : 1.0))
+                            .position(by: .value("Día", day))
                         }
                         
                         RuleMark(y: .value("5.5%", 5.5))
                             .foregroundStyle(Color.gray.opacity(0.5))
                             .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
-                            .annotation(position: .trailing, alignment: .leading) {
-                                Text("5.5%")
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                            }
                         
                         RuleMark(y: .value("11%", 11))
                             .foregroundStyle(Color.gray.opacity(0.5))
                             .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
-                            .annotation(position: .trailing, alignment: .leading) {
-                                Text("11%")
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                            }
                     }
                     .chartYScale(domain: 0...20)
                     .chartYAxis(.hidden)
@@ -297,25 +288,16 @@ struct BurdenDetailView: View {
                                 y: .value("Carga", data.percentage)
                             )
                             .foregroundStyle(burdenLevelColor(for: data))
+                            .position(by: .value("Día", viewModel.trendData.firstIndex(of: data) ?? 0))
                         }
                         
                         RuleMark(y: .value("5.5%", 5.5))
                             .foregroundStyle(Color.gray.opacity(0.5))
                             .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
-                            .annotation(position: .trailing, alignment: .leading) {
-                                Text("5.5%")
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                            }
                         
                         RuleMark(y: .value("11%", 11))
                             .foregroundStyle(Color.gray.opacity(0.5))
                             .lineStyle(StrokeStyle(lineWidth: 1, dash: [5, 5]))
-                            .annotation(position: .trailing, alignment: .leading) {
-                                Text("11%")
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                            }
                     }
                     .chartYScale(domain: 0...20)
                     .chartYAxis(.hidden)
@@ -346,7 +328,7 @@ struct BurdenDetailView: View {
     }
     
     private var episodesListSection: some View {
-        VStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: 12) {
             Text("Episodios recientes")
                 .font(.headline)
             
@@ -540,4 +522,5 @@ struct AnticoagulationNote: View {
     NavigationStack {
         BurdenDetailView()
     }
+    .preferredColorScheme(.dark)
 }
