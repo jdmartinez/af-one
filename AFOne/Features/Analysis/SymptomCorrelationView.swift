@@ -80,11 +80,7 @@ struct SymptomCorrelationView: View {
             }
         }
         .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color(.systemBackground))
-                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
-        )
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
     }
 
     private var periodPicker: some View {
@@ -114,11 +110,7 @@ struct SymptomCorrelationView: View {
             )
         }
         .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(.systemBackground))
-                .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
-        )
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
     }
 
     private var eventList: some View {
@@ -146,6 +138,8 @@ struct SymptomCorrelationView: View {
                 }
             }
         }
+        .padding(16)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
     }
 
     private var emptyStateView: some View {
@@ -197,6 +191,8 @@ struct SymptomCorrelationView: View {
                 }
             }
         }
+        .padding(16)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
     }
 
     private var methodologicalNote: some View {
@@ -234,21 +230,21 @@ private struct SummaryColumn: View {
     var body: some View {
         VStack(spacing: 4) {
             Text("\(count)")
-                .font(.title.bold().monospacedDigit())
+                .font(.system(size: 36, weight: .bold, design: .rounded))
                 .foregroundStyle(color)
             Text(label)
-                .font(.caption2)
+                .font(.caption)
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 12)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 12)
                 .fill(isActive ? color.opacity(0.15) : Color.clear)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .strokeBorder(isActive ? color.opacity(0.4) : Color.clear, lineWidth: 2)
-                )
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .strokeBorder(isActive ? color.opacity(0.4) : Color.clear, lineWidth: 2)
         )
     }
 }
@@ -259,154 +255,183 @@ private struct TimelineChartView: View {
     let items: [CorrelationItem]
     let period: CorrelationPeriod
 
-    private var hourlyData: [CorrelationTimelineData] {
+    private var indexCount: Int {
+        switch period {
+        case .day: return 24
+        case .week: return 7
+        case .month: return 30
+        }
+    }
+
+    private var rhythmData: [CorrelationTimelineData] {
         let calendar = Calendar.current
         let now = Date()
+        var data: [CorrelationTimelineData] = []
 
         switch period {
         case .day:
-            return buildHourlyData(for: now, calendar: calendar, hours: 24)
+            for h in 0..<24 {
+                let hourStart = calendar.date(bySettingHour: h, minute: 0, second: 0, of: now) ?? now
+                let hourEnd = calendar.date(byAdding: .hour, value: 1, to: hourStart) ?? hourStart
+                let hasAF = items.contains { item in
+                    guard let ep = item.episode ?? item.overlappingEpisode else { return false }
+                    return ep.startDate <= hourEnd && ep.endDate >= hourStart
+                }
+                let hasSymptom = items.contains { item in
+                    guard let symptom = item.symptom else { return false }
+                    return calendar.component(.hour, from: symptom.timestamp) == h
+                }
+                data.append(CorrelationTimelineData(
+                    index: h,
+                    label: String(format: "%02d:00", h),
+                    isAF: hasAF,
+                    hasSymptom: hasSymptom
+                ))
+            }
         case .week:
-            return buildDailyData(for: now, calendar: calendar, days: 7)
+            for d in 0..<7 {
+                guard let dayDate = calendar.date(byAdding: .day, value: -d, to: now) else { continue }
+                let dayStart = calendar.startOfDay(for: dayDate)
+                let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart) ?? dayStart
+                let hasAF = items.contains { item in
+                    guard let ep = item.episode ?? item.overlappingEpisode else { return false }
+                    return ep.startDate <= dayEnd && ep.endDate >= dayStart
+                }
+                let hasSymptom = items.contains { item in
+                    guard let symptom = item.symptom else { return false }
+                    return symptom.timestamp >= dayStart && symptom.timestamp < dayEnd
+                }
+                data.append(CorrelationTimelineData(
+                    index: d,
+                    label: dayDate.formatted(.dateTime.weekday(.narrow)),
+                    isAF: hasAF,
+                    hasSymptom: hasSymptom
+                ))
+            }
         case .month:
-            return buildDailyData(for: now, calendar: calendar, days: 30)
-        }
-    }
-
-    private var symptomMarkers: [SymptomMarker] {
-        let calendar = Calendar.current
-        let now = Date()
-
-        switch period {
-        case .day:
-            return items.compactMap { item -> SymptomMarker? in
-                guard let symptom = item.symptom else { return nil }
-                let hour = calendar.component(.hour, from: symptom.timestamp)
-                let isCorrelated = item.correlationType == .faConfirmed
-                return SymptomMarker(hour: hour, type: symptom.symptomType ?? "?", isCorrelated: isCorrelated)
+            for d in 0..<30 {
+                guard let dayDate = calendar.date(byAdding: .day, value: -d, to: now) else { continue }
+                let dayStart = calendar.startOfDay(for: dayDate)
+                let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart) ?? dayStart
+                let hasAF = items.contains { item in
+                    guard let ep = item.episode ?? item.overlappingEpisode else { return false }
+                    return ep.startDate <= dayEnd && ep.endDate >= dayStart
+                }
+                let hasSymptom = items.contains { item in
+                    guard let symptom = item.symptom else { return false }
+                    return symptom.timestamp >= dayStart && symptom.timestamp < dayEnd
+                }
+                data.append(CorrelationTimelineData(
+                    index: d,
+                    label: String(format: "%02d", calendar.component(.day, from: dayDate)),
+                    isAF: hasAF,
+                    hasSymptom: hasSymptom
+                ))
             }
-        default:
-            return items.compactMap { item -> SymptomMarker? in
-                guard let symptom = item.symptom else { return nil }
-                let day = calendar.component(.day, from: symptom.timestamp)
-                let isCorrelated = item.correlationType == .faConfirmed
-                return SymptomMarker(hour: day, type: symptom.symptomType ?? "?", isCorrelated: isCorrelated)
-            }
-        }
-    }
-
-    private func buildHourlyData(for date: Date, calendar: Calendar, hours: Int) -> [CorrelationTimelineData] {
-        var data: [CorrelationTimelineData] = []
-        for h in 0..<hours {
-            let hourStart = calendar.date(bySettingHour: h, minute: 0, second: 0, of: date) ?? date
-            let hourEnd = calendar.date(byAdding: .hour, value: 1, to: hourStart) ?? hourStart
-
-            let overlappingEpisodes = items.compactMap { $0.episode ?? $0.overlappingEpisode }.filter { episode in
-                episode.startDate <= hourEnd && episode.endDate >= hourStart
-            }
-
-            let isAF = !overlappingEpisodes.isEmpty
-
-            data.append(CorrelationTimelineData(hour: h, isAF: isAF, hasData: !overlappingEpisodes.isEmpty || hasSymptomsInHour(h)))
-        }
-        return data
-    }
-
-    private func hasSymptomsInHour(_ hour: Int) -> Bool {
-        let calendar = Calendar.current
-        return items.contains { item in
-            guard let symptom = item.symptom else { return false }
-            return calendar.component(.hour, from: symptom.timestamp) == hour
-        }
-    }
-
-    private func buildDailyData(for date: Date, calendar: Calendar, days: Int) -> [CorrelationTimelineData] {
-        var data: [CorrelationTimelineData] = []
-        for d in 0..<days {
-            guard let dayDate = calendar.date(byAdding: .day, value: -d, to: date) else { continue }
-            let dayStart = calendar.startOfDay(for: dayDate)
-            let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart) ?? dayStart
-
-            let overlappingEpisodes = items.compactMap { $0.episode ?? $0.overlappingEpisode }.filter { episode in
-                episode.startDate <= dayEnd && episode.endDate >= dayStart
-            }
-
-            let isAF = !overlappingEpisodes.isEmpty
-
-            data.append(CorrelationTimelineData(hour: d, isAF: isAF, hasData: true))
         }
         return data
     }
 
     var body: some View {
-        Chart {
-            ForEach(hourlyData) { item in
-                BarMark(
-                    x: .value("Hora", item.hourLabel),
-                    y: .value("AF", item.isAF ? 1 : 0)
-                )
-                .foregroundStyle(item.isAF ? Color.red.opacity(0.7) : Color.green.opacity(0.3))
-                .cornerRadius(2)
-            }
+        VStack(spacing: 4) {
+            symptomTrack
+            Divider()
+            rhythmTrack
+        }
+    }
 
-            ForEach(symptomMarkers) { marker in
-                PointMark(
-                    x: .value("Hora", marker.label),
-                    y: .value("Síntoma", 1)
-                )
-                .symbol {
-                    Circle()
-                        .fill(marker.isCorrelated ? Color.red : Color.orange)
-                        .frame(width: 8, height: 8)
-                }
-                .annotation(position: .top) {
-                    if period == .day {
-                        Text(String(marker.type.prefix(1)))
-                            .font(.system(size: 6))
-                            .foregroundStyle(.secondary)
+    private var symptomTrack: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(Array(rhythmData.enumerated()), id: \.element.id) { slotIndex, slot in
+                    symptomPinView(for: slotIndex, slot: slot)
+
+                    if slotIndex < rhythmData.count - 1 {
+                        Spacer()
                     }
                 }
+            }
+            .frame(height: 44)
+        }
+    }
+
+    @ViewBuilder
+    private func symptomPinView(for slotIndex: Int, slot: CorrelationTimelineData) -> some View {
+        let symptomInSlot: CorrelationItem? = {
+            for item in items {
+                guard let symptom = item.symptom else { continue }
+                let cal = Calendar.current
+                switch period {
+                case .day:
+                    if cal.component(.hour, from: symptom.timestamp) == slot.index {
+                        return item
+                    }
+                default:
+                    let dayStart = cal.date(byAdding: .day, value: slotIndex, to: cal.startOfDay(for: Date())) ?? Date()
+                    let dayEnd = cal.date(byAdding: .day, value: slotIndex + 1, to: dayStart) ?? dayStart
+                    if symptom.timestamp >= dayStart && symptom.timestamp < dayEnd {
+                        return item
+                    }
+                }
+            }
+            return nil
+        }()
+
+        if let symptom = symptomInSlot {
+            VStack(spacing: 2) {
+                Circle()
+                    .fill(symptom.correlationType == .faConfirmed ? Color.red : Color.orange)
+                    .frame(width: 16, height: 16)
+                    .overlay {
+                        Text(String((symptom.symptom?.symptomType ?? "?").prefix(1)))
+                            .font(.system(size: 9, weight: .bold))
+                            .foregroundStyle(.white)
+                    }
+                Text("S")
+                    .font(.system(size: 8))
+                    .foregroundStyle(.secondary)
+            }
+        } else {
+            Circle()
+                .fill(Color.clear)
+                .frame(width: 16, height: 16)
+        }
+    }
+
+    private var rhythmTrack: some View {
+        Chart {
+            ForEach(rhythmData) { slot in
+                BarMark(
+                    x: .value("Slot", slot.index),
+                    y: .value("Rhythm", slot.isAF ? 1 : 0)
+                )
+                .foregroundStyle(slot.isAF ? Color.red.opacity(0.7) : Color.green.opacity(0.4))
+                .cornerRadius(3)
             }
         }
         .chartXAxis {
-            AxisMarks(values: .automatic(desiredCount: period == .day ? 8 : 7)) { value in
-                AxisGridLine()
-                AxisValueLabel()
-            }
-        }
-        .chartYAxis {
-            AxisMarks(values: [0, 1]) { value in
+            AxisMarks(values: .stride(by: period == .day ? 4 : 1)) { value in
                 AxisGridLine()
                 AxisValueLabel {
-                    if let v = value.as(Int.self) {
-                        Text(v == 1 ? "AF" : "")
-                            .font(.caption2)
+                    if let idx = value.as(Int.self), idx < rhythmData.count {
+                        Text(rhythmData[idx].label)
+                            .font(.system(size: 10))
                     }
                 }
             }
         }
-        .frame(height: 100)
+        .chartYAxis(.hidden)
+        .chartYScale(domain: 0...1)
+        .frame(height: 60)
     }
 }
 
 private struct CorrelationTimelineData: Identifiable {
     let id = UUID()
-    let hour: Int
+    let index: Int
+    let label: String
     let isAF: Bool
-    let hasData: Bool
-
-    var hourLabel: String {
-        "\(hour)"
-    }
-}
-
-private struct SymptomMarker: Identifiable {
-    let id = UUID()
-    let hour: Int
-    let type: String
-    let isCorrelated: Bool
-
-    var label: String { "\(hour)" }
+    let hasSymptom: Bool
 }
 
 // MARK: - Correlation Item Row
@@ -427,6 +452,18 @@ private struct CorrelationItemRow: View {
         return date.formatted(date: .abbreviated, time: .shortened)
     }
 
+    private var descriptionText: String {
+        switch item.correlationType {
+        case .faConfirmed:
+            return "Síntoma dentro de la ventana de ±30 min de un episodio de FA"
+        case .noCorrelation:
+            return "Síntoma sin FA coincidente — puede tener otras causas"
+        case .silentAF:
+            let duration = item.episode?.durationFormatted ?? "?"
+            return "Episodio de FA de \(duration) sin síntoma reportado"
+        }
+    }
+
     private var badgeColor: Color {
         switch item.correlationType {
         case .faConfirmed: return .green
@@ -445,9 +482,13 @@ private struct CorrelationItemRow: View {
                 Text(symptomTypeText)
                     .font(.subheadline)
                     .fontWeight(.medium)
-                Text(timestampText)
-                    .font(.caption)
+                Text(descriptionText)
+                    .font(.caption2)
                     .foregroundStyle(.secondary)
+                    .lineLimit(2)
+                Text(timestampText)
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
             }
 
             Spacer()
