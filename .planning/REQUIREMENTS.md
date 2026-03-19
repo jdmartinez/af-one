@@ -29,24 +29,24 @@
 
 ### Symptom Correlation View
 
-- [ ] **SYMP-01**: Three-column summary grid showing "Síntomas con FA" (green), "Síntomas sin FA" (amber), "FA silente" (red)
-- [ ] **SYMP-02**: Daily timeline with segmented picker (Hoy / 7 días / 30 días)
-- [ ] **SYMP-03**: Dual-track timeline showing rhythm bar track and symptom pin markers with correlation highlighting
-- [ ] **SYMP-04**: Event list with badges ("FA confirmada", "Sin correlación", "FA silente"), timestamps, and rhythm pills
-- [ ] **SYMP-05**: Event detail sheet showing symptom captured, rhythm in ±30min window, and clinical note
-- [ ] **SYMP-06**: Detected patterns section (nocturnal symptoms without AF, symptoms preceding AF, asymptomatic AF count)
-- [ ] **SYMP-07**: Methodological note explaining ±30min correlation window and Apple Watch limitations
+- [x] **SYMP-01**: Three-column summary grid showing "Síntomas con FA" (green), "Síntomas sin FA" (amber), "FA silente" (red)
+- [x] **SYMP-02**: Daily timeline with segmented picker (Hoy / 7 días / 30 días)
+- [x] **SYMP-03**: Dual-track timeline showing rhythm bar track and symptom pin markers with correlation highlighting
+- [x] **SYMP-04**: Event list with badges ("FA confirmada", "Sin correlación", "FA silente"), timestamps, and rhythm pills
+- [x] **SYMP-05**: Event detail sheet showing symptom captured, rhythm in ±30min window, and clinical note
+- [x] **SYMP-06**: Detected patterns section (nocturnal symptoms without AF, symptoms preceding AF, asymptomatic AF count)
+- [x] **SYMP-07**: Methodological note explaining ±30min correlation window and Apple Watch limitations
 
 ### Rhythm Map View
 
-- [ ] **RHYM-01**: Scenario buttons for switching between days (today, yesterday, high-burden day)
-- [ ] **RHYM-02**: Segmented picker (Día / Semana / Mes)
-- [ ] **RHYM-03**: Dual-layer chart with bar layer (rhythm by hour) and line layer (HR trend)
-- [ ] **RHYM-04**: Bars with <3 samples rendered at 35% opacity with warning tooltip
-- [ ] **RHYM-05**: Stats row showing SR%, AF%, No data%, Episode count
-- [ ] **RHYM-06**: Episode list with duration, mean HR, SpO2, ECG chip, insufficient-data warnings
-- [ ] **RHYM-07**: Data coverage bar showing percentage of hours with data (color coded)
-- [ ] **RHYM-08**: Circadian pattern histogram showing AF onset frequency by 3-hour blocks
+- [x] **RHYM-01**: Scenario buttons for switching between days (today, yesterday, high-burden day)
+- [x] **RHYM-02**: Segmented picker (Día / Semana / Mes)
+- [x] **RHYM-03**: Dual-layer chart with bar layer (rhythm by hour) and line layer (HR trend)
+- [x] **RHYM-04**: Bars with <3 samples rendered at 35% opacity with warning tooltip
+- [x] **RHYM-05**: Stats row showing SR%, AF%, No data%, Episode count
+- [x] **RHYM-06**: Episode list with duration, mean HR, SpO2, ECG chip, insufficient-data warnings
+- [x] **RHYM-07**: Data coverage bar showing percentage of hours with data (color coded)
+- [x] **RHYM-08**: Circadian pattern histogram showing AF onset frequency by 3-hour blocks
 
 ### Emergency Report View
 
@@ -133,14 +133,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SYMP-05 | Phase 11 | Pending |
 | SYMP-06 | Phase 11 | Pending |
 | SYMP-07 | Phase 11 | Pending |
-| RHYM-01 | Phase 12 | Pending |
-| RHYM-02 | Phase 12 | Pending |
-| RHYM-03 | Phase 12 | Pending |
-| RHYM-04 | Phase 12 | Pending |
-| RHYM-05 | Phase 12 | Pending |
-| RHYM-06 | Phase 12 | Pending |
-| RHYM-07 | Phase 12 | Pending |
-| RHYM-08 | Phase 12 | Pending |
+| RHYM-01 | Phase 12 | Complete |
+| RHYM-02 | Phase 12 | Complete |
+| RHYM-03 | Phase 12 | Complete |
+| RHYM-04 | Phase 12 | Complete |
+| RHYM-05 | Phase 12 | Complete |
+| RHYM-06 | Phase 12 | Complete |
+| RHYM-07 | Phase 12 | Complete |
+| RHYM-08 | Phase 12 | Complete |
 | EMER-01 | Phase 13 | Pending |
 | EMER-02 | Phase 13 | Pending |
 | EMER-03 | Phase 13 | Pending |

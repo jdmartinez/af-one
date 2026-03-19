@@ -11,7 +11,7 @@
 - [x] **Phase 9: Home Screen UI** - Navigation bar, Hero card states, section headers
 - [x] **Phase 10: AF Burden Detail View** - Segmented picker, threshold colors, burden charts
 - [x] **Phase 11: Symptom Correlation View** - Timeline, event list, pattern detection
-- [ ] **Phase 12: Rhythm Map View** - Dual-layer chart, coverage bar, circadian patterns
+- [x] **Phase 12: Rhythm Map View** - Dual-layer chart, coverage bar, circadian patterns (completed 2026-03-19)
 - [ ] **Phase 13: Emergency Report View** - Header, patient block, clinical sections
 - [ ] **Phase 14: Data Honesty Rules** - Estimated suffixes, disclosure notes across views
 
@@ -109,8 +109,8 @@
 7. Data coverage bar shows percentage of hours with data (color coded)
 8. Circadian pattern histogram shows AF onset frequency by 3-hour blocks
 
-**Plans:** 1/1 plans
-- [ ] 12-01-PLAN.md — Rhythm Map Detail View implementation (ViewModel + UI + navigation)
+**Plans:** 1/1 plans complete
+- [x] 12-01-PLAN.md — Rhythm Map Detail View implementation (ViewModel + UI + navigation)
 
 ---
 
@@ -135,7 +135,8 @@
 9. Source footer displays version, timestamp, legal disclaimer
 10. tel://112 link present inside report (not as primary home screen action)
 
-**Plans:** TBD
+**Plans:** 1/1 plans
+- [ ] 13-01-PLAN.md — Emergency Report View implementation (ViewModel + UI + navigation)
 
 ---
 
@@ -166,8 +167,8 @@
 | 9. Home Screen UI | 1/1 | Complete    | 2026-03-16 |
 | 10. AF Burden Detail View | 1/1 | Complete | 2026-03-16 |
 | 11. Symptom Correlation View | 2/2 | Complete | 2026-03-19 |
-| 12. Rhythm Map View | 1/1 | Planning | - |
-| 13. Emergency Report View | 0/1 | Not started | - |
+| 12. Rhythm Map View | 1/1 | Complete    | 2026-03-19 |
+| 13. Emergency Report View | 0/1 | Planned | - |
 | 14. Data Honesty Rules | 0/1 | Not started | - |
 
 ---
