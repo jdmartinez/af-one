@@ -36,5 +36,6 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: [SymptomLog.self, TriggerLog.self])
+        .preferredColorScheme(.dark)
 }
 #endif

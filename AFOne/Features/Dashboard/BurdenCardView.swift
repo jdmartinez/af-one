@@ -274,4 +274,5 @@ struct BurdenCardView: View {
         )
     }
     .padding()
+    .preferredColorScheme(.dark)
 }

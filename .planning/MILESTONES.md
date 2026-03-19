@@ -1,5 +1,20 @@
 # Milestones
 
+## v0.3 UI Improvements (Shipped: 2026-03-19)
+
+**Phases completed:** 6 phases, 8 plans
+
+**Key accomplishments:**
+- Multi-window AF burden analysis with clinical thresholds (ASSERT/TRESTS)
+- Symptom-rhythm correlation with ±30min window detection
+- Dual-layer rhythm map chart (rhythm bars + HR trend line)
+- Circadian pattern analysis (8×3-hour blocks)
+- Comprehensive emergency report with 10 clinical sections
+- Data honesty framework: est. suffixes, SpO2 nil handling, user-declared badges
+- Data coverage tracking with insufficient-data opacity rules
+
+---
+
 ## v0.2 UI Enhancements (Shipped: 2026-03-16)
 
 **Phases completed:** 4 phases (5, 6, 7, 8), 22 plans

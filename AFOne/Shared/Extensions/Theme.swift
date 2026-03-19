@@ -119,3 +119,39 @@ struct HeroGradient {
         Color("HeroAF3")
     ]
 }
+
+// MARK: - Burden Gradient Colors
+struct BurdenGradient {
+    /// Dark green gradient for low burden (<5.5%)
+    static let low = [
+        Color(red: 0.05, green: 0.25, blue: 0.15),
+        Color(red: 0.08, green: 0.35, blue: 0.20),
+        Color(red: 0.10, green: 0.45, blue: 0.25)
+    ]
+    
+    /// Amber/orange gradient for medium burden (5.5-10.9%)
+    static let medium = [
+        Color(red: 0.35, green: 0.20, blue: 0.05),
+        Color(red: 0.45, green: 0.25, blue: 0.05),
+        Color(red: 0.55, green: 0.30, blue: 0.08)
+    ]
+    
+    /// Dark red gradient for high burden (>=11%)
+    static let high = [
+        Color(red: 0.30, green: 0.05, blue: 0.10),
+        Color(red: 0.40, green: 0.08, blue: 0.12),
+        Color(red: 0.50, green: 0.10, blue: 0.15)
+    ]
+    
+    /// Returns the appropriate gradient colors based on burden percentage
+    static func gradient(for percentage: Double) -> [Color] {
+        switch percentage {
+        case ..<5.5:
+            return low
+        case 5.5..<11.0:
+            return medium
+        default:
+            return high
+        }
+    }
+}

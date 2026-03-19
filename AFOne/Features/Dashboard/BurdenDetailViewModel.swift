@@ -75,23 +75,17 @@ final class BurdenDetailViewModel {
     
     func loadData() async {
         isLoading = true
-        // TODO: Fetch from HealthKit service
-        // Placeholder data for now
-        currentBurden = BurdenData(
-            period: selectedPeriod,
-            percentage: 7.2,
-            previousPercentage: 5.8,
-            episodeCount: 12,
-            averageDuration: 1800,
-            insufficientData: false
-        )
+        // TODO: Fetch from HealthKit service - placeholder data for now
         
-        // Load all periods for comparison
+        // Load all periods for comparison (placeholder data)
         allPeriodsBurden = [
             BurdenData(period: .day, percentage: 8.5, previousPercentage: 6.2, episodeCount: 3, averageDuration: 1200, insufficientData: false),
             BurdenData(period: .week, percentage: 7.2, previousPercentage: 5.8, episodeCount: 12, averageDuration: 1800, insufficientData: false),
             BurdenData(period: .month, percentage: 6.1, previousPercentage: 5.5, episodeCount: 45, averageDuration: 2100, insufficientData: false)
         ]
+        
+        // Filter currentBurden based on selectedPeriod
+        currentBurden = allPeriodsBurden.first { $0.period == selectedPeriod }
         
         // Load trend data (14 days)
         trendData = (0..<14).map { day in
