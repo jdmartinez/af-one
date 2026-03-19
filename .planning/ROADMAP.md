@@ -9,7 +9,7 @@
 ## Phases
 
 - [x] **Phase 9: Home Screen UI** - Navigation bar, Hero card states, section headers
-- [ ] **Phase 10: AF Burden Detail View** - Segmented picker, threshold colors, burden charts
+- [x] **Phase 10: AF Burden Detail View** - Segmented picker, threshold colors, burden charts
 - [ ] **Phase 11: Symptom Correlation View** - Timeline, event list, pattern detection
 - [ ] **Phase 12: Rhythm Map View** - Dual-layer chart, coverage bar, circadian patterns
 - [ ] **Phase 13: Emergency Report View** - Header, patient block, clinical sections
@@ -36,7 +36,7 @@
 5. Hero card displays State B (recent episode) with amber contextual banner showing "EPISODIO RECIENTE", elapsed time, and "Ver informe" button
 6. Hero card displays State C (AF Active) with red gradient, red dot, red border, and "Informe" button
 
-**Plans:** 1/1 plans complete
+**Plans:** 2/2 plans complete (including gap closure)
 
 ---
 
@@ -61,7 +61,8 @@
 9. Clinical context section displays threshold explanations and anticoagulation note
 10. Data honesty notes display "Valor estimado" and "calculado a partir de eventos irregularHeartRhythmEvent"
 
-**Plans:** TBD
+**Plans:** 1/1 plans
+- [x] 10-01-PLAN.md — AF Burden Detail View implementation
 
 ---
 
@@ -83,7 +84,9 @@
 6. Detected patterns section shows nocturnal symptoms without AF, symptoms preceding AF, and asymptomatic AF count
 7. Methodological note explains ±30min correlation window and Apple Watch limitations
 
-**Plans:** TBD
+**Plans:** 2 plans
+- [x] 11-01-PLAN.md — CorrelationAnalyzer extension + SymptomCorrelationViewModel
+- [x] 11-02-PLAN.md — SymptomCorrelationView UI + navigation wiring
 
 ---
 
@@ -160,8 +163,8 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 9. Home Screen UI | 1/1 | Complete    | 2026-03-16 |
-| 10. AF Burden Detail View | 0/1 | Not started | - |
-| 11. Symptom Correlation View | 0/1 | Not started | - |
+| 10. AF Burden Detail View | 1/1 | Complete | 2026-03-16 |
+| 11. Symptom Correlation View | 2/2 | Planning | - |
 | 12. Rhythm Map View | 0/1 | Not started | - |
 | 13. Emergency Report View | 0/1 | Not started | - |
 | 14. Data Honesty Rules | 0/1 | Not started | - |
