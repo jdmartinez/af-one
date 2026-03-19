@@ -63,11 +63,11 @@
 
 ### Data Honesty Rules
 
-- [ ] **DATA-01**: All estimated values display "est." suffix in every view
-- [ ] **DATA-02**: SpO2 shows "Sin dato" when no coincident reading, never out-of-window value
-- [ ] **DATA-03**: Episode timer displays mandatory disclosure "Desde último dato de Apple Watch"
-- [ ] **DATA-04**: User-declared data (medication, history) displays "Declarada por el paciente" note
-- [ ] **DATA-05**: Rhythm map bars with <3 samples render at 35-40% opacity with tooltip warning
+- [x] **DATA-01**: All estimated values display "est." suffix in every view
+- [x] **DATA-02**: SpO2 shows "Sin dato" when no coincident reading, never out-of-window value
+- [x] **DATA-03**: Episode timer displays mandatory disclosure "Desde último dato de Apple Watch"
+- [x] **DATA-04**: User-declared data (medication, history) displays "Declarada por el paciente" note
+- [x] **DATA-05**: Rhythm map bars with <3 samples render at 35-40% opacity with tooltip warning
 
 ## v0.4+ Requirements
 
@@ -151,11 +151,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EMER-08 | Phase 13 | Pending |
 | EMER-09 | Phase 13 | Pending |
 | EMER-10 | Phase 13 | Pending |
-| DATA-01 | Phase 14 | Pending |
-| DATA-02 | Phase 14 | Pending |
-| DATA-03 | Phase 14 | Pending |
-| DATA-04 | Phase 14 | Pending |
-| DATA-05 | Phase 14 | Pending |
+| DATA-01 | Phase 14 | Complete |
+| DATA-02 | Phase 14 | Complete |
+| DATA-03 | Phase 14 | Complete |
+| DATA-04 | Phase 14 | Complete |
+| DATA-05 | Phase 14 | Complete |
 
 **Coverage:**
 - v0.3 requirements: 45 total

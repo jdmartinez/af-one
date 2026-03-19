@@ -13,7 +13,7 @@
 - [x] **Phase 11: Symptom Correlation View** - Timeline, event list, pattern detection
 - [x] **Phase 12: Rhythm Map View** - Dual-layer chart, coverage bar, circadian patterns (completed 2026-03-19)
 - [x] **Phase 13: Emergency Report View** - Header, patient block, clinical sections (completed 2026-03-19)
-- [ ] **Phase 14: Data Honesty Rules** - Estimated suffixes, disclosure notes across views
+- [x] **Phase 14: Data Honesty Rules** - Estimated suffixes, disclosure notes across views (completed 2026-03-19)
 
 ---
 
@@ -156,7 +156,7 @@
 4. User-declared data (medication, history) displays "Declarada por el paciente" note
 5. Rhythm map bars with <3 samples render at 35-40% opacity with tooltip warning
 
-**Plans:** 1/1 plans
+**Plans:** 1/1 plans complete
 - [x] 14-01-PLAN.md — Data Honesty Rules implementation
 
 ---
@@ -170,7 +170,7 @@
 | 11. Symptom Correlation View | 2/2 | Complete | 2026-03-19 |
 | 12. Rhythm Map View | 1/1 | Complete    | 2026-03-19 |
 | 13. Emergency Report View | 1/1 | Complete    | 2026-03-19 |
-| 14. Data Honesty Rules | 0/1 | Planned | - |
+| 14. Data Honesty Rules | 1/1 | Complete   | 2026-03-19 |
 
 ---
 
