@@ -92,6 +92,9 @@ struct DashboardView: View {
                 SectionHeaderView(title: "AF BURDEN", showNavigationLink: true, navigationDestination: AnyView(BurdenDetailView()))
                 burdenSection
                 
+                SectionHeaderView(title: "CORRELACIÓN DE SÍNTOMAS", showNavigationLink: true, navigationDestination: AnyView(SymptomCorrelationView()))
+                symptomCorrelationCard
+                
                 SectionHeaderView(title: "MAPA DE RITMO", showNavigationLink: false)
                 RhythmMapView(hourlyData: viewModel.hourlyRhythmData)
                 
@@ -127,6 +130,22 @@ struct DashboardView: View {
         }
     }
 
+    // MARK: - Symptom Correlation Card
+
+    private var symptomCorrelationCard: some View {
+        HStack(spacing: 16) {
+            CorrelationPreviewPill(count: viewModel.symptomCorrelationWithAf, label: "Con FA", color: .green)
+            CorrelationPreviewPill(count: viewModel.symptomCorrelationWithoutAf, label: "Sin FA", color: .orange)
+            CorrelationPreviewPill(count: viewModel.silentAfCount, label: "FA silente", color: .red)
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color(.systemBackground))
+                .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
+        )
+    }
+
     // MARK: - Helpers
 
     private var burdenTrendValue: Double {
@@ -147,6 +166,25 @@ struct DashboardView: View {
 }
 
 // MARK: - Supporting Views
+
+private struct CorrelationPreviewPill: View {
+    let count: Int
+    let label: String
+    let color: Color
+
+    var body: some View {
+        VStack(spacing: 2) {
+            Text("\(count)")
+                .font(.title3.bold().monospacedDigit())
+                .foregroundStyle(color)
+            Text(label)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
 
 struct SectionHeaderView: View {
     let title: String

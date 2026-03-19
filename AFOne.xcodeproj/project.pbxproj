@@ -29,8 +29,10 @@
 		6470FE3978974982F1AE3A81 /* SymptomCaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34094261AB76DB29EE46B /* SymptomCaptureButton.swift */; };
 		660F3246D88C6D6DAB44F594 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6C9CF03C0BBB1B630E7B056F /* Localizable.xcstrings */; };
 		6AF4FAC0471B01474725ABA9 /* TriggerLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5152EC9E63667251CAE800AC /* TriggerLog.swift */; };
+		6BAF8993D8ABE9AF99572878 /* SymptomCorrelationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB608D15BF96D32B473832 /* SymptomCorrelationViewModel.swift */; };
 		6DEA163D06B798EA23D27438 /* ReportGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8397867F5B8FFDA1EE1870 /* ReportGenerator.swift */; };
 		6E79C2162FC1DFC133C12133 /* ClinicalMetricsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFE8E49BE0C07FF0F601784 /* ClinicalMetricsGridView.swift */; };
+		743856DDF739CE30B5011BDB /* SymptomCorrelationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A3B8E7F4C2EC512725B3B /* SymptomCorrelationView.swift */; };
 		75E4EE9AEABB4D4BB33883CB /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705BBF7796F3EEBE7EE56E6 /* ReportView.swift */; };
 		7E1ED1E5DE4F1A03F0AA9F91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB592BAB55C123627822B20 /* ContentView.swift */; };
 		8603DC5C724BABA9D48D149E /* GlassBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4E8A9E1FA6943797AE4B19 /* GlassBottomBar.swift */; };
@@ -64,6 +66,7 @@
 		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05620EA6752E8C2F6AE562B1 /* RhythmMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmMapView.swift; sourceTree = "<group>"; };
 		11A76A90575E021B1B5F376F /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		11EB608D15BF96D32B473832 /* SymptomCorrelationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCorrelationViewModel.swift; sourceTree = "<group>"; };
 		1A80937961C1778BCABC74DA /* SymptomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomChip.swift; sourceTree = "<group>"; };
 		1AC27DD1F05DF4B56E614274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		225E50BC486643ED2B0CDC04 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
 		57F915648BB1A4B706D8C708 /* MedicationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewModel.swift; sourceTree = "<group>"; };
 		63A607B13DD643BAF5628442 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		647A3B8E7F4C2EC512725B3B /* SymptomCorrelationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCorrelationView.swift; sourceTree = "<group>"; };
 		65CDB242C5CF21B75C2A635A /* TrendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsViewModel.swift; sourceTree = "<group>"; };
 		6C9CF03C0BBB1B630E7B056F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		6F4E8A9E1FA6943797AE4B19 /* GlassBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassBottomBar.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 			children = (
 				9BD111CA184E80663F6417BE /* AnalysisView.swift */,
 				E5FC38CF0473C462CF0C45BC /* AnalysisViewModel.swift */,
+				647A3B8E7F4C2EC512725B3B /* SymptomCorrelationView.swift */,
+				11EB608D15BF96D32B473832 /* SymptomCorrelationViewModel.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -479,6 +485,8 @@
 				ABBC001377F1DB55B02873CE /* RhythmMapView.swift in Sources */,
 				6470FE3978974982F1AE3A81 /* SymptomCaptureButton.swift in Sources */,
 				1DFC0FBA4D581CCEAAF31BFA /* SymptomChip.swift in Sources */,
+				743856DDF739CE30B5011BDB /* SymptomCorrelationView.swift in Sources */,
+				6BAF8993D8ABE9AF99572878 /* SymptomCorrelationViewModel.swift in Sources */,
 				B826462CEA78CBBCBB8D0634 /* SymptomLog.swift in Sources */,
 				CEBC265740F8E5973F0372C4 /* TextOpacity.swift in Sources */,
 				E2501A48C1C6802A29CB9EFE /* Theme.swift in Sources */,

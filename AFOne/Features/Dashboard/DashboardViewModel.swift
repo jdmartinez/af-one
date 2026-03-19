@@ -68,6 +68,13 @@ final class DashboardViewModel {
     var dataEmpty: Bool {
         recentEpisodes.isEmpty && episodeCount == 0 && averageHR == 0
     }
+
+    // MARK: - Symptom Correlation Preview
+
+    var symptomCorrelationWithAf: Int { 0 }
+    var symptomCorrelationWithoutAf: Int { 0 }
+    var silentAfCount: Int { 0 }
+
     
     // MARK: - Clinical Metrics Data for Zone 4
     
