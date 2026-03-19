@@ -62,10 +62,13 @@
 		DD6C18AF8A6CB1CDE244C69B /* BurdenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC26E18F8AB928C9F83D522 /* BurdenChartView.swift */; };
 		DF3E601061D6FF8E4677CEC8 /* AFBurden.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C65B5EE473D9B5807E9950 /* AFBurden.swift */; };
 		E2501A48C1C6802A29CB9EFE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F965E2F7F9D7E0B906BA5C /* Theme.swift */; };
+		FC8C40A3AFE7FBA708BB162C /* DataHonestyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CD58CC4C0A757F37B04374 /* DataHonestyHelper.swift */; };
+		FDE1DEF99E3E75738FEB1307 /* EmergencyReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E68E9C225FA87BE0EEBFD7 /* EmergencyReportViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		021DDDCAAA10EA285BB263CA /* AFOne.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AFOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04E68E9C225FA87BE0EEBFD7 /* EmergencyReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyReportViewModel.swift; sourceTree = "<group>"; };
 		05620EA6752E8C2F6AE562B1 /* RhythmMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmMapView.swift; sourceTree = "<group>"; };
 		11A76A90575E021B1B5F376F /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		11EB608D15BF96D32B473832 /* SymptomCorrelationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCorrelationViewModel.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		397D86E106DAE00D2F21F5E8 /* AFBurdenCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFBurdenCalculator.swift; sourceTree = "<group>"; };
 		3BB592BAB55C123627822B20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43168A98C97DED7210E3CF8D /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		44CD58CC4C0A757F37B04374 /* DataHonestyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHonestyHelper.swift; sourceTree = "<group>"; };
 		46CAECEF174E45B2E895B7E9 /* ThresholdComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdComponents.swift; sourceTree = "<group>"; };
 		5152EC9E63667251CAE800AC /* TriggerLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerLog.swift; sourceTree = "<group>"; };
 		55C4C4C7777F548A6EFEA789 /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 		96A61560BB6F9D8910318B95 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				04E68E9C225FA87BE0EEBFD7 /* EmergencyReportViewModel.swift */,
 				777F0EC693B8E734A6322A15 /* EmergencyView.swift */,
 				E62755871BCD58AC3A841A86 /* MoreView.swift */,
 			);
@@ -371,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				BDC26E18F8AB928C9F83D522 /* BurdenChartView.swift */,
+				44CD58CC4C0A757F37B04374 /* DataHonestyHelper.swift */,
 				F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */,
 				6F4E8A9E1FA6943797AE4B19 /* GlassBottomBar.swift */,
 				1A80937961C1778BCABC74DA /* SymptomChip.swift */,
@@ -468,8 +474,10 @@
 				DB178EBD4B5CA4FA57D9F7D3 /* CorrelationAnalyzer.swift in Sources */,
 				01DE3D47DBEA900284FC528A /* DashboardView.swift in Sources */,
 				860B32020D84E989ADB36206 /* DashboardViewModel.swift in Sources */,
+				FC8C40A3AFE7FBA708BB162C /* DataHonestyHelper.swift in Sources */,
 				D007D3C803ED3C277B6CA361 /* DateFormatter+Localization.swift in Sources */,
 				D8DCDD0A24AB5A5013E2CE0D /* DisclaimerView.swift in Sources */,
+				FDE1DEF99E3E75738FEB1307 /* EmergencyReportViewModel.swift in Sources */,
 				A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */,
 				D74723902905C5C12719AD4C /* EpisodeDetailView.swift in Sources */,
 				5248781853ED15B7FDF70404 /* EpisodeListView.swift in Sources */,

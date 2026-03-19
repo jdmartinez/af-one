@@ -156,7 +156,8 @@
 4. User-declared data (medication, history) displays "Declarada por el paciente" note
 5. Rhythm map bars with <3 samples render at 35-40% opacity with tooltip warning
 
-**Plans:** TBD
+**Plans:** 1/1 plans
+- [x] 14-01-PLAN.md — Data Honesty Rules implementation
 
 ---
 
@@ -168,8 +169,8 @@
 | 10. AF Burden Detail View | 1/1 | Complete | 2026-03-16 |
 | 11. Symptom Correlation View | 2/2 | Complete | 2026-03-19 |
 | 12. Rhythm Map View | 1/1 | Complete    | 2026-03-19 |
-| 13. Emergency Report View | 1/1 | Complete   | 2026-03-19 |
-| 14. Data Honesty Rules | 0/1 | Not started | - |
+| 13. Emergency Report View | 1/1 | Complete    | 2026-03-19 |
+| 14. Data Honesty Rules | 0/1 | Planned | - |
 
 ---
 
