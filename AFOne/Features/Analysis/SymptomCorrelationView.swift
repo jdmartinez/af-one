@@ -197,7 +197,7 @@ struct SymptomCorrelationView: View {
 
     private var methodologicalNote: some View {
         DataHonestyNote(
-            text: "La correlación se basa en una ventana de ±30 minutos. Apple Watch no realiza un ECG continuo — los episodios detectados pueden no ser exhaustivos."
+            text: "Cifras de correlación calculadas (est.) · ventana ±30 min. Apple Watch no realiza ECG continuo."
         )
     }
 
@@ -743,5 +743,6 @@ private struct DetailSheetView: View {
     NavigationStack {
         SymptomCorrelationView()
             .modelContainer(for: [SymptomLog.self])
+            .preferredColorScheme(.dark)
     }
 }

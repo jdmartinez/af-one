@@ -71,6 +71,10 @@ struct EpisodeDetailView: View {
                 }
             }
 
+            Text("Frecuencia cardíaca derivada de lecturas de Apple Watch (est.)")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
             Chart(sampleHeartRates) { reading in
                 LineMark(
                     x: .value("Time", reading.minute),

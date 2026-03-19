@@ -204,13 +204,13 @@ struct HeroCardView: View {
                     .foregroundStyle(Color.afOne.rhythmAF)
                 
                 if let startDate = episodeStartDate {
-                    Text(timerText(from: startDate))
+                    Text(timerText(from: startDate) + " (est.)")
                         .font(.system(.title, design: .monospaced))
                         .fontWeight(.bold)
                         .foregroundStyle(.primary)
                 }
                 
-                Text("Desde últimos datos de Apple Watch")
+                Text("Desde último dato de Apple Watch")
                     .font(.caption2)
                     .foregroundStyle(Color.afOne.rhythmAF.opacity(0.6))
                 

@@ -261,23 +261,23 @@ struct RhythmMapDetailView: View {
 
             HStack(spacing: 0) {
                 statItem(
-                    value: String(format: "%.0f%%", viewModel.stats.srPercentage),
+                    value: String(format: "%.0f%%", viewModel.stats.srPercentage) + " (est.)",
                     label: "RS",
                     color: Color(.systemBlue)
                 )
-                statDivider()
+                statDivider
                 statItem(
-                    value: String(format: "%.0f%%", viewModel.stats.afPercentage),
+                    value: String(format: "%.0f%%", viewModel.stats.afPercentage) + " (est.)",
                     label: "FA",
                     color: Color.afOne.rhythmAF
                 )
-                statDivider()
+                statDivider
                 statItem(
-                    value: String(format: "%.0f%%", viewModel.stats.noDataPercentage),
+                    value: String(format: "%.0f%%", viewModel.stats.noDataPercentage) + " (est.)",
                     label: "Sin datos",
                     color: Color(.systemGray4)
                 )
-                statDivider()
+                statDivider
                 statItem(
                     value: "\(viewModel.stats.episodeCount)",
                     label: "Episodios",

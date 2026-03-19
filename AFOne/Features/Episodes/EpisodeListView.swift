@@ -104,6 +104,15 @@ struct EpisodeListView: View {
             }
 
             Section {
+                Text("Recuentos basados en eventos irregularHeartRhythmEvent (est.)")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .listRowInsets(EdgeInsets())
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 4)
+            }
+
+            Section {
                 ForEach(viewModel.filteredEpisodes) { episode in
                     NavigationLink(destination: EpisodeDetailView(episode: episode)) {
                         EpisodeRow(episode: episode)
