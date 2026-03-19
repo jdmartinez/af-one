@@ -179,6 +179,9 @@ struct EmergencyView: View {
                         Text("Desde inicio")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
+                        Text("Desde último dato de Apple Watch")
+                            .font(.caption2)
+                            .foregroundStyle(.orange.opacity(0.7))
                     }
                     .frame(maxWidth: .infinity)
 
@@ -208,10 +211,8 @@ struct EmergencyView: View {
                         Image(systemName: "lungs.fill")
                             .font(.title2)
                             .foregroundStyle(.blue)
-                        Text("\(episode.currentSpO2 ?? 0)")
-                            .font(.title3.bold().monospacedDigit()) +
-                        Text("%")
-                            .font(.caption)
+                        Text(DataHonestyHelper.formatSpO2(episode.currentSpO2))
+                            .font(.title3.bold().monospacedDigit())
                         Text("SpO₂")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
@@ -412,6 +413,16 @@ struct EmergencyView: View {
                         }
                     }
                 }
+
+                // DATA-04: User-declared data note
+                HStack(spacing: 4) {
+                    Image(systemName: "person.fill.questionmark")
+                        .font(.caption2)
+                    Text("Declarada por el paciente")
+                        .font(.caption2)
+                }
+                .foregroundStyle(.secondary)
+                .padding(.top, 8)
             }
         }
         .padding(16)
@@ -478,6 +489,15 @@ struct EmergencyView: View {
                         }
                     }
                 }
+
+                HStack(spacing: 4) {
+                    Image(systemName: "person.fill.questionmark")
+                        .font(.caption2)
+                    Text("Declarada por el paciente")
+                        .font(.caption2)
+                }
+                .foregroundStyle(.secondary)
+                .padding(.top, 8)
             }
         }
         .padding(16)
