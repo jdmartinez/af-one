@@ -20,6 +20,7 @@
 		44032A2AB95907470D1F49DB /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2E710AA14C5AFE5481448 /* TrendsView.swift */; };
 		4F42CA1FFCE25A9CECCBE7DE /* TrendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDB242C5CF21B75C2A635A /* TrendsViewModel.swift */; };
 		5248781853ED15B7FDF70404 /* EpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF391E1534AC018CE4C92554 /* EpisodeListView.swift */; };
+		540D5D5707E461FB0FEF3C7C /* RhythmMapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB15F024050AC109CF02491 /* RhythmMapDetailView.swift */; };
 		551FDF6746CB11560FFE68F9 /* HeartRateReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB54C6636737D7793F121BDE /* HeartRateReading.swift */; };
 		55930977A761A617721A059E /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6EA06A6668BB48591F82 /* HealthKitService.swift */; };
 		56B7D1519170C2E421EF23C2 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD111CA184E80663F6417BE /* AnalysisView.swift */; };
@@ -41,6 +42,7 @@
 		8E4C13810A352DCC870DFFD1 /* AFBurdenCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D86E106DAE00D2F21F5E8 /* AFBurdenCalculator.swift */; };
 		92B85ED571ADA8164AA5843C /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD2B38A8306D974C7859F9 /* LogViewModel.swift */; };
 		971F3252B9A4367EFEC97244 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CD839B9B9181A677B10604 /* NotificationService.swift */; };
+		A096723E253BBD35A8EA7E18 /* RhythmMapDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3462F4F280CF35B9F4B406 /* RhythmMapDetailViewModel.swift */; };
 		A148A8D9EC2771B360CF2B67 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A76A90575E021B1B5F376F /* LogView.swift */; };
 		A1BC1B85F844560C5BF2A28D /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F0EC693B8E734A6322A15 /* EmergencyView.swift */; };
 		A30E1CAAB40B3D85632531E9 /* TriggerChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64DFE11591E4F93E9428283 /* TriggerChip.swift */; };
@@ -69,6 +71,7 @@
 		11EB608D15BF96D32B473832 /* SymptomCorrelationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCorrelationViewModel.swift; sourceTree = "<group>"; };
 		1A80937961C1778BCABC74DA /* SymptomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomChip.swift; sourceTree = "<group>"; };
 		1AC27DD1F05DF4B56E614274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C3462F4F280CF35B9F4B406 /* RhythmMapDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmMapDetailViewModel.swift; sourceTree = "<group>"; };
 		225E50BC486643ED2B0CDC04 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		25B054A2DFD57C0279939BC0 /* BurdenDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurdenDetailViewModel.swift; sourceTree = "<group>"; };
 		2FE34094261AB76DB29EE46B /* SymptomCaptureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCaptureButton.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		F4ACAC89D01F48B6AF0EFD26 /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		F6D4F22B73260E8F5FAED018 /* SymptomLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomLog.swift; sourceTree = "<group>"; };
 		FEFEF0CD90AD831BECACE332 /* BurdenDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurdenDetailView.swift; sourceTree = "<group>"; };
+		FFB15F024050AC109CF02491 /* RhythmMapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmMapDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -281,6 +285,8 @@
 				AE20666ADAB3ABA770B3755D /* DashboardViewModel.swift */,
 				AA92CC7BA557DB3FFA1F3C19 /* HeroCardView.swift */,
 				BED470A277CDBF0FFD2A54B7 /* OverviewView.swift */,
+				FFB15F024050AC109CF02491 /* RhythmMapDetailView.swift */,
+				1C3462F4F280CF35B9F4B406 /* RhythmMapDetailViewModel.swift */,
 				05620EA6752E8C2F6AE562B1 /* RhythmMapView.swift */,
 				2FE34094261AB76DB29EE46B /* SymptomCaptureButton.swift */,
 			);
@@ -482,6 +488,8 @@
 				75E4EE9AEABB4D4BB33883CB /* ReportView.swift in Sources */,
 				3A68798D27F76696D7B1B095 /* ReportViewModel.swift in Sources */,
 				88D1E403326887A7C24798A5 /* RhythmEpisode.swift in Sources */,
+				540D5D5707E461FB0FEF3C7C /* RhythmMapDetailView.swift in Sources */,
+				A096723E253BBD35A8EA7E18 /* RhythmMapDetailViewModel.swift in Sources */,
 				ABBC001377F1DB55B02873CE /* RhythmMapView.swift in Sources */,
 				6470FE3978974982F1AE3A81 /* SymptomCaptureButton.swift in Sources */,
 				1DFC0FBA4D581CCEAAF31BFA /* SymptomChip.swift in Sources */,

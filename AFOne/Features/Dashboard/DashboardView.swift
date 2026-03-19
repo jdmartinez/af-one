@@ -95,7 +95,7 @@ struct DashboardView: View {
                 SectionHeaderView(title: "CORRELACIÓN DE SÍNTOMAS", showNavigationLink: true, navigationDestination: AnyView(SymptomCorrelationView()))
                 symptomCorrelationCard
                 
-                SectionHeaderView(title: "MAPA DE RITMO", showNavigationLink: false)
+                SectionHeaderView(title: "MAPA DE RITMO", showNavigationLink: true, navigationDestination: AnyView(RhythmMapDetailView()))
                 RhythmMapView(hourlyData: viewModel.hourlyRhythmData)
                 
                 SectionHeaderView(title: "MÉTRICAS CLÍNICAS")
